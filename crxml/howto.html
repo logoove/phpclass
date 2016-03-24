@@ -1,0 +1,3204 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="howto_files/filelist.xml">
+<title>crXml Reference Manual</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>I</o:Author>
+  <o:LastAuthor>I</o:LastAuthor>
+  <o:Revision>383</o:Revision>
+  <o:TotalTime>1476</o:TotalTime>
+  <o:Created>2011-02-03T18:03:00Z</o:Created>
+  <o:LastSaved>2011-02-28T16:42:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2919</o:Words>
+  <o:Characters>16644</o:Characters>
+  <o:Lines>138</o:Lines>
+  <o:Paragraphs>39</o:Paragraphs>
+  <o:CharactersWithSpaces>19524</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:RelyOnVML/>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:DoNotShowRevisions/>
+  <w:DoNotPrintRevisions/>
+  <w:DoNotShowMarkup/>
+  <w:DoNotHyphenateCaps/>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>6 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:UsePrinterMetrics/>
+   <w:WW6BorderRules/>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:AutoSpaceLikeWord95/>
+   <w:DoNotUseHTMLParagraphAutoSpacing/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+   <w:UseWord97LineBreakingRules/>
+   <w:ApplyBreakingRules/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--#APDIV1
+	{left:35px;
+	position:absolute;
+	top:270px;
+	z-index:1;}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:SimSun;}
+p.msoplaintext1, li.msoplaintext1, div.msoplaintext1
+	{mso-style-name:msoplaintext1;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext2, li.msoplaintext2, div.msoplaintext2
+	{mso-style-name:msoplaintext2;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext11, li.msoplaintext11, div.msoplaintext11
+	{mso-style-name:msoplaintext11;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext21, li.msoplaintext21, div.msoplaintext21
+	{mso-style-name:msoplaintext21;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext3, li.msoplaintext3, div.msoplaintext3
+	{mso-style-name:msoplaintext3;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext4, li.msoplaintext4, div.msoplaintext4
+	{mso-style-name:msoplaintext4;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext111, li.msoplaintext111, div.msoplaintext111
+	{mso-style-name:msoplaintext111;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext211, li.msoplaintext211, div.msoplaintext211
+	{mso-style-name:msoplaintext211;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext31, li.msoplaintext31, div.msoplaintext31
+	{mso-style-name:msoplaintext31;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext41, li.msoplaintext41, div.msoplaintext41
+	{mso-style-name:msoplaintext41;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext5, li.msoplaintext5, div.msoplaintext5
+	{mso-style-name:msoplaintext5;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext6, li.msoplaintext6, div.msoplaintext6
+	{mso-style-name:msoplaintext6;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext1111, li.msoplaintext1111, div.msoplaintext1111
+	{mso-style-name:msoplaintext1111;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext311, li.msoplaintext311, div.msoplaintext311
+	{mso-style-name:msoplaintext311;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext411, li.msoplaintext411, div.msoplaintext411
+	{mso-style-name:msoplaintext411;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext51, li.msoplaintext51, div.msoplaintext51
+	{mso-style-name:msoplaintext51;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext61, li.msoplaintext61, div.msoplaintext61
+	{mso-style-name:msoplaintext61;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext7, li.msoplaintext7, div.msoplaintext7
+	{mso-style-name:msoplaintext7;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext8, li.msoplaintext8, div.msoplaintext8
+	{mso-style-name:msoplaintext8;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext12, li.msoplaintext12, div.msoplaintext12
+	{mso-style-name:msoplaintext12;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.msoplaintext22, li.msoplaintext22, div.msoplaintext22
+	{mso-style-name:msoplaintext22;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+span.pi
+	{mso-style-name:pi;}
+span.start-tag
+	{mso-style-name:start-tag;}
+span.attribute-name
+	{mso-style-name:attribute-name;}
+span.attribute-value
+	{mso-style-name:attribute-value;}
+span.end-tag
+	{mso-style-name:end-tag;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 65.95pt 1.0in 65.95pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1048451845;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-174562840 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:1419667893;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1738608666 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:1482194248;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-867822644 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="7170"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3><span class=SpellE><span class=GramE>crXml</span></span> Reference Manual</h3>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>This <span class=GramE>is<span style='mso-spacerun:yes'> 
+</span>and</span> xml parser and generator and <span class=SpellE>manipulator.This</span>
+one uses DOM XML Functions</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>Supports:</p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR>XML Attributes</span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR>Namespaces</span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR>Namespaced attributes</span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR>CDATA sections</span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>Here I list some of the topics in this document that may
+be of greater interest.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><a href="#_XML_Generation:">XML
+Generation</a></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><a href="#_XML_Parsing:">XML
+Parsing</a></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><a href="#addingnamepace">Adding
+Namespace</a></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><a href="#Cdata">Adding a CDATA
+section</a></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><a href="#search">PHP Code
+Generation for accessing a node</a></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span dir=LTR><a href="#_XML_Editing:">XML
+Editing/Manipulation</a></span></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<h4><a name="_XML_Generation:"></a><strong>XML Generation:</strong></h4>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>XML corresponding a <span class=SpellE>crXml</span>
+object is obtained by <span class=SpellE>callng</span> <span class=GramE><strong><span
+style='font-family:"Courier New"'>xml(</span></strong></span><strong><span
+style='font-family:"Courier New"'>)</span></strong> method. </p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>Please take a look at the examples.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Example 1:<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:14.95pt'>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Code</p>
+  </td>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:74.85pt'>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:74.85pt'>
+  <p class=msoplaintext1>$x = new <span class=SpellE>crXml</span>();<span
+  style='mso-spacerun:yes'>                   </span></p>
+  <p class=msoplaintext1><span style='mso-tab-count:1'>      </span></p>
+  <p class=msoplaintext1>$x-&gt;person = &quot;<span class=SpellE>sandeep</span>&quot;;</p>
+  <p class=msoplaintext1><o:p>&nbsp;</o:p></p>
+  <p class=MsoPlainText>echo $x-&gt;xml();</p>
+  </td>
+  <td width=328 valign=top style='width:246.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:74.85pt'>
+  <p class=MsoPlainText><span style='color:#880088'>&lt;?xml
+  version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;person&gt;</span><span class=SpellE>sandeep</span><span
+  style='color:#000088'>&lt;/person&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText><u>Example 2:<o:p></o:p></u></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:14.95pt'>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Code</p>
+  </td>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:74.85pt'>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:74.85pt'>
+  <p class=msoplaintext3>$x=new <span class=SpellE>crXml</span>();</p>
+  <p class=msoplaintext3><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext3>$x-&gt;records-&gt;name='<span class=SpellE>sandeep</span>';</p>
+  <p class=msoplaintext3>echo $x-&gt;xml();</p>
+  <p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=328 valign=top style='width:246.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:74.85pt'>
+  <p class=MsoPlainText><span style='color:#880088'>&lt;?xml
+  version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;name&gt;</span>
+  <span class=SpellE>sandeep</span> <span style='color:#000088'>&lt;/name&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Example 3:<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:14.95pt'>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Code</p>
+  </td>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:74.85pt'>
+  <td width=328 valign=top style='width:246.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:74.85pt'>
+  <p class=msoplaintext5>$x=new <span class=SpellE>crXml</span>();</p>
+  <p class=msoplaintext5><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext5>$x-&gt;records[5]-&gt;name='<span class=SpellE>sandeep</span>';</p>
+  <p class=msoplaintext5>echo $x-&gt;xml();</p>
+  <p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=328 valign=top style='width:246.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:74.85pt'>
+  <p class=MsoPlainText><span style='color:#880088'>&lt;?xml
+  version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;records/&gt;</span><br>
+  <span style='color:#000088'>&lt;records/&gt;</span><br>
+  <span style='color:#000088'>&lt;records/&gt;</span><br>
+  <span style='color:#000088'>&lt;records/&gt;</span><br>
+  <span style='color:#000088'>&lt;records/&gt;</span><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;name&gt;</span><span
+  class=SpellE>sandeep</span><span style='color:#000088'>&lt;/name&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>In the above example a value is assigned to the fifth
+`records` child of the root node.</p>
+
+<p class=MsoPlainText>As there are no <span class=SpellE>presceding</span> 4
+nodes, they are created by the class itself. </p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Example 4: Adding attributes<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:14.95pt'>
+  <td width=455 valign=top style='width:341.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Code</p>
+  </td>
+  <td width=344 valign=top style='width:258.35pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:103.0pt'>
+  <td width=455 valign=top style='width:341.6pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:103.0pt'>
+  <p class=msoplaintext7>$x = new<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>crXml</span>();</p>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>$x-&gt;record-&gt;name = '<span class=SpellE>sandeep</span>';</p>
+  <p class=msoplaintext7>$x-&gt;record-&gt;name['sex'] = 'Male';</p>
+  <p class=msoplaintext7>$x-&gt;record-&gt;name['age'] = '29';</p>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>echo $x-&gt;xml();</p>
+  </td>
+  <td width=344 valign=top style='width:258.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:103.0pt'>
+  <p class=MsoPlainText><span style='color:#880088'>&lt;?xml
+  version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;record&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;name</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;Male&quot;</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;29&quot;</span><span
+  style='color:#000088'>&gt;</span> <span class=SpellE>sandeep</span> <span
+  style='color:#000088'>&lt;/name&gt;</span><br>
+  <span style='color:#000088'>&lt;/record&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><a name=addingnamepace><u>Example 5: Adding Namespaces<o:p></o:p></u></a></p>
+
+<span style='mso-bookmark:addingnamepace'></span>
+
+<p class=MsoPlainText>A namespace declaration can be added to a node using the <span
+class=SpellE>addNameSpace</span> method. </p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>This method accepts an array. <o:p></o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>Thus multiple namespace declarations can be added to the
+node at once.<o:p></o:p></p>
+
+<p class=MsoPlainText><span style='font-size:18.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:14.95pt'>
+  <td width=455 valign=top style='width:341.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Code</p>
+  </td>
+  <td width=344 valign=top style='width:258.35pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:103.0pt'>
+  <td width=455 valign=top style='width:341.6pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:103.0pt'>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span> = new <span
+  class=SpellE>crXml</span>();</p>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span>-&gt;records-&gt;</p>
+  <p class=msoplaintext7><span class=SpellE>addNameSpace</span>(array('<span
+  class=SpellE>prfx</span>'=&gt;'http://google.com'));</p>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span>-&gt;records-&gt;{'<span
+  class=SpellE>prfx:person</span>'}-&gt;name = '<span class=SpellE>sandeep</span>';</p>
+  <p class=msoplaintext7>echo $<span class=SpellE>crxml</span>-&gt;xml();</p>
+  <p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=344 valign=top style='width:258.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:103.0pt'>
+  <p class=msoplaintext61><span style='color:#880088'>&lt;?xml version=&quot;1.0&quot;
+  encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;records</span><span style='color:#774000'> <span
+  class=SpellE>xmlns:prfx</span>=</span><span style='color:#660000'>&quot;<a
+  href="http://google.com">http://google.com</a>&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;<span
+  class=SpellE>prfx:person</span>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span> <span class=SpellE>sandeep</span> <span
+  style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/<span
+  class=SpellE>prfx:person</span>&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span>&nbsp;</p>
+  <p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt'>Namespaced nodes can be
+added without using <span class=SpellE>addNameSpace</span> function also. See
+below examples.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>An alternative syntax to generate a Namespaced node is to
+add the declaration of the namespace <o:p></o:p></p>
+
+<p class=MsoPlainText><span class=GramE>in</span> same node itself .</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>Here is how. This one does not use any function <o:p></o:p></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:14.95pt'>
+  <td width=455 valign=top style='width:341.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Code<o:p></o:p></p>
+  </td>
+  <td width=344 valign=top style='width:258.35pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.95pt'>
+  <p class=MsoPlainText>Output<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:103.0pt'>
+  <td width=455 valign=top style='width:341.6pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:103.0pt'>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span> = new <span
+  class=SpellE>crXml</span>();<o:p></o:p></p>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span>-&gt;records-&gt;{'http://<span
+  class=SpellE>google.com|person|prfx</span>'}-&gt;name = '<span class=SpellE>sandeep</span>';<o:p></o:p></p>
+  <p class=msoplaintext7>echo $<span class=SpellE>crxml</span>-&gt;xml();<o:p></o:p></p>
+  <p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=344 valign=top style='width:258.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:103.0pt'>
+  <p class=MsoPlainText><span style='color:#880088'>&lt;?xml
+  version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;<span
+  class=SpellE>prfx:person</span></span><span style='color:#774000'> <span
+  class=SpellE>xmlns:prfx</span>=</span><span style='color:#660000'>&quot;<a
+  href="http://google.com">http://google.com</a>&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span><span class=SpellE>sandeep</span><span
+  style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/<span
+  class=SpellE>prfx:person</span>&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span></span><o:p></o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText><span style='font-size:18.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText>In the above code the ‘|’ character is used to separate <span
+class=SpellE>namespaceURI</span>, <span class=SpellE>nodeName</span> and the prefix
+that </p>
+
+<p class=MsoPlainText><span class=GramE>should</span> be associated with that
+name space. The prefix part is optional. If omitted the node will </p>
+
+<p class=MsoPlainText><span class=GramE>become</span> the start of a default
+namespace<o:p></o:p></p>
+
+<p class=MsoPlainText><span style='font-size:18.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Example 6: Namespaced Attributes<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:15.1pt'>
+  <td width=460 valign=top style='width:345.1pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:15.1pt'>
+  <p class=MsoPlainText>Code</p>
+  </td>
+  <td width=348 valign=top style='width:260.95pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:15.1pt'>
+  <p class=MsoPlainText>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:104.45pt'>
+  <td width=460 valign=top style='width:345.1pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:104.45pt'>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span> = new<span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>crXml</span>();</p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span>-&gt;record-&gt;</p>
+  <p class=msoplaintext7><span class=SpellE>addNameSpace</span>(array('<span
+  class=SpellE>prfx</span>'=&gt;'http://google.com'));</p>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span>-&gt;record-&gt;name =
+  '<span class=SpellE>sandeep</span>';</p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span>-&gt;record-&gt;name['<span
+  class=SpellE>prfx:sex</span>'] = 'Male';</p>
+  <p class=msoplaintext7>$<span class=SpellE>crxml</span>-&gt;record-&gt;name['age']
+  = '29';</p>
+  <p class=msoplaintext7><o:p>&nbsp;</o:p></p>
+  <p class=msoplaintext7>echo $<span class=SpellE>crxml</span>-&gt;xml();</p>
+  <p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=348 valign=top style='width:260.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:104.45pt'>
+  <p class=MsoPlainText><span style='color:#880088'>&lt;?xml
+  version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;record</span><span style='color:#774000'> <span
+  class=SpellE>xmlns:prfx</span>=</span><span style='color:#660000'>&quot;<a
+  href="http://google.com">http://google.com</a>&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;name</span><span
+  style='color:#774000'> <span class=SpellE>prfx:sex</span>=</span><span
+  style='color:#660000'>&quot;Male&quot;</span><span style='color:#774000'>
+  age=</span><span style='color:#660000'>&quot;29&quot;</span><span
+  style='color:#000088'>&gt;<o:p></o:p></span></p>
+  <p class=MsoPlainText><span style='color:#000088'><span
+  style='mso-spacerun:yes'>    </span></span><span
+  style='mso-spacerun:yes'>      </span><span class=SpellE>sandeep</span> </p>
+  <p class=MsoPlainText><span style='color:#000088'><span
+  style='mso-spacerun:yes'>      </span>&lt;/name&gt;</span><br>
+  <span style='color:#000088'>&lt;/record&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Please note that <b>all the values can be <span
+class=SpellE>retrived</span> using the same notation used to assign it.<o:p></o:p></b></u></p>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=msoplaintext7>In the above example, </p>
+
+<p class=msoplaintext7><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=msoplaintext7 style='text-indent:.5in'><span class=GramE><b>echo</b></span><b>
+$<span class=SpellE>crxml</span>-&gt;record-&gt;name['<span class=SpellE>prfx:sex</span>'];
+would print “Male”.<o:p></o:p></b></p>
+
+<p class=msoplaintext7><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=msoplaintext7 style='text-indent:.5in'><span class=GramE>echo</span> $<span
+class=SpellE>crxml</span>-&gt;record-&gt;name; would print “<span class=SpellE>sandeep</span>”.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Example 7:<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>This example illustrates how to add many nodes with same
+name to a parent node.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE>&lt;?php</span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'>$xml = new <span class=SpellE><span
+class=GramE>crXml</span></span><span class=GramE>(</span>);</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'>$year = $xml-&gt;year;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+class=GramE>foreach</span></span><span class=GramE>(</span>range(1,12) as $m)</p>
+
+<p class=MsoPlainText style='margin-left:.5in'>{</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='mso-tab-count:1'>      </span>$year-&gt;month[$m-1]-&gt;<span
+class=SpellE>noOfDays</span> = <span style='mso-tab-count:1'>     </span>date('<span
+class=SpellE>t',mktime</span>(0,0,0,$m,$m,2000));</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='mso-tab-count:1'>      </span>$year-&gt;month[$m-1]-&gt;<span
+class=SpellE>shortName</span> = date('<span class=SpellE>M',mktime</span>(0,0,0,$m,$m,2000));</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='mso-tab-count:1'>      </span>$year-&gt;month[$m-1]['name']=date('<span
+class=SpellE>F',mktime</span>(0,0,0,$m,$m,2000));</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span
+style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'>}</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE>echo</span>
+$xml-&gt;xml();</p>
+
+<p class=MsoPlainText style='margin-left:.5in'>?&gt;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b><span style='font-size:14.0pt'>Output:<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='color:#880088'>&lt;?xml
+version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br>
+<span style='color:#000088'>&lt;year&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;January&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>31<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Jan<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;February&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>29<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Feb<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;March&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>31<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Mar<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;April&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>30<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Apr<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;May&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>31<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>May<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;June&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>30<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Jun<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;July&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>31<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Jul<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;August&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>31<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Aug<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;September&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>30<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Sep<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;October&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>31<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Oct<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;November&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>30<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Nov<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;month</span><span
+style='color:#774000'> name=</span><span style='color:#660000'>&quot;December&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>noOfDays</span>&gt;</span>31<span
+style='color:#000088'>&lt;/<span class=SpellE>noOfDays</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;<span class=SpellE>shortName</span>&gt;</span>Dec<span
+style='color:#000088'>&lt;/<span class=SpellE>shortName</span>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/month&gt;</span><br>
+<span style='color:#000088'>&lt;/year&gt;</span></p>
+
+<p class=MsoPlainText><span style='color:#000088'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText>Now an echo $xml-&gt;year-&gt;<span class=GramE>month[</span>2]['name'];
+would print ‘<span class=SpellE>March’.Because</span> nodes are indexed from 0.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><a name=Cdata><u>Example 8</u></a><span class=GramE><span
+style='mso-bookmark:Cdata'><u>:Adding</u></span></span><span style='mso-bookmark:
+Cdata'><u> a CDATA Section:</u></span><u><o:p></o:p></u></p>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=MsoPlainText>To add a <span class=SpellE>cdata</span> section, cast
+the string into an object while assigning it to nodes. </p>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 align=left
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-table-lspace:9.0pt;margin-left:6.75pt;mso-table-rspace:9.0pt;margin-right:
+ 6.75pt;mso-table-anchor-vertical:paragraph;mso-table-anchor-horizontal:column;
+ mso-table-left:10.65pt;mso-table-top:9.05pt;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:16.1pt'>
+  <td width=539 valign=top style='width:404.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:16.1pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'>Code</p>
+  </td>
+  <td width=505 valign=top style='width:378.65pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:16.1pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:97.6pt'>
+  <td width=539 valign=top style='width:404.6pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:97.6pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>=new&nbsp;</span><span class=SpellE><span
+  style='color:#0000BB'>crXml</span></span><span style='color:#007700'>(); <br>
+  </span><span style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>person</span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>name&nbsp;</span><span
+  style='color:#007700'>=&nbsp;</span><span style='color:#DD0000'>'<span
+  class=SpellE>sandeep</span>'</span><span style='color:#007700'>;<o:p></o:p></span></p>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#007700'><span style='mso-spacerun:yes'> </span><br>
+  </span><span style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>person</span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>address&nbsp;</span><span
+  style='color:#007700'>=&nbsp;(object)</span><span style='color:#DD0000'>&quot;&lt;this&nbsp;is&nbsp;a&nbsp;<span
+  class=SpellE>cdata</span>&nbsp;section&gt;&quot;</span><span
+  style='color:#007700'>; <o:p></o:p></span></p>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#007700'><span style='mso-spacerun:yes'> </span><br>
+  echo&nbsp;</span><span style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>xml</span><span
+  style='color:#007700'>();<o:p></o:p></span></p>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><u><o:p><span
+   style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+  </td>
+  <td width=505 valign=top style='width:378.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:97.6pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#880088'>&lt;?xml version=&quot;1.0&quot;
+  encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;person&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;name&gt;</span><span
+  class=SpellE>sandeep</span><span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;address&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#888888'>&lt;![CDATA[&lt;this is a <span class=SpellE>cdata</span>
+  section&gt;]]&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/address&gt;</span><br>
+  <span style='color:#000088'>&lt;/person&gt;</span><u><o:p></o:p></u></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=MsoPlainText><span style='color:#007700'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<h4><a name="_XML_Parsing:"></a><o:p>&nbsp;</o:p></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><u><span style='font-weight:normal'><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></span></u></h4>
+
+<h4><u><span style='font-size:10.0pt;font-family:"Courier New";font-weight:
+normal'>Example 9<span class=GramE>:Adding</span> nodes with default Namespaces
+definitions ( Nodes of type &lt;item <span class=SpellE>xmlns</span> = <a
+href="http://google.com/">http://google.com</a>&gt; )<o:p></o:p></span></u></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>In
+the <span class=GramE>node<span style='mso-spacerun:yes'>  </span>&lt;</span>item
+<span class=SpellE>xmlns</span> = <a href="http://google.com/"><b>http://google.com</b></a>&gt;<span
+style='mso-spacerun:yes'>  </span>the <span class=SpellE>xmlns</span> = <a
+href="http://google.com/"><b>http://google.com</b></a> is a default name space
+definition. All the child nodes with <span class=SpellE>unprefixed</span> node
+names belong to this namespace.<o:p></o:p></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>To
+add a node of this kind use the format<span style='mso-spacerun:yes'>  
+</span>$<span class=SpellE>crXml</span>-<span class=GramE>&gt;{</span>‘http://<span
+class=SpellE>google.com|person</span>’} = “<span class=SpellE>sandeep</span>”; <o:p></o:p></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Please
+note the ‘|’ (pipe <span class=SpellE>chatecter</span>) to separate node name
+and namespace URI.<o:p></o:p></span></h4>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 align=left
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-table-lspace:9.0pt;margin-left:6.75pt;mso-table-rspace:9.0pt;margin-right:
+ 6.75pt;mso-table-anchor-vertical:paragraph;mso-table-anchor-horizontal:column;
+ mso-table-left:10.65pt;mso-table-top:9.05pt;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:16.1pt'>
+  <td width=539 valign=top style='width:404.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:16.1pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'>Code</p>
+  </td>
+  <td width=505 valign=top style='width:378.65pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:16.1pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:97.6pt'>
+  <td width=539 valign=top style='width:404.6pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:97.6pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>=new&nbsp;</span><span class=SpellE><span
+  style='color:#0000BB'>crXml</span></span><span style='color:#007700'>(); <br>
+  <br>
+  </span><span style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>root</span><span
+  style='color:#007700'>-&gt;{</span><span style='color:#DD0000'>'http://<span
+  class=SpellE>google.com|person</span>'</span><span style='color:#007700'>}&nbsp;=&nbsp;</span><span
+  style='color:#DD0000'>'<span class=SpellE>sandeep</span>'</span><span
+  style='color:#007700'>; <br>
+  <br>
+  echo&nbsp;</span><span style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>xml</span><span
+  style='color:#007700'>();</span><u><o:p></o:p></u></p>
+  </td>
+  <td width=505 valign=top style='width:378.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:97.6pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#880088'>&lt;?xml version=&quot;1.0&quot;
+  encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;root&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> <span class=SpellE>xmlns</span>=</span><span
+  style='color:#660000'>&quot;<a href="http://google.com">http://google.com</a>&quot;</span><span
+  style='color:#000088'>&gt;<o:p></o:p></span></p>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='mso-spacerun:yes'>           </span><span class=SpellE>sandeep</span></p>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='mso-spacerun:yes'>      </span><span style='color:#000088'>&lt;/person&gt;</span><br>
+  <span style='color:#000088'>&lt;/root&gt;</span><u><o:p></o:p></u></p>
+  </td>
+ </tr>
+</table>
+
+<h4><span style='font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><u><span style='font-weight:normal'><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></span></u></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>The
+value of same node can be <span class=SpellE>retrived</span> using same
+notation <span class=SpellE>ie</span> <o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-size:10.0pt;font-family:"Courier New";
+color:#007700;font-weight:normal'>echo</span></span><span style='font-size:
+10.0pt;font-family:"Courier New";color:#007700;font-weight:normal'>&nbsp;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+normal'>$<span class=SpellE>xmlOne</span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;-&gt;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+normal'>root</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#007700;font-weight:normal'>-&gt;{</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#DD0000;font-weight:normal'>'http://<span
+class=SpellE>google.com|person</span>'</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#007700;font-weight:normal'>}&nbsp;;<o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-size:10.0pt;font-family:"Courier New";
+font-weight:normal'>will</span></span><span style='font-size:10.0pt;font-family:
+"Courier New";font-weight:normal'> echo “<span class=SpellE>sandeep</span>”;<o:p></o:p></span></h4>
+
+<h4><u><span style='font-size:10.0pt;font-family:"Courier New";font-weight:
+normal'>Example 10: Adding <span class=SpellE>namespaced</span> nodes (nodes
+with <span class=GramE>prefix:</span>) with namespace definition in same node
+(Nodes of type &lt;<span class=SpellE>prfx:item</span> <span class=SpellE>xmlns:prfx</span>=<a
+href="http://google.com/"><b>http://google.com</b></a>&gt;)<o:p></o:p></span></u></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Nodes
+of type <o:p></o:p></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>&lt;<span
+class=SpellE>prfx<span class=GramE>:item</span></span> <span class=SpellE>xmlns:prfx</span>=<a
+href="http://google.com/"><b><span style='text-decoration:none;text-underline:
+none'>http://google.com</span></b></a>&gt;) contains the namespace definition
+of the prefix in the node <span class=SpellE>itself.This</span> type of<span
+style='mso-spacerun:yes'>  </span>nodes can be created as follows.<o:p></o:p></span></h4>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 align=left
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-table-lspace:9.0pt;margin-left:6.75pt;mso-table-rspace:9.0pt;margin-right:
+ 6.75pt;mso-table-anchor-vertical:paragraph;mso-table-anchor-horizontal:column;
+ mso-table-left:10.65pt;mso-table-top:9.05pt;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:16.1pt'>
+  <td width=539 valign=top style='width:404.6pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:16.1pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'>Code</p>
+  </td>
+  <td width=505 valign=top style='width:378.65pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:16.1pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'>Output</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:97.6pt'>
+  <td width=539 valign=top style='width:404.6pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:97.6pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#0000BB'>&lt;?php&nbsp;<br>
+  $<span class=SpellE>xmlOne</span></span><span style='color:#007700'>=new&nbsp;</span><span
+  class=SpellE><span style='color:#0000BB'>crXml</span></span><span
+  style='color:#007700'>(); <br>
+  <br>
+  </span><span style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>root</span><span
+  style='color:#007700'>-&gt;{</span><span style='color:#DD0000'>'http://<span
+  class=SpellE>google.com|person|prfx</span>'</span><span style='color:#007700'>}&nbsp;=&nbsp;</span><span
+  style='color:#DD0000'>'<span class=SpellE>sandeep</span>'</span><span
+  style='color:#007700'>; <br>
+  <span style='mso-spacerun:yes'> </span><br>
+  echo&nbsp;</span><span style='color:#0000BB'>$<span class=SpellE>xmlOne</span></span><span
+  style='color:#007700'>-&gt;</span><span style='color:#0000BB'>xml</span><span
+  style='color:#007700'>(); <br>
+  <span style='mso-spacerun:yes'> </span><br style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></span><u><o:p></o:p></u></p>
+  </td>
+  <td width=505 valign=top style='width:378.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:97.6pt'>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#880088'>&lt;?xml version=&quot;1.0&quot;
+  encoding=&quot;UTF-8&quot;?&gt;</span><br>
+  <span style='color:#000088'>&lt;root&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;<span
+  class=SpellE>prfx:person</span></span><span style='color:#774000'> <span
+  class=SpellE>xmlns:prfx</span>=</span><span style='color:#660000'>&quot;<a
+  href="http://google.com">http://google.com</a>&quot;</span><span
+  style='color:#000088'>&gt;<o:p></o:p></span></p>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='mso-spacerun:yes'>          </span><span class=SpellE>Sandeep</span></p>
+  <p class=MsoPlainText style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+  column;mso-element-left:10.7pt;mso-element-top:9.05pt;mso-height-rule:exactly'><span
+  style='color:#000088'><span style='mso-spacerun:yes'>      </span>&lt;/<span
+  class=SpellE>prfx:person</span>&gt;</span><br>
+  <span style='color:#000088'>&lt;/root&gt;</span><u><o:p></o:p></u></p>
+  </td>
+ </tr>
+</table>
+
+<h4><span style='font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>The
+value of same node can be <span class=SpellE>retrived</span> either using the
+prefix or using the namespace URI, as shown below<o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-size:10.0pt;font-family:"Courier New";
+color:#007700;font-weight:normal'>echo</span></span><span style='font-size:
+10.0pt;font-family:"Courier New";color:#007700;font-weight:normal'>&nbsp;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+normal'>$<span class=SpellE>xmlOne</span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+normal'>root</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#007700;font-weight:normal'>-&gt;{</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#DD0000;font-weight:normal'>'<span
+class=SpellE>prfx:person</span>'</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#007700;font-weight:normal'>};<o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-size:10.0pt;font-family:"Courier New";
+font-weight:normal'>or</span></span><span style='font-size:10.0pt;font-family:
+"Courier New";font-weight:normal'><o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-size:10.0pt;font-family:"Courier New";
+color:#007700;font-weight:normal'>echo</span></span><span style='font-size:
+10.0pt;font-family:"Courier New";color:#007700;font-weight:normal'>&nbsp;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+normal'>$<span class=SpellE>xmlOne</span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;-&gt;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+normal'>root</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#007700;font-weight:normal'>-&gt;{</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#DD0000;font-weight:normal'>'http://<span
+class=SpellE>google.com|person</span>'</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#007700;font-weight:normal'>}&nbsp;;<o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-size:10.0pt;font-family:"Courier New";
+font-weight:normal'>will</span></span><span style='font-size:10.0pt;font-family:
+"Courier New";font-weight:normal'> output ‘<span class=SpellE>Sandeep</span>”.<o:p></o:p></span></h4>
+
+<h4><span style='font-size:16.0pt;font-family:"Courier New"'>XML Parsing:<o:p></o:p></span></h4>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>An XML String is loaded into the class using function<strong><span
+style='font-family:"Courier New"'> <span class=SpellE><span class=GramE>loadXML</span></span><span
+class=GramE>(</span>);</span></strong></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$x</span><span
+style='color:#007700'>=new&nbsp;</span><span class=SpellE><span class=GramE><span
+style='color:#0000BB'>crXml</span></span></span><span class=GramE><span
+style='color:#007700'>(</span></span><span style='color:#007700'>); </span></code><span
+style='color:#007700'><br>
+<br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$xml</span><span style='color:#007700'>=&lt;&lt;&lt;EOB </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;<span
+class=SpellE>sandeep</span>&lt;/name&gt; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;EOB; </span></code><span
+style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+class=SpellE><span style='color:#0000BB'>loadXML</span></span><span
+style='color:#0000BB'>($xml);<o:p></o:p></span></code></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>After this, Nodes can be accessed by a combination of
+object and array notation. <span class=GramE>to</span> get the n-<span
+class=SpellE>th</span> child node of a node '<span class=SpellE>parentnode</span>'</p>
+
+<p class=MsoPlainText><span class=GramE>with</span> name '<span class=SpellE>childnode</span>'
+use notation</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>$<span
+class=SpellE>crXmlObj</span>-&gt;.....-&gt;<span class=SpellE>parentnode</span>-&gt;<span
+class=SpellE>childnode</span>[n]</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>Please go through the following examples and please note
+the comments.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=GramE><u>Example 1.</u></span><u> Simple
+Example<o:p></o:p></u></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoPlainText><span class=GramE><code><span style='color:#0000BB'>&lt;?php</span></code></span><code><span
+style='color:#0000BB'>&nbsp;</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#007700'>include&nbsp;</span><span
+style='color:#DD0000'>'<span class=SpellE>crXml.php</span>'</span><span
+style='color:#007700'>; </span></code><span style='color:#007700'><br>
+<br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$<span class=SpellE>crxml</span></span><span
+style='color:#007700'>=new&nbsp;</span><span class=SpellE><span
+style='color:#0000BB'>crXml</span></span><span style='color:#007700'>(); </span></code><span
+style='color:#007700'><br>
+<br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$xml</span><span style='color:#007700'>=&lt;&lt;&lt;EOB </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;<span
+class=SpellE>sandeep</span>&lt;/name&gt; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;EOB; </span></code><span
+style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+class=SpellE><span style='color:#0000BB'>loadXML</span></span><span
+style='color:#0000BB'>($xml); </span></code><span style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+style='color:#0000BB'>records-&gt;name;&nbsp;&nbsp;<i>//<span class=SpellE>echos</span>&nbsp;'<span
+class=SpellE>sandeep</span>'</i>&nbsp; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;?&gt; <o:p></o:p></span></code></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'><o:p>&nbsp;</o:p></span></code></p>
+
+<p class=MsoPlainText><span class=GramE><u>Example 2.</u></span><u> Accessing
+n-<span class=SpellE>th</span> child of a node<o:p></o:p></u></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'><o:p>&nbsp;</o:p></span></code></p>
+
+<p class=MsoPlainText><span class=GramE><code><span style='color:#0000BB'>&lt;?php</span></code></span><code><span
+style='color:#0000BB'>&nbsp;</span></code><span style='color:#0000BB'><br>
+<span style='mso-spacerun:yes'>    </span></span><code><span style='color:#007700'>include&nbsp;</span><span
+style='color:#DD0000'>'<span class=SpellE>crXml.php</span>'</span><span
+style='color:#007700'>;</span></code></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>=new&nbsp;</span><span
+class=SpellE><span class=GramE><span style='color:#0000BB'>crXml</span></span></span><span
+class=GramE><span style='color:#007700'>(</span></span><span style='color:#007700'>);
+</span></code><span style='color:#007700'><br>
+<br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$xml</span><span style='color:#007700'>=&lt;&lt;&lt;EOB </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;<span
+class=SpellE>sandeep</span>&lt;/name&gt; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;max&lt;/name&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;EOB; </span></code><span
+style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+class=SpellE><span style='color:#0000BB'>loadXML</span></span><span
+style='color:#0000BB'>($xml); </span></code><span style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+style='color:#0000BB'>records-&gt;name[1];&nbsp;&nbsp;<i>//<span class=SpellE>echos</span>&nbsp;'max'</i><o:p></o:p></span></code></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'><span
+style='mso-spacerun:yes'>    </span>?&gt;<o:p></o:p></span></code></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Example 3: Dealing with <span class=SpellE>NameSpaces</span><o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>Type 1:</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'>&lt;?php&nbsp;</span></code><span
+style='color:#0000BB'><br>
+<span style='mso-spacerun:yes'>  </span><span
+style='mso-spacerun:yes'>  </span></span><code><span style='color:#0000BB'>$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>=new&nbsp;</span><span
+class=SpellE><span style='color:#0000BB'>crXml</span></span><span
+style='color:#007700'>(); </span></code><span style='color:#007700'><br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$xml</span><span style='color:#007700'>=&lt;&lt;&lt;EOB </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;records&nbsp;<span
+class=SpellE>xmlns:prf</span>&nbsp;=&nbsp;'http://yahoo.com'&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>prf:name</span>&gt;<span class=SpellE>sandeep</span>&lt;/<span
+class=SpellE>prf:name</span>&gt; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>prf:name</span>&gt;max&lt;/<span class=SpellE>prf:name</span>&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;EOB; </span></code><span
+style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+class=SpellE><span style='color:#0000BB'>loadXML</span></span><span
+style='color:#0000BB'>($xml); </span></code><span style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+style='color:#0000BB'>records-&gt;{'<span class=SpellE>prf:name</span>'}[1];&nbsp;&nbsp;<i>//<span
+class=SpellE>echos</span>&nbsp;'max'</i></span></code></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Type 2: Accessing namespace without <span class=GramE>prefix(</span>Default
+Namespaces).<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'>&lt;?php&nbsp;</span></code><span
+style='color:#0000BB'><br>
+</span><span style='color:#007700'><br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$<span class=SpellE>crxml</span></span><span
+style='color:#007700'>=new&nbsp;</span><span class=SpellE><span
+style='color:#0000BB'>crXml</span></span><span style='color:#007700'>(); </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$xml</span><span style='color:#007700'>=&lt;&lt;&lt;EOB </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;records&nbsp;<span
+class=SpellE>xmlns</span>&nbsp;=&nbsp;'http://yahoo.com'&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;<span
+class=SpellE>sandeep</span>&lt;/name&gt; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;max&lt;/name&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/records&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;EOB; </span></code><span
+style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+class=SpellE><span style='color:#0000BB'>loadXML</span></span><span
+style='color:#0000BB'>($xml); </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span>-&gt;{'http://<span class=SpellE>yahoo.com|records</span>'}-&gt;name;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>//&nbsp;&nbsp;uses&nbsp;'|'&nbsp;<span
+class=SpellE>charecter</span>&nbsp;to&nbsp;separate&nbsp;namespace&nbsp;URI&nbsp;and&nbsp;<span
+class=SpellE>nodename;echos</span>&nbsp;'<span class=SpellE>sandeep</span>' </i></span></code><i><span
+style='color:#0000BB'><br>
+</span></i><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span>-&gt;{'http://<span class=SpellE>yahoo.com|records</span>'}-&gt;name[1];&nbsp;&nbsp;<i>//&nbsp;&nbsp;<span
+class=SpellE>echos</span>&nbsp;'max'</i></span></code><i><o:p></o:p></i></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=GramE><u>Type 3.</u></span><u> <span
+class=GramE>accessing</span> nodes with namespaces <span class=SpellE>defenition</span>
+in the same node<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'>&lt;?php&nbsp;</span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>=new&nbsp;</span><span
+class=SpellE><span style='color:#0000BB'>crXml</span></span><span
+style='color:#007700'>(); </span></code><span style='color:#007700'><br>
+</span><code><span style='color:#007700'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#0000BB'>$xml</span><span style='color:#007700'>=&lt;&lt;&lt;EOB </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>prf:records</span>&nbsp;<span class=SpellE>xmlns:prf</span>&nbsp;=&nbsp;'http://yahoo.com'&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>prf:name</span>&gt;<span class=SpellE>sandeep</span>&lt;/<span
+class=SpellE>prf:name</span>&gt; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>prf:name</span>&gt;max&lt;/<span class=SpellE>prf:name</span>&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span
+class=SpellE>prf:records</span>&gt; </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;EOB; </span></code><span
+style='color:#0000BB'><br>
+<br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;$<span
+class=SpellE>crxml</span></span><span style='color:#007700'>-&gt;</span><span
+class=SpellE><span style='color:#0000BB'>loadXML</span></span><span
+style='color:#0000BB'>($xml); </span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$<span
+class=SpellE>crxml</span>-&gt;{'<span class=SpellE>prf:records</span>'}-&gt;{'<span
+class=SpellE>prf:name</span>'}[1];&nbsp;&nbsp;<i>//&nbsp;<span class=SpellE>echos</span>&nbsp;'max'<o:p></o:p></i></span></code></p>
+
+<p class=MsoPlainText><code><i><span style='color:#0000BB'><o:p>&nbsp;</o:p></span></i></code></p>
+
+<p class=MsoPlainText><a name=search><u>The Search Function:<o:p></o:p></u></a></p>
+
+<span style='mso-bookmark:search'></span>
+
+<p class=MsoPlainText><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></p>
+
+<p class=MsoPlainText>This is a very useful function that can <span
+style='mso-fareast-font-family:SimSun'>actually generate the php code to access
+a certain node. <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:SimSun'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:SimSun'>For example
+consider the following SOAP Response XML <br>
+<br>
+</span><span style='font-size:12.0pt;mso-fareast-font-family:SimSun;color:#4000FF'>&lt;?xml
+version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>
+&lt;<span class=SpellE>soapenv:Envelope</span> <span class=SpellE>xmlns:soapenv</span>=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+<span class=SpellE>xmlns:xsd</span>=&quot;http://www.w3.org/2001/XMLSchema&quot;
+<span class=SpellE>xmlns:xsi</span>=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;<br>
+&lt;<span class=SpellE>soapenv:Body</span>&gt;<br>
+&lt;<span class=SpellE>GeteBayOfficialTimeResponse</span> <span class=SpellE>xmlns</span>=&quot;<span
+class=SpellE>urn:ebay:apis:eBLBaseComponents</span>&quot;&gt;<br>
+<b>&lt;Timestamp&gt;2005-10-28T01:01:04.668Z&lt;/Timestamp&gt;</b><br>
+&lt;<span class=SpellE>Ack</span>&gt;Success&lt;/<span class=SpellE>Ack</span>&gt;<br>
+&lt;Version&gt;429&lt;/Version&gt;<br>
+&lt;Build&gt;e429_intl_Bundled_1949355_R1&lt;/Build&gt;<br>
+&lt;/<span class=SpellE>GeteBayOfficialTimeResponse</span>&gt;<br>
+&lt;/<span class=SpellE>soapenv:Body</span>&gt;<br>
+&lt;/<span class=SpellE>soapenv:Envelope</span>&gt;</span><span
+style='mso-fareast-font-family:SimSun'><br>
+<br>
+You load this xml into a <span class=SpellE>crXml</span> '$<span class=SpellE>srcXML</span>'
+object using <span class=SpellE>loadXML</span>($<span class=SpellE>xmlStr</span>)
+method. Now say, you need to access the timestamp node.<br>
+<br>
+<span class=GramE>you</span> only have to call the search() function on the $<span
+class=SpellE>srcXML</span> object. This is shown below. </span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><b><span style='font-size:10.0pt;font-family:
+"Courier New";mso-fareast-font-family:SimSun'><span
+style='mso-spacerun:yes'> </span></span></b><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span class=SpellE><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;color:#990000'>print_<span
+class=GramE>r</span></span></span><span class=GramE><span style='font-size:
+10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;color:#009900'>(</span></span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;
+color:#000088'>$<span class=SpellE>srcXML</span></span><span style='font-size:
+10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;color:#339933'>-&gt;</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;
+color:#004000'>search</span><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun;color:#009900'>(</span><span style='font-size:
+10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;color:blue'>'Timestamp'</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;
+color:#009900'>))</span><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun;color:#339933'>;</span><span style='font-size:
+10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun'><br>
+This prints the dump of the array returned by the search function.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun'>Please note the 'accessStatement' element . <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun'>This element shows how the 'Timestamp' node
+should be accessed.<br>
+<br>
+Array<br>
+(<br>
+[0] =&gt; Array<br>
+(<br>
+[<span class=SpellE>nodeName</span>] =&gt; Timestamp<br>
+[<span class=SpellE>namespaceURI</span>] =&gt; <span class=SpellE>urn:ebay:apis:eBLBaseComponents</span><br>
+[<span class=SpellE>nodeValue</span>] =&gt; 2005-10-28T01:01:04.668Z<br>
+<b>[<span class=SpellE><span style='color:#FF6600'>accessStatement</span></span><span
+style='color:#FF6600'>] =&gt; ...-&gt;{'<span class=SpellE>soapenv:Envelope</span>'}-&gt;{'<span
+class=SpellE>soapenv:Body</span>'}-&gt;{'<span class=SpellE>urn:ebay:apis:eBLBaseComponents|GeteBayOfficialTimeResponse</span>'}-&gt;{'<span
+class=SpellE>urn:ebay:apis:eBLBaseComponents|Timestamp</span>'}</span></b><br>
+)<br>
+<br>
+)<br>
+<br>
+Here <span class=SpellE>accessElement</span> contains<br>
+<br>
+...-&gt;{'<span class=SpellE>soapenv:Envelope</span>'}-&gt;{'<span
+class=SpellE>soapenv:Body</span>'}-&gt;{'<span class=SpellE>urn:ebay:apis:eBLBaseComponents|GeteBayOfficialTimeResponse</span>'}-&gt;{'<span
+class=SpellE>urn:ebay:apis:eBLBaseComponents|Timestamp</span>'}<br>
+<br>
+so an echo <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun'><br>
+$<span class=SpellE>srcXML</span>-&gt;{'<span class=SpellE>soapenv:Envelope</span>'}-&gt;{'<span
+class=SpellE>soapenv:Body</span>'}-&gt;{'<span class=SpellE>urn:ebay:apis:eBLBaseComponents|GeteBayOfficialTimeResponse</span>'}-&gt;{'<span
+class=SpellE>urn:ebay:apis:eBLBaseComponents|Timestamp</span>'} <br>
+<br>
+Will echo its value here it is<span style='mso-spacerun:yes'> 
+</span>'2005-10-28T01:01:04.668Z'<br>
+<br>
+You can search <span class=SpellE>namespaced</span> nodes too using the search
+function. <span class=GramE>just</span> use the <span class=SpellE>nodename</span>
+with prefix as it appears in XML.<br>
+<br>
+<span class=GramE>for</span> <span class=SpellE>Eg</span>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><b><span style='font-size:10.0pt;font-family:
+"Courier New";mso-fareast-font-family:SimSun'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+text-autospace:ideograph-other'><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun;color:#000088'>$<span class=SpellE>srcXML</span></span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;
+color:#339933'>-&gt;</span><span class=GramE><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;color:#004000'>search</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;
+color:#009900'>(</span></span><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun;color:blue'>'<span class=SpellE>soapenv:Body</span>'</span><span
+style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun;
+color:#009900'>)</span><span style='font-size:10.0pt;font-family:"Courier New";
+mso-fareast-font-family:SimSun;color:#339933'>;</span><span style='font-size:
+10.0pt;font-family:"Courier New";mso-fareast-font-family:SimSun'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><code><i><span style='color:#0000BB'><o:p>&nbsp;</o:p></span></i></code></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Example 4: Iterating <span class=GramE>over a nodes</span>
+children.<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>The <span class=SpellE>crXml</span> object is <span
+class=SpellE>iterable</span>, so a simple <span class=SpellE>foreach</span> can
+be used to iterate over a node’s children. Please look at the below example.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=GramE><code><span style='color:#0000BB'>&lt;?php</span></code></span><code><span
+style='color:#0000BB'>&nbsp;<o:p></o:p></span></code></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span class=GramE><code><span style='color:#007700'>include</span></code></span><code><span
+style='color:#007700'>&nbsp;</span><span style='color:#DD0000'>'<span
+class=SpellE>crXml.php</span>'</span><span style='color:#007700'>;</span></code></p>
+
+<p class=MsoPlainText><code><span style='color:#0000BB'>$xml&nbsp;</span><span
+style='color:#007700'>=&nbsp;&lt;&lt;&lt;EOB </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#0000BB'>&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&lt;year&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;month&nbsp;name=&quot;January&quot;&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>noOfDays</span>&gt;31&lt;/<span class=SpellE>noOfDays</span>&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>shortName</span>&gt;Jan&lt;/<span class=SpellE>shortName</span>&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/month&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;month&nbsp;name=&quot;February&quot;&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>noOfDays</span>&gt;29&lt;/<span class=SpellE>noOfDays</span>&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>shortName</span>&gt;Feb&lt;/<span class=SpellE>shortName</span>&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/month&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;month&nbsp;name=&quot;March&quot;&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>noOfDays</span>&gt;31&lt;/<span class=SpellE>noOfDays</span>&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span
+class=SpellE>shortName</span>&gt;Mar&lt;/<span class=SpellE>shortName</span>&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/month&gt;
+</span></code><span style='color:#0000BB'><br>
+</span><code><span style='color:#0000BB'>&lt;/year&gt; </span></code><span
+style='color:#0000BB'><br>
+</span><code><span style='color:#007700'>EOB; </span></code><span
+style='color:#007700'><br>
+<br>
+</span><code><span style='color:#0000BB'>$x&nbsp;</span><span style='color:
+#007700'>=&nbsp;new&nbsp;&nbsp;</span><span class=SpellE><span
+style='color:#0000BB'>crXml</span></span><span style='color:#007700'>(); </span></code><span
+style='color:#007700'><br>
+<br>
+</span><code><span style='color:#0000BB'>$x</span><span style='color:#007700'>-&gt;</span><span
+class=SpellE><span style='color:#0000BB'>loadXML</span></span><span
+style='color:#007700'>(</span><span style='color:#0000BB'>$xml</span><span
+style='color:#007700'>); </span></code><span style='color:#007700'><br>
+<br>
+</span><span class=SpellE><code><span style='color:#007700'>foreach</span></code></span><code><span
+style='color:#007700'>(</span><span style='color:#0000BB'>$x</span><span
+style='color:#007700'>-&gt;</span><span style='color:#0000BB'>year&nbsp;</span><span
+style='color:#007700'>as&nbsp;</span><span style='color:#0000BB'>$k&nbsp;</span><span
+style='color:#007700'>=&gt;&nbsp;</span><span style='color:#0000BB'>$v</span><span
+style='color:#007700'>)&nbsp;{ </span></code><span style='color:#007700'><br>
+<span style='mso-spacerun:yes'>    </span></span><code><span style='color:#007700'>echo&nbsp;</span><b><span
+style='color:#0000BB'>$k</span></b><span style='color:#007700'>,&nbsp;&nbsp;</span><span
+style='color:#DD0000'>','&nbsp;</span><span style='color:#007700'>,&nbsp;</span><b><span
+style='color:#0000BB'>$v</span><span style='color:#007700'>[</span><span
+style='color:#DD0000'>'name'</span><span style='color:#007700'>],</span></b><span
+style='color:#007700'>&nbsp;</span><span style='color:#DD0000'>','&nbsp;</span><span
+style='color:#007700'>,&nbsp;</span><b><span style='color:#0000BB'>$v</span><span
+style='color:#007700'>-&gt;</span><span class=SpellE><span style='color:#0000BB'>shortName</span></span></b><span
+style='color:#007700'>,</span><span style='color:#DD0000'>&quot;&lt;<span
+class=SpellE>br</span>/&gt;&quot;</span><span style='color:#007700'>; </span></code><span
+style='color:#007700'><br>
+</span><code><span style='color:#007700'>}</span></code></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>In the above <span class=SpellE>foreach</span>, the nodes
+name is returned in the <b><span style='font-size:14.0pt'>$k</span></b>, and
+the nodes value is returned in the <b><span style='font-size:14.0pt'>$v</span></b>.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><u>Note that each </u><b><u><span style='font-size:14.0pt'>$v</span></u></b><u>
+is a </u><span class=SpellE><b><u><span style='font-size:14.0pt'>crXml</span></u></b></span><u>
+object. So its children and attributes can be accessed in manner described<o:p></o:p></u></p>
+
+<p class=MsoPlainText><u><span style='mso-spacerun:yes'> </span><span
+class=GramE>in</span> previous examples.<o:p></o:p></u></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText>So the above code outputs</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE>month,</span>January,Jan<br>
+month,February,Feb<br>
+month,March,Mar</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<h4><a name="_XML_Editing:"></a><strong><span style='font-size:10.0pt;
+font-family:"Courier New"'>XML Editing:<o:p></o:p></span></strong></h4>
+
+<h4><span class=SpellE><span class=GramE><strong><span style='font-size:10.0pt;
+font-family:"Courier New";font-weight:normal'>crXml</span></strong></span></span><strong><span
+style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'> can be
+used to modify an existing XML Documents. It can <o:p></o:p></span></strong></h4>
+
+<h4 style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><strong><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";font-weight:
+normal'><span style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span></strong><![endif]><span dir=LTR><strong><span
+style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Assign
+new values to existing nodes, <o:p></o:p></span></strong></span></h4>
+
+<h4 style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><strong><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";font-weight:
+normal'><span style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span></strong><![endif]><span dir=LTR><strong><span
+style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Add, edit
+and remove nodes, <o:p></o:p></span></strong></span></h4>
+
+<h4 style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><strong><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";font-weight:
+normal'><span style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span></strong><![endif]><span dir=LTR><strong><span
+style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Add, edit
+and remove attributes. <o:p></o:p></span></strong></span></h4>
+
+<h4 style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><strong><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";font-weight:
+normal'><span style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span></strong><![endif]><span dir=LTR><strong><span
+style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Add a
+node from another XML document<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></strong></span></h4>
+
+<h4><strong><span style='font-size:10.0pt;font-family:"Courier New";font-weight:
+normal'>Actually you can do anything explained in above sections with an
+existing XML document after it has been loaded using <span class=SpellE><span
+class=GramE>loadXML</span></span><span class=GramE>(</span>) method.<o:p></o:p></span></strong></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>For
+Illustrating the above capabilities please go through the following examples.</span></h4>
+
+<h4><u><span style='font-size:10.0pt;font-family:"Courier New";font-weight:
+normal'>Example 1.Simple value and attribute modification<o:p></o:p></span></u></h4>
+
+<h4><code><span style='font-size:10.0pt;color:#0000BB'>&lt;?php&nbsp;</span></code><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000BB'><br>
+</span><code><span style='font-size:10.0pt;color:#007700'>include&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#DD0000'>'<span class=SpellE>crXml.php</span>'</span></code><code><span
+style='font-size:10.0pt;color:#007700'>; </span></code><span style='font-size:
+10.0pt;font-family:"Courier New";color:#007700'><br>
+<br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>$x&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#007700'>=&nbsp;new&nbsp;</span></code><span
+class=SpellE><code><span style='font-size:10.0pt;color:#0000BB'>crXml</span></code></span><code><span
+style='font-size:10.0pt;color:#007700'>(); </span></code><span
+style='font-size:10.0pt;font-family:"Courier New";color:#007700'><br>
+<br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>$<span class=SpellE>xmlStr</span>&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#007700'>=&nbsp;&lt;&lt;&lt;EOB </span></code><span
+style='font-size:10.0pt;font-family:"Courier New";color:#007700'><br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;
+</span></code><span style='font-size:10.0pt;font-family:"Courier New";
+color:#0000BB'><br>
+<code>&lt;records&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;person&nbsp;age=&quot;15&quot;&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+class=SpellE>alex</span> </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/name&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/person&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;person&nbsp;age=&quot;28&quot;&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+class=SpellE>sandeep</span> </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/name&gt; </code><br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/person&gt; </code><br>
+<code>&lt;/records&gt; </code><br>
+</span><code><span style='font-size:10.0pt;color:#007700'>EOB; </span></code><span
+style='font-size:10.0pt;font-family:"Courier New";color:#007700'><br>
+<br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>$x</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><span class=SpellE><code><span
+style='font-size:10.0pt;color:#0000BB'>loadXML</span></code></span><code><span
+style='font-size:10.0pt;color:#007700'>(</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>$<span class=SpellE>xmlStr</span></span></code><code><span
+style='font-size:10.0pt;color:#007700'>); </span></code><span style='font-size:
+10.0pt;font-family:"Courier New";color:#007700'><br>
+<br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>$x</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>records</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>person</span></code><code><span
+style='font-size:10.0pt;color:#007700'>[</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>1</span></code><code><span
+style='font-size:10.0pt;color:#007700'>][</span></code><code><span
+style='font-size:10.0pt;color:#DD0000'>'age'</span></code><code><span
+style='font-size:10.0pt;color:#007700'>]&nbsp;=&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#DD0000'>'30'</span></code><code><span
+style='font-size:10.0pt;color:#007700'>;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#FF8000'>//sets&nbsp;second&nbsp;persons&nbsp;attribute&nbsp;to&nbsp;30
+</span></code><span style='font-size:10.0pt;font-family:"Courier New";
+color:#FF8000'><br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>$x</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>records</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>person</span></code><code><span
+style='font-size:10.0pt;color:#007700'>[</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>1</span></code><code><span
+style='font-size:10.0pt;color:#007700'>]-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>name&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#007700'>=&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#DD0000'>'<span class=SpellE>albert</span>'</span></code><code><span
+style='font-size:10.0pt;color:#007700'>;&nbsp;&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#FF8000'>//&nbsp;sets&nbsp;child&nbsp;node&nbsp;‘name’&nbsp;of&nbsp;second&nbsp;person&nbsp;to&nbsp;‘<span
+class=SpellE>albert</span>’ </span></code><span style='font-size:10.0pt;
+font-family:"Courier New";color:#FF8000'><br>
+<br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>$x</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>records</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>person</span></code><code><span
+style='font-size:10.0pt;color:#007700'>[</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>2</span></code><code><span
+style='font-size:10.0pt;color:#007700'>]&nbsp;=&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>$x</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>records</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>person</span></code><code><span
+style='font-size:10.0pt;color:#007700'>[</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>1</span></code><code><span
+style='font-size:10.0pt;color:#007700'>];&nbsp;&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#FF8000'>//&nbsp;create&nbsp;a&nbsp;third&nbsp;`person`&nbsp;node&nbsp;and&nbsp;assign&nbsp;it&nbsp;the&nbsp;value&nbsp;of&nbsp;second&nbsp;'person'&nbsp;node.
+</span></code><span style='font-size:10.0pt;font-family:"Courier New";
+color:#FF8000'><br>
+<br>
+</span><span class=GramE><code><span style='font-size:10.0pt;color:#007700'>echo</span></code></span><code><span
+style='font-size:10.0pt;color:#007700'>&nbsp;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>$x</span></code><code><span
+style='font-size:10.0pt;color:#007700'>-&gt;</span></code><code><span
+style='font-size:10.0pt;color:#0000BB'>xml</span></code><code><span
+style='font-size:10.0pt;color:#007700'>(); </span></code><span
+style='font-size:10.0pt;font-family:"Courier New";color:#007700'><br>
+<br>
+</span><code><span style='font-size:10.0pt;color:#0000BB'>?&gt; <o:p></o:p></span></code></h4>
+
+<h4><code><span style='font-size:10.0pt'>Outputs XML:<o:p></o:p></span></code></h4>
+
+<h4><span class=GramE><span style='font-family:"Courier New";color:#880088;
+font-weight:normal'>&lt;?xml</span></span><span style='font-family:"Courier New";
+color:#880088;font-weight:normal'> version=&quot;1.0&quot;
+encoding=&quot;UTF-8&quot;?&gt;</span><span style='font-family:"Courier New";
+font-weight:normal'><br>
+<span style='color:#000088'>&lt;records&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+style='color:#774000'> age=</span><span style='color:#660000'>&quot;15&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;name&gt;</span><span class=SpellE>alex</span><span
+style='color:#000088'>&lt;/name&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+style='color:#774000'> age=</span><span style='color:#660000'>&quot;30&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;name&gt;</span><span class=SpellE>albert</span><span
+style='color:#000088'>&lt;/name&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;name&gt;</span><span class=SpellE>albert</span><span
+style='color:#000088'>&lt;/name&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+<span style='color:#000088'>&lt;/records&gt;</span></span><span
+style='color:#000088;font-weight:normal'><o:p></o:p></span></h4>
+
+<h4><span style='color:#000088;font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><u><span style='font-size:10.0pt;font-family:"Courier New";color:black;
+font-weight:normal'>Example 2<span class=GramE>:Removing</span> and Emptying a
+node:<o:p></o:p></span></u></h4>
+
+<h4><u><span style='font-size:10.0pt;font-family:"Courier New";color:black;
+font-weight:normal'>Removing a node</span></u><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;font-weight:normal'> results in the
+removal of <u>that node and all of its children</u>. To remove a node, call the
+`remove` method on that node<o:p></o:p></span></h4>
+
+<h4><u><span style='font-size:10.0pt;font-family:"Courier New";color:black;
+font-weight:normal'>Emptying a node</span></u><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;font-weight:normal'> results in the
+removal of <u>all the children of that node</u>. To empty a node, call the `<span
+class=SpellE>emptyNode</span>` method on that node.<o:p></o:p></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";color:black;
+font-weight:normal'>$x-&gt;records-&gt;<span class=GramE>person[</span>1]-&gt;remove();<span
+style='mso-spacerun:yes'>  </span>removes the second person<span
+style='mso-spacerun:yes'>  </span>node from the above XML resulting in <o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-family:"Courier New";color:#880088;
+font-weight:normal'>&lt;?xml</span></span><span style='font-family:"Courier New";
+color:#880088;font-weight:normal'> version=&quot;1.0&quot;
+encoding=&quot;UTF-8&quot;?&gt;</span><span style='font-family:"Courier New";
+font-weight:normal'><br>
+<span style='color:#000088'>&lt;records&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+style='color:#774000'> age=</span><span style='color:#660000'>&quot;15&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;name&gt;</span><span class=SpellE>alex</span><span
+style='color:#000088'>&lt;/name&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;name&gt;</span><span class=SpellE>albert</span><span
+style='color:#000088'>&lt;/name&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+<span style='color:#000088'>&lt;/records&gt;<o:p></o:p></span></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";color:black;
+font-weight:normal'>$x-&gt;records-&gt;<span class=GramE>person[</span>1]-&gt;<span
+class=SpellE>emptyNode</span>();<span style='mso-spacerun:yes'>  </span>removes
+the second persons child nodes from the above XML resulting in<o:p></o:p></span></h4>
+
+<h4><span class=GramE><span style='font-family:"Courier New";color:#880088;
+font-weight:normal'>&lt;?xml</span></span><span style='font-family:"Courier New";
+color:#880088;font-weight:normal'> version=&quot;1.0&quot;
+encoding=&quot;UTF-8&quot;?&gt;</span><span style='font-family:"Courier New";
+font-weight:normal'><br>
+<span style='color:#000088'>&lt;records&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+style='color:#774000'> age=</span><span style='color:#660000'>&quot;15&quot;</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;name&gt;</span><span class=SpellE>alex</span><span
+style='color:#000088'>&lt;/name&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+style='color:#774000'> age=</span><span style='color:#660000'>&quot;30&quot;/</span><span
+style='color:#000088'>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#000088'>&lt;name&gt;</span><span class=SpellE>albert</span><span
+style='color:#000088'>&lt;/name&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+<span style='color:#000088'>&lt;/records&gt;<o:p></o:p></span></span></h4>
+
+<h4><u><span style='font-size:10.0pt;font-family:"Courier New";font-weight:
+normal'>Example 3: Copying Nodes from one XML document to another XML document.<o:p></o:p></span></u></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Copying
+one node from one xml to another xml is as simple as an assignment.<o:p></o:p></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Consider
+the following two very simple xml objects.<o:p></o:p></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>The
+<span class=SpellE>crXml</span> statements and the resulting xml are shown
+below<o:p></o:p></span></h4>
+
+<h4><span style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>Consider
+that the source and destination <span class=SpellE>xmls</span> are loaded into
+two <span class=SpellE>crXml</span> objects $s and $d <span class=SpellE>respectievely</span>.<o:p></o:p></span></h4>
+
+<h4><span style='font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><span style='font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 align=left
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-table-lspace:9.0pt;margin-left:6.75pt;mso-table-rspace:9.0pt;margin-right:
+ 6.75pt;mso-table-anchor-vertical:margin;mso-table-anchor-horizontal:margin;
+ mso-table-left:left;mso-table-top:17.45pt;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;height:1.9pt'>
+  <td width=412 valign=top style='width:309.0pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:1.9pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-family:"Courier New";color:#000088;
+  font-weight:normal'>Source XML ($s)<o:p></o:p></span></h4>
+  </td>
+  <td width=400 valign=top style='width:300.1pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:1.9pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-family:"Courier New";color:#000088;
+  font-weight:normal'>Destination <span class=GramE>XML(</span>$d)<o:p></o:p></span></h4>
+  </td>
+  <td width=287 valign=top style='width:215.25pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:1.9pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:SimSun'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:18.65pt'>
+  <td width=412 valign=top style='width:309.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:18.65pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#880088;font-weight:normal'>&lt;?xml version=&quot;1.0&quot;
+  encoding=&quot;utf-8&quot;?&gt;</span><span style='font-size:10.0pt;
+  font-family:"Courier New";font-weight:normal'><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>'25'</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>'male'</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>John<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>'35'</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>'female'</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Ann<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;<br>
+  <span style='mso-spacerun:yes'>      </span>&lt;<span class=SpellE>personNew</span></span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>'15'</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>'female'</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span><span class=SpellE>Riya</span><span
+  style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/<span
+  class=SpellE>personNew</span>&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span><o:p></o:p></span></h4>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#880088;font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+  </td>
+  <td width=400 valign=top style='width:300.1pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:18.65pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#880088'>&lt;?xml version=&quot;1.0&quot;
+  encoding=&quot;utf-8&quot;?&gt;</span><span style='font-size:10.0pt;
+  font-family:"Courier New"'><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>'15'</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;male&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Max<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>'32'</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>'female'</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Liz<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  SimSun;color:#000088'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:SimSun;color:#000088'><o:p>&nbsp;</o:p></span></p>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#880088'><o:p>&nbsp;</o:p></span></h4>
+  </td>
+  <td width=287 valign=top style='width:215.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:18.65pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:SimSun'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;height:59.25pt'>
+  <td width=412 valign=top style='width:309.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:59.25pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>$d</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>-&gt;</span><span class=GramE><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>person</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>[</span></span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>1</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#007700;font-weight:
+  normal'>]&nbsp;=&nbsp;</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>$s</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>-&gt;</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>person</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#007700;font-weight:
+  normal'>[</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>0</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>];<o:p></o:p></span></h4>
+  </td>
+  <td width=400 valign=top style='width:300.1pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:59.25pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span class=GramE><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#880088;font-weight:normal'>&lt;?xml</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#880088;font-weight:
+  normal'> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;15&quot;</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;male&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Max<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;25&quot;</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;male&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>John<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#880088'><o:p></o:p></span></h4>
+  </td>
+  <td width=287 valign=top style='width:215.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:59.25pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><b><span style='font-size:
+  10.0pt;font-family:"Courier New"'>The destination nodes attribute and child
+  nodes are cleared.<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><b><span style='font-size:
+  10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><b><span style='font-size:
+  10.0pt;font-family:"Courier New"'>The attributes and children from<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><b><span style='font-size:
+  10.0pt;font-family:"Courier New"'>Source node is copied to destination making
+  the two nodes <span class=SpellE>equalent.If</span> the source node is of
+  different namespace the namespace is not copied <o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:59.25pt'>
+  <td width=412 valign=top style='width:309.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:59.25pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>$d</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>-&gt;</span><span class=GramE><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>person</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>[</span></span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>1</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#007700;font-weight:
+  normal'>]&nbsp;=&nbsp;</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>$s</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>-&gt;</span><span class=SpellE><span
+  style='font-size:10.0pt;font-family:"Courier New";color:blue;font-weight:
+  normal'>personNew</span></span><span style='font-size:10.0pt;font-family:
+  "Courier New";color:#007700;font-weight:normal'>;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'><o:p></o:p></span></h4>
+  </td>
+  <td width=400 valign=top style='width:300.1pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:59.25pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span class=GramE><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#880088;font-weight:normal'>&lt;?xml</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#880088;font-weight:
+  normal'> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;15&quot;</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;male&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Max<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;15&quot;</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;female&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span><span class=SpellE>Riya</span><span
+  style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span><span style='color:#880088'><o:p></o:p></span></span></h4>
+  </td>
+  <td width=287 valign=top style='width:215.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:59.25pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other'><b><span style='font-size:10.0pt;font-family:
+  "Courier New"'>Same as above,<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other'><b><span style='font-size:10.0pt;font-family:
+  "Courier New"'>The attributes and <span class=SpellE>childnodes</span> of
+  destination node are deleted.<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other'><b><span style='font-size:10.0pt;font-family:
+  "Courier New"'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other'><b><span style='font-size:10.0pt;font-family:
+  "Courier New"'>The attributes and children from<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><b><span style='font-size:
+  10.0pt;font-family:"Courier New"'>Source <span class=GramE>node are</span>
+  copied to destination making the two nodes equivalent. If the source node is
+  of different namespace the namespace is not copied</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;height:114.5pt'>
+  <td width=412 valign=top style='width:309.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:114.5pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>$s</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>-&gt;</span><span class=GramE><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>person</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>[</span></span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>0</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#007700;font-weight:
+  normal'>]-&gt;</span><span class=SpellE><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>appendTo</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#007700;font-weight:
+  normal'>(</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>$d</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>);</span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#000088;font-weight:normal'><o:p></o:p></span></h4>
+  </td>
+  <td width=400 valign=top style='width:300.1pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:114.5pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";color:#880088'>&lt;?xml version=&quot;1.0&quot;
+  encoding=&quot;UTF-8&quot;?&gt;</span><span style='font-size:10.0pt;
+  font-family:"Courier New"'><br>
+  <span style='color:#000088'>&lt;records&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;15&quot;</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;male&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Max<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;32&quot;</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;female&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Liz<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;person</span><span
+  style='color:#774000'> age=</span><span style='color:#660000'>&quot;25&quot;</span><span
+  style='color:#774000'> sex=</span><span style='color:#660000'>&quot;male&quot;</span><span
+  style='color:#000088'>&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>John<span style='color:#000088'>&lt;/name&gt;</span><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#000088'>&lt;/person&gt;</span><br>
+  <span style='color:#000088'>&lt;/records&gt;</span><b><o:p></o:p></b></span></p>
+  </td>
+  <td width=287 valign=top style='width:215.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:114.5pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:SimSun'>The source node is
+  appended to the<span style='mso-spacerun:yes'>  </span>child nodes of the
+  destination<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;height:104.65pt'>
+  <td width=412 valign=top style='width:309.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:104.65pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";color:#0000BB;font-weight:normal'>$d</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>-&gt;</span><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  class=GramE><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>person</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>[</span></span><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>1</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>]-&gt;</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>name&nbsp;</span><span style='font-size:
+  10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";color:#007700;
+  font-weight:normal'>=&nbsp;</span><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";color:#0000BB;font-weight:normal'>$s</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>-&gt;</span><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>records</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>-&gt;</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>person</span><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";color:#007700;font-weight:
+  normal'>[</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>0</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  color:#007700;font-weight:normal'>]-&gt;</span><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>name</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";color:#007700;font-weight:normal'>;</span><span
+  style='font-family:"Courier New";color:#000088;font-weight:normal'><o:p></o:p></span></h4>
+  </td>
+  <td width=400 valign=top style='width:300.1pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:104.65pt'><pre
+  style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span class=GramE><span style='color:#880088'>&lt;?xml</span></span><span
+  style='color:#880088'> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></pre><pre
+  style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='mso-spacerun:yes'>  </span><span
+  style='color:#000088'>&lt;records&gt;</span></pre><pre style='mso-element:
+  frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:
+  margin;mso-element-top:17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;person</span><span style='color:#774000'> age=</span><span
+  style='color:#660000'>&quot;15&quot;</span><span style='color:#774000'> sex=</span><span
+  style='color:#660000'>&quot;male&quot;</span><span style='color:#000088'>&gt;</span> </pre><pre
+  style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Max<span style='color:#000088'>&lt;/name&gt;</span> </pre><pre
+  style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;/person&gt;</span></pre><pre style='mso-element:
+  frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:
+  margin;mso-element-top:17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;person</span><span style='color:#774000'> age=</span><span
+  style='color:#660000'>&quot;32&quot;</span><span style='color:#774000'> sex=</span><span
+  style='color:#660000'>&quot;female&quot;</span><span style='color:#000088'>&gt;</span></pre><pre
+  style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>John<span style='color:#000088'>&lt;/name&gt;</span></pre><pre
+  style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;/person&gt;</span></pre><pre style='mso-element:
+  frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:
+  margin;mso-element-top:17.45pt;mso-height-rule:exactly'><span style='mso-spacerun:yes'>  </span><span
+  style='color:#000088'>&lt;/records&gt;</span><b><o:p></o:p></b></pre></td>
+  <td width=287 valign=top style='width:215.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:104.65pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:SimSun'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes;height:104.6pt'>
+  <td width=412 valign=top style='width:309.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:104.6pt'>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";color:#0000BB;font-weight:normal'>$d-&gt;records-&gt;<span
+  class=GramE>person[</span>1]-&gt;<span class=SpellE>appendNode</span>(<o:p></o:p></span></h4>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";color:#0000BB;font-weight:
+  normal'>crxml::<span class=GramE>factory</span></span></span><span
+  class=GramE><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New";color:#0000BB;font-weight:normal'>(</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  color:#0000BB;font-weight:normal'>&quot;&lt;<span class=SpellE>newNode</span>&gt;<span
+  class=SpellE>nodeV</span>&lt;person/&gt;&lt;/<span class=SpellE>newNode</span>&gt;&quot;)<o:p></o:p></span></h4>
+  <h4 style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";color:#0000BB;font-weight:normal'>);<o:p></o:p></span></h4>
+  </td>
+  <td width=400 valign=top style='width:300.1pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:104.6pt'><pre
+  style='mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:17.45pt;
+  mso-height-rule:exactly'><span style='color:#880088'>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'><span style='mso-spacerun:yes'>  </span><span
+  style='color:#000088'>&lt;records&gt;</span><br style='mso-special-character:
+  line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;person</span><span style='color:#774000'> age=</span><span
+  style='color:#660000'>&quot;15&quot;</span><span style='color:#774000'> sex=</span><span
+  style='color:#660000'>&quot;male&quot;</span><span style='color:#000088'>&gt;</span><br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Max<span style='color:#000088'>&lt;/name&gt;</span><br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;/person&gt;</span><br style='mso-special-character:
+  line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;person</span><span style='color:#774000'> age=</span><span
+  style='color:#660000'>&quot;32&quot;</span><span style='color:#774000'> sex=</span><span
+  style='color:#660000'>&quot;female&quot;</span><span style='color:#000088'>&gt;</span><br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;name&gt;</span>Liz<span style='color:#000088'>&lt;/name&gt;</span><br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;<span class=SpellE>newNode</span>&gt;</span><span
+  class=SpellE>newNodeValue</span><span style='color:#000088'>&lt;/<span
+  class=SpellE>newNode</span>&gt;</span><br style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='color:#000088'>&lt;/person&gt;</span><br style='mso-special-character:
+  line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></pre><pre style='mso-element:frame;mso-element-frame-hspace:9.0pt;
+  mso-element-wrap:around;mso-element-anchor-horizontal:margin;mso-element-top:
+  17.45pt;mso-height-rule:exactly'><span style='mso-spacerun:yes'>  </span><span
+  style='color:#000088'>&lt;/records&gt;</span><span style='color:#880088'><o:p></o:p></span></pre></td>
+  <td width=287 valign=top style='width:215.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:104.6pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:auto;punctuation-wrap:hanging;
+  text-autospace:ideograph-other;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-horizontal:margin;
+  mso-element-top:17.45pt;mso-height-rule:exactly'><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:SimSun'>The factory method
+  used to generate <span class=GramE>a</span> xml node, and append to the
+  second person node.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<h4><span style='font-family:"Courier New";color:#000088;font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><span style='font-family:"Courier New";color:#000088;font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><span style='font-family:"Courier New";color:#000088;font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><code><span style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></code></h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
+
+<h4><span style='font-family:"Courier New";font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<h4><span style='font-family:"Courier New";font-weight:normal'><o:p>&nbsp;</o:p></span></h4>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
