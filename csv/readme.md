@@ -1,0 +1,3 @@
+- 支持导入csv到数组,json,xml,调试数组   
+- 支持导出csv格式文件,默认是ANSI(gb2312或gbk)编码,可以wps,office打开
+- 导入csv注意需要是utf-8编码
