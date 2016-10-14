@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>上传</title>
+	</head>
+	<body>
+        <p>上传实例</p>
+        <form name="form1" enctype="multipart/form-data" method="post" action="1.php" />
+            <p><input type="file" size="32" name="my_field" value="" /></p>
+            <p class="button"><input type="hidden" name="action" value="simple" />
+            <input type="submit" name="Submit" value="upload" /></p>
+        </form>
+           <p>base64上传</p>
+        <form name="form6" enctype="multipart/form-data" method="post" action="1.php" />
+            <p><textarea cols="32" name="my_field">iVBORw0KGgoAAAANSUhEUgAAACUAAAARCAYAAABadWW4AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH4AoBFik0VcV6egAAALpJREFUSMftlk0KwyAUhMfSTRDP4ybkFgGPqSRHUvAW001TWpqnFgykkIG3iT/fqGNQkSROphtOqJcppdRHGWMwTRPWdf0atPWRJLU3M/gUALFCCHzX9l2S1N7KgDRRjJHzPBMArbVdTdUYKE2UcyYADsNwiCmJUQx6KTe9tMuQVpFSonOueHy1qu2UxGgKuve+q6kaQzSlteY4jlyWpTkzv94+iXHfOc7Dc1RjnPuPfpn6R1Pqero06gEPaFNPl21bvgAAAABJRU5ErkJggg==</textarea></p>
+            <p class="button"><input type="hidden" name="action" value="base64" />
+            <input type="submit" name="Submit" value="upload" /></p>
+        </form>     
+         <p>多选</p>
+        <form name="form3" enctype="multipart/form-data" method="post" action="1.php">
+            <p><input type="file" size="32" name="my_field[]" value="" /></p>
+            <p><input type="file" size="32" name="my_field[]" value="" /></p>
+            <p><input type="file" size="32" name="my_field[]" value="" /></p>
+            <p class="button"><input type="hidden" name="action" value="multiple" />
+            <input type="submit" name="Submit" value="upload" /></p>
+        </form>       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        		
+	</body>
+</html>
