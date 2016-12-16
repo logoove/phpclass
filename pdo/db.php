@@ -1,5 +1,18 @@
 <?php
-require_once('conf.php');
+$config = array();
+$config['db']['host'] = 'localhost';
+$config['db']['username'] = 'root';
+$config['db']['password'] = 'mysql';
+$config['db']['port'] = '3306';
+$config['db']['database'] = 'we7';
+$config['temp'] =str_replace("\\", '/',dirname(__FILE__))."/cache/";//临时目录
+$config['db']['charset'] = 'utf8';
+$config['db']['pconnect'] = 0;
+$config['db']['tablepre'] = 'ims_';
+$config['wx']['appid'] = 'wxe00001';//微信APPID
+$config['wx']['appsn'] = '12345678';//微信APPSN
+$config['domain'] = "http://".$_SERVER['HTTP_HOST']."/";//域名
+
 require 'db/db.class.php';
 
 /**
@@ -197,7 +210,10 @@ function dump($arr){
 * 
 * 格式化时间线
 */
-function timeline($time){  
+function timeline($time){
+    if(time()<=$time){
+    return date("Y-m-d H:i:s",$time);
+    }else{
     $t = time()-$time;  
     $f = array(  
         '31536000'=>'年',  
@@ -212,67 +228,9 @@ function timeline($time){
         if(0 != $c = floor($t/(int)$k)){  
             return $c.$v.'前';  
         }  
-    }  
+    }
+    }
 }
-
-/**
-* 
-* @param 对象 $obj
-* 
-* 对象转换数组
-*/
-function obj2arr($obj) {
-		if (is_object($obj)) {
-			$obj = get_object_vars($obj);
-		}
- 
-		if (is_array($obj)) {
-			return array_map(__FUNCTION__, $obj);
-		}
-		else {
-			return $obj;
-		}
-	}
-/**
-* 
-* @param 数组 $d
-* 
-*数组转换对象
-*/
-	function arr2obj($d) {
-if (is_array($d)) {
-
-return (object) array_map(__FUNCTION__, $d);
-}
-else {
-
-return $d;
-}
-} 
-/**
-* 
-* @param 数组 $arr
-* @param 层级 $level
-* @param undefined $ptagname
-* 
-* 数组转换xml
-*/	
-	function arr2xml($arr, $level = 1, $ptagname = '') {
-		$s = $level == 1 ? "<xml>" : '';
-		foreach($arr as $tagname => $value) {
-			if (is_numeric($tagname)) {
-				$tagname = $value['TagName'];
-				unset($value['TagName']);
-			}
-			if(!is_array($value)) {
-				$s .= "<{$tagname}>".(!is_numeric($value) ? '<![CDATA[' : '').$value.(!is_numeric($value) ? ']]>' : '')."</{$tagname}>";
-			} else {
-				$s .= "<{$tagname}>".self::arr2xml($value, $level + 1)."</{$tagname}>";
-			}
-		}
-		$s = preg_replace("/([\x01-\x08\x0b-\x0c\x0e-\x1f])+/", ' ', $s);
-		return $level == 1 ? $s."</xml>" : $s;
-	}
 /**
 * 
 * @param 文件名 $file
@@ -282,6 +240,188 @@ return $d;
 function file_ext($file){
 	return strtolower(pathinfo($file,4));
 }	
+/**
+* 表格转换成数组
+* @param 表格 $table
+* 
+* @return
+*/
+function table_arr($table) {   
+        $table = preg_replace("'<table[^>]*?>'si","",$table);  
+        $table = preg_replace("'<tr[^>]*?>'si","",$table);   
+        $table = preg_replace("'<td[^>]*?>'si","",$table);   
+        $table = str_replace("</tr>","{tr}",$table);   
+        $table = str_replace("</td>","{td}",$table);   
+        //去掉 HTML 标记    
+        $table = preg_replace("'<[/!]*?[^<>]*?>'si","",$table);  
+        //去掉空白字符     
+        $table = preg_replace("'([rn])[s]+'","",$table);
+        $table = preg_replace('/&nbsp;/',"",$table);   
+        $table = str_replace(" ","",$table);   
+        $table = str_replace(" ","",$table);   
+           
+        $table = explode('{tr}', $table);   
+        array_pop($table);   
+        foreach ($table as $key=>$tr) {   
+                $td = explode('{td}', $tr);   
+                array_pop($td);   
+            $td_array[] = $td;    
+        }   
+        return $td_array;   
+}
+//post提交
+function post($url,$msg){//post ssl
+$ch = curl_init();
+
+if (class_exists('\CURLFile')) {
+    curl_setopt($ch, CURLOPT_SAFE_UPLOAD, true);
+} else {
+    if (defined('CURLOPT_SAFE_UPLOAD')) {
+        curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
+    }
+}
+//$msg = array('media'=>"@".$filepath);
+//5.6+ $msg = array('media'=>new \CURLFile($filepath));
+preg_match('/https:\/\//',$url)?$ssl=TRUE:$ssl=FALSE;
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_URL,$url);
+if($ssl){
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+}
+curl_setopt($ch, CURLOPT_POSTFIELDS,$msg);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$data = curl_exec($ch);
+curl_close($ch);
+return $data;
+    }
+
+//get获取
+function get($url){   
+ $ch = curl_init();
+ preg_match('/https:\/\//',$url)?$ssl=TRUE:$ssl=FALSE;
+ curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+if($ssl){
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+}
+curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+$data  =  curl_exec($ch);
+curl_close($ch);
+return $data; 
+}
+//导出csv
+function csv($data,$filename){
+    header("Content-type:text/csv");
+    header("Content-Disposition:attachment;filename=".$filename.".csv");
+  echo "\xEF\xBB\xBF".$data;
+}
+/*编码解码 emoji表情
+* en默认编码  de解码
+*/
+function emoji($str,$is='en'){
+	if('en'==$is){
+    if(!is_string($str))return $str;
+    if(!$str || $str=='undefined')return '';
+
+    $text = json_encode($str);
+    $text = preg_replace_callback("/(\\\u[ed][0-9a-f]{3})/i",function($str){
+        return addslashes($str[0]);
+    },$text); 
+    return json_decode($text);		
+	}else{
+    $text = json_encode($str);
+    $text = preg_replace_callback('/\\\\\\\\/i',function($str){
+        return '\\';
+    },$text);
+    return json_decode($text);		
+	}
+}
+// 判断是否是在微信浏览器里
+function isweixin() {
+	$agent = $_SERVER ['HTTP_USER_AGENT'];
+	if (! strpos ( $agent, "icroMessenger" )) {
+		return false;
+	}
+	return true;
+}
+/**
+* 
+* @param 手机号 $phone
+* 
+* 隐藏手机中间四位
+*/	
+	function hidetel($phone){
+    $IsWhat = preg_match('/(0[0-9]{2,3}[-]?[2-9][0-9]{6,7}[-]?[0-9]?)/i',$phone); 
+    if($IsWhat == 1){
+        return preg_replace('/(0[0-9]{2,3}[-]?[2-9])[0-9]{3,4}([0-9]{3}[-]?[0-9]?)/i','$1****$2',$phone);
+    }else{
+        return  preg_replace('/(1[3587]{1}[0-9])[0-9]{4}([0-9]{4})/i','$1****$2',$phone);
+    }
+}
+/*
+生成22位长度sn
+*/
+//生成sn文件名,一般用于兑奖码,22位
+function sn(){
+return date('YmdHis').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
+}
+//去除换行空格
+function trimx($str) 
+{ 
+$str = trim($str);
+$str = preg_replace("/\t/","",$str);
+$str = preg_replace("/\r\n/","",$str); 
+$str = preg_replace("/\r/","",$str); 
+$str = preg_replace("/\n/","",$str); 
+$str = preg_replace("/ /","",$str);
+return trim($str); //返回字符串
+}
+/*概率算法
+proArr array(100,200,300，400)
+*/
+function get_rand($proArr) { 
+    $result = '';  
+    $proSum = array_sum($proArr);   
+    foreach ($proArr as $key => $proCur) { 
+        $randNum = mt_rand(1, $proSum); 
+        if ($randNum <= $proCur) { 
+            $result = $key; 
+            break; 
+        } else { 
+            $proSum -= $proCur; 
+        } 		
+    } 
+    unset ($proArr);  
+    return $result; 
+}
+/*
+function  get_prize(){//获取中奖
+$prize_arr = array( 
+    array('id'=>1,'prize'=>'平板电脑','v'=>1), 
+    array('id'=>2,'prize'=>'数码相机','v'=>1), 
+    array('id'=>3,'prize'=>'音箱设备','v'=>1), 
+   array('id'=>4,'prize'=>'4G优盘','v'=>1), 
+   array('id'=>5,'prize'=>'10Q币','v'=>1), 
+   array('id'=>6,'prize'=>'下次没准就能中哦','v'=>95), 
+);
+foreach ($prize_arr as $key => $val) { 
+    $arr[$val['id']] = $val['v']; 
+} 
+$ridk = get_rand($arr); //根据概率获取奖项id 
+
+$res['yes'] = $prize_arr[$ridk-1]['prize']; //中奖项 
+unset($prize_arr[$ridk-1]); //将中奖项从数组中剔除，剩下未中奖项 
+shuffle($prize_arr); //打乱数组顺序 
+for($i=0;$i<count($prize_arr);$i++){ 
+    $pr[] = $prize_arr[$i]['prize']; 
+} 
+$res['no'] = $pr;
+return $res;
+}
+*/
+
 /**
 * 
 * @param 文件名或路径 $file
@@ -389,16 +529,6 @@ function strcut($str,$length, $start=0, $suffix=true,$charset="utf-8") {
     }
     return $suffix ? $slice.'...' : $slice;
 }
-
-/**
-* 
-* @param 长度 $l
-* 最长32
-* 生成密码等随机长度字符串
-*/
-function strrandom($l=6){
- return substr(md5(time()),0,$l); 
-}
 /**
 * 
 * @param 生成字符长度 $len
@@ -407,7 +537,7 @@ function strrandom($l=6){
 * 
 * @return
 */
-function strrandom1($len=6,$type='',$addChars='') {
+function strrandom($len=6,$type='',$addChars='') {
     $str ='';
     switch($type) {
         case 0:
@@ -612,35 +742,7 @@ function timered($time,$color='red')
 		}
 	}
 
-/**
-* 表格转换成数组
-* @param 表格 $table
-* 
-* @return
-*/
-function table_arr($table) {   
-        $table = preg_replace("'<table[^>]*?>'si","",$table);  
-        $table = preg_replace("'<tr[^>]*?>'si","",$table);   
-        $table = preg_replace("'<td[^>]*?>'si","",$table);   
-        $table = str_replace("</tr>","{tr}",$table);   
-        $table = str_replace("</td>","{td}",$table);   
-        //去掉 HTML 标记    
-        $table = preg_replace("'<[/!]*?[^<>]*?>'si","",$table);  
-        //去掉空白字符     
-        $table = preg_replace("'([rn])[s]+'","",$table);
-        $table = preg_replace('/&nbsp;/',"",$table);   
-        $table = str_replace(" ","",$table);   
-        $table = str_replace(" ","",$table);   
-           
-        $table = explode('{tr}', $table);   
-        array_pop($table);   
-        foreach ($table as $key=>$tr) {   
-                $td = explode('{td}', $tr);   
-                array_pop($td);   
-            $td_array[] = $td;    
-        }   
-        return $td_array;   
-}
+
 /**
 * 去除文字之间或两边空格
 * @param 字符 $a
@@ -650,6 +752,8 @@ function table_arr($table) {
 function strtrim($a){
 	return preg_replace("/\s+/"," ",$a);
 }
+
+
 /**
 * 年转换天干地支
 * @param undefined $year
@@ -856,14 +960,7 @@ function menu_tree($tree, $prefix='') {
         }
     }
 }
-// 判断是否是在微信浏览器里
-function is_weixin() {
-	$agent = $_SERVER ['HTTP_USER_AGENT'];
-	if (! strpos ( $agent, "icroMessenger" )) {
-		return false;
-	}
-	return true;
-}
+
 
 // php获取当前访问的完整url地址
 function get_url() {
@@ -883,49 +980,6 @@ function get_url() {
 	return $url;
 }
 
-/**
-* 
-* @param 网址 $url
-* @param 提交数组 $msg
-* @param 是否支持 $ssl
-* 
-* POST数据
-*/
-function post($url,$msg,$ssl=false){//post ssl
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_URL,$url);
-if($ssl){
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-}
-curl_setopt($ch, CURLOPT_POSTFIELDS,$msg);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-$data = curl_exec($ch);
-curl_close($ch);
-
-return $data;
-    }
-/**
-* 
-* @param 网址 $url
-* @param 是否支持 $ssl
-* 
-* GET数据
-*/    
-function get($url,$ssl=false){   
- $ch = curl_init();
- curl_setopt($ch, CURLOPT_URL,$url);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-if($ssl){
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-}
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-$data  =  curl_exec($ch);
-curl_close($ch);
-return $data; 
-}
 
 /**
 * 
@@ -986,93 +1040,6 @@ global $config;
 
 /**
 * 
-* @param 要压缩字符串 $string
-* 
-* 压缩字符串
-*/
-function lzw_encode($string) {  
-    // compression  
-    $dictionary = array_flip(range("\0", "\xFF"));  
-    $word = "";  
-    $codes = array();  
-    for ($i=0; $i <= strlen($string); $i++) {  
-        $x = @$string[$i];  
-        if (strlen($x) && isset($dictionary[$word . $x])) {  
-            $word .= $x;  
-        } elseif ($i) {  
-            $codes[] = $dictionary[$word];  
-            $dictionary[$word . $x] = count($dictionary);  
-            $word = $x;  
-        }  
-    }  
-      
-    // convert codes to binary string  
-    $dictionary_count = 256;  
-    $bits = 8; // ceil(log($dictionary_count, 2))  
-    $return = "";  
-    $rest = 0;  
-    $rest_length = 0;  
-    foreach ($codes as $code) {  
-        $rest = ($rest << $bits) + $code;  
-        $rest_length += $bits;  
-        $dictionary_count++;  
-        if ($dictionary_count > (1 << $bits)) {  
-            $bits++;  
-        }  
-        while ($rest_length > 7) {  
-            $rest_length -= 8;  
-            $return .= chr($rest >> $rest_length);  
-            $rest &= (1 << $rest_length) - 1;  
-        }  
-    }  
-    return $return . ($rest_length ? chr($rest << (8 - $rest_length)) : "");  
-}  
-  
-/**
-* 
-* @param 解码被压缩字符串 $binary
-* 
-* @return
-*/ 
-function lzw_decode($binary) {  
-    // convert binary string to codes  
-    $dictionary_count = 256;  
-    $bits = 8; // ceil(log($dictionary_count, 2))  
-    $codes = array();  
-    $rest = 0;  
-    $rest_length = 0;  
-    for ($i=0; $i < strlen($binary); $i++) {  
-        $rest = ($rest << 8) + ord($binary[$i]);  
-        $rest_length += 8;  
-        if ($rest_length >= $bits) {  
-            $rest_length -= $bits;  
-            $codes[] = $rest >> $rest_length;  
-            $rest &= (1 << $rest_length) - 1;  
-            $dictionary_count++;  
-            if ($dictionary_count > (1 << $bits)) {  
-                $bits++;  
-            }  
-        }  
-    }  
-      
-    // decompression  
-    $dictionary = range("\0", "\xFF");  
-    $return = "";  
-    foreach ($codes as $i => $code) {  
-        $element = @$dictionary[$code];  
-        if (!isset($element)) {  
-            $element = $word . $word[0];  
-        }  
-        $return .= $element;  
-        if ($i) {  
-            $dictionary[] = $word . $element[0];  
-        }  
-        $word = $element;  
-    }  
-    return $return;  
-}
-/**
-* 
 * @param 开始时间戳 $begin_time
 * @param 结束时间戳 $end_time
 * 
@@ -1125,20 +1092,7 @@ function time_day($begin_time,$end_time)
 		return $str;
 	}
 	
-/**
-* 
-* @param 手机号 $phone
-* 
-* 隐藏手机中间四位
-*/	
-	function hidetel($phone){
-    $IsWhat = preg_match('/(0[0-9]{2,3}[-]?[2-9][0-9]{6,7}[-]?[0-9]?)/i',$phone); 
-    if($IsWhat == 1){
-        return preg_replace('/(0[0-9]{2,3}[-]?[2-9])[0-9]{3,4}([0-9]{3}[-]?[0-9]?)/i','$1****$2',$phone);
-    }else{
-        return  preg_replace('/(1[3587]{1}[0-9])[0-9]{4}([0-9]{4})/i','$1****$2',$phone);
-    }
-}
+
 /*
 内部方法
 show 数组转换xml格式或json格式或数组输出
@@ -1269,71 +1223,158 @@ $return_arr['total'] = array_sum($money_arr);
 $return_arr['max']=max($money_arr);
 return $return_arr;
 }
-/*概率算法
-proArr array(100,200,300，400)
+
+/*
+rgb转换成16进制
 */
-function get_rand($proArr) { 
-    $result = '';  
-    $proSum = array_sum($proArr);   
-    foreach ($proArr as $key => $proCur) { 
-        $randNum = mt_rand(1, $proSum); 
-        if ($randNum <= $proCur) { 
-            $result = $key; 
-            break; 
-        } else { 
-            $proSum -= $proCur; 
-        } 		
-    } 
-    unset ($proArr);  
-    return $result; 
+function rgb216($rgb){
+    $regexp = "/^rgb\(([0-9]{0,3})\,\s*([0-9]{0,3})\,\s*([0-9]{0,3})\)/";
+    $re = preg_match($regexp, $rgb, $match);
+    $re = array_shift($match);
+    $hexColor = "#";
+    $hex = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F');
+    for ($i = 0; $i < 3; $i++) {
+    $r = null;
+    $c = $match[$i];
+    $hexAr = array();
+while ($c > 16) {
+$r = $c % 16;
+    $c = ($c / 16) >> 0;
+    array_push($hexAr, $hex[$r]);
+}
+array_push($hexAr, $hex[$c]);
+    $ret = array_reverse($hexAr);
+    $item = implode('', $ret);
+    $item = str_pad($item, 2, '0', STR_PAD_LEFT);
+    $hexColor .= $item;
+    }
+    return $hexColor;
 }
 /*
-function  get_prize(){//获取中奖
-$prize_arr = array( 
-    array('id'=>1,'prize'=>'平板电脑','v'=>1), 
-    array('id'=>2,'prize'=>'数码相机','v'=>1), 
-    array('id'=>3,'prize'=>'音箱设备','v'=>1), 
-   array('id'=>4,'prize'=>'4G优盘','v'=>1), 
-   array('id'=>5,'prize'=>'10Q币','v'=>1), 
-   array('id'=>6,'prize'=>'下次没准就能中哦','v'=>95), 
-);
-foreach ($prize_arr as $key => $val) { 
-    $arr[$val['id']] = $val['v']; 
-} 
-$ridk = get_rand($arr); //根据概率获取奖项id 
-
-$res['yes'] = $prize_arr[$ridk-1]['prize']; //中奖项 
-unset($prize_arr[$ridk-1]); //将中奖项从数组中剔除，剩下未中奖项 
-shuffle($prize_arr); //打乱数组顺序 
-for($i=0;$i<count($prize_arr);$i++){ 
-    $pr[] = $prize_arr[$i]['prize']; 
-} 
-$res['no'] = $pr;
-return $res;
-}
+十六进制转换rgb
 */
-//昵称转换成utf8直接存储到数据库
- function emojien($str){
-    if(!is_string($str))return $str;
-    if(!$str || $str=='undefined')return '';
-
-    $text = json_encode($str);
-    $text = preg_replace_callback("/(\\\u[ed][0-9a-f]{3})/i",function($str){
-        return addslashes($str[0]);
-    },$text); 
-    return json_decode($text);
-}
-//显示解码
- function emojide($str){
-    $text = json_encode($str);
-    $text = preg_replace_callback('/\\\\\\\\/i',function($str){
-        return '\\';
-    },$text);
-    return json_decode($text);
+function c2rgb($hexColor) {
+    $color = str_replace('#', '', $hexColor);
+    if (strlen($color) > 3) {
+    $rgb = array(
+    'r' => hexdec(substr($color, 0, 2)),
+    'g' => hexdec(substr($color, 2, 2)),
+    'b' => hexdec(substr($color, 4, 2))
+    );
+    } else {
+    $color = str_replace('#', '', $hexColor);
+    $r = substr($color, 0, 1) . substr($color, 0, 1);
+    $g = substr($color, 1, 1) . substr($color, 1, 1);
+    $b = substr($color, 2, 1) . substr($color, 2, 1);
+    $rgb = array(
+    'r' => hexdec($r),
+    'g' => hexdec($g),
+    'b' => hexdec($b)
+    );
+    }
+    
+    return "rgb(".$rgb['r'].",".$rgb['g'].",".$rgb['b'].")";
 }
 /*
-生成20位长度sn
+获取图片主要颜色
 */
-function sn(){
-return date('YmdHis') . str_pad(mt_rand(1, 99999), 6, '0', STR_PAD_LEFT);
+function getpiccolor($pic){
+$i = imagecreatefromjpeg($pic);
+
+for ($x=0;$x<imagesx($i);$x++) {
+for ($y=0;$y<imagesy($i);$y++) {
+$rgb = imagecolorat($i,$x,$y);
+$r = ($rgb >> 16) & 0xFF;
+$g = ($rgb >>8) & 0xFF;
+$b = $rgb & 0xFF;
+$rTotal=$gTotal=$bTotal=$total=0;
+$rTotal += $r;
+$gTotal += $g;
+$bTotal += $b;
+$total++;
+}
+}
+
+$rAverage = round($rTotal/$total);
+$gAverage = round($gTotal/$total);
+$bAverage = round($bTotal/$total);
+return rgb216("rgb($rAverage,$gAverage,$bAverage)");
+}
+/**
+* 
+* @param 对象 $obj
+* 
+* 对象转换数组
+*/
+function obj2arr($obj) {
+		if (is_object($obj)) {
+			$obj = get_object_vars($obj);
+		}
+ 
+		if (is_array($obj)) {
+			return array_map(__FUNCTION__, $obj);
+		}
+		else {
+			return $obj;
+		}
+	}
+/**
+* 
+* @param 数组 $d
+* 
+*数组转换对象
+*/
+	function arr2obj($d) {
+if (is_array($d)) {
+
+return (object) array_map(__FUNCTION__, $d);
+}
+else {
+
+return $d;
+}
+}
+/**
+* 
+* @param 数组 $arr
+* @param 层级 $level
+* @param undefined $ptagname
+* 
+* 数组转换xml
+*/	
+	function arr2xml($arr, $level = 1, $ptagname = '') {
+		$s = $level == 1 ? "<xml>" : '';
+		foreach($arr as $tagname => $value) {
+			if (is_numeric($tagname)) {
+				$tagname = $value['TagName'];
+				unset($value['TagName']);
+			}
+			if(!is_array($value)) {
+				$s .= "<{$tagname}>".(!is_numeric($value) ? '<![CDATA[' : '').$value.(!is_numeric($value) ? ']]>' : '')."</{$tagname}>";
+			} else {
+				$s .= "<{$tagname}>".self::arr2xml($value, $level + 1)."</{$tagname}>";
+			}
+		}
+		$s = preg_replace("/([\x01-\x08\x0b-\x0c\x0e-\x1f])+/", ' ', $s);
+		return $level == 1 ? $s."</xml>" : $s;
+	}
+	/**
+	xml转换数组
+	*/
+function xml2arr($xml) {
+	if (empty($xml)) {
+		return array();
+	}
+	$result = array();
+	$xmlobj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+	if($xmlobj instanceof SimpleXMLElement) {
+		$result = json_decode(json_encode($xmlobj), true);
+		if (is_array($result)) {
+			return $result;
+		} else {
+			return array();
+		}
+	} else {
+		return $result;
+	}
 }
