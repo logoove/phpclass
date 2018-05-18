@@ -123,6 +123,12 @@ class PDOStatement_mysql {
 					if(!isset($tempf))
 						$tempf = $tempr = array();
 					array_push($tempf, $k);
+					if (strexists($v, '\u')) {
+						$v = str_replace('\u', '\\\\u', $v);
+					}
+					if (strexists($v, '\"')) {
+						$v = str_replace('\"', '\\\\"', $v);
+					}
 					array_push($tempr, '"'.mysql_escape_string($v).'"');
 				}
 				else {

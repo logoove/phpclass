@@ -14,11 +14,6 @@ $config['wx']['appsn'] = '12345678';//微信APPSN
 $config['domain'] = "http://".$_SERVER['HTTP_HOST']."/";//域名
 
 require 'db/db.class.php';
-
-/**
- * 初始化 pdo 对象实例
- * @return object->PDO
- */
 function pdo() {
 	global $config;
 	static $db;
@@ -28,170 +23,129 @@ function pdo() {
 	return $db;
 }
 
-/**
- * 执行一条非查询语句
- *
- * @param string $sql
- * @param array or string $params
- * @return mixed
- *		  成功返回受影响的行数
- *		  失败返回FALSE
- */
 function pdo_query($sql, $params = array()) {
 	return pdo()->query($sql, $params);
 }
 
-/**
- * 执行SQL返回第一个字段
- *
- * @param string $sql
- * @param array $params
- * @param int $column 返回查询结果的某列，默认为第一列
- * @return mixed
- */
+
 function pdo_fetchcolumn($sql, $params = array(), $column = 0) {
 	return pdo()->fetchcolumn($sql, $params, $column);
 }
-/**
- * 执行SQL返回第一行
- *
- * @param string $sql
- * @param array $params
- * @return mixed
- */
+
 function pdo_fetch($sql, $params = array()) {
 	return pdo()->fetch($sql, $params);
 }
-/**
- * 执行SQL返回全部记录
- *
- * @param string $sql
- * @param array $params
- * @return mixed
- */
+
 function pdo_fetchall($sql, $params = array(), $keyfield = '') {
 	return pdo()->fetchall($sql, $params, $keyfield);
 }
 
-/**
- * 更新记录
- *
- * @param string $table
- * @param array $data
- *		  要更新的数据数组
- *		  array(
- *			  '字段名' => '值'
- *		  )
- * @param array $params
- *		  更新条件
- *		  array(
- *			  '字段名' => '值'
- *		  )
- * @param string $glue
- *		  可以为AND OR
- * @return mixed
- */
+
+function pdo_get($tablename, $condition = array(), $fields = array()) {
+	return pdo()->get($tablename, $condition, $fields);
+}
+
+function pdo_getall($tablename, $condition = array(), $fields = array(), $keyfield = '', $orderby = array(), $limit = array()) {
+	return pdo()->getall($tablename, $condition, $fields, $keyfield, $orderby, $limit);
+}
+
+function pdo_getslice($tablename, $condition = array(), $limit = array(), &$total = null, $fields = array(), $keyfield = '', $orderby = array()) {
+	return pdo()->getslice($tablename, $condition, $limit, $total, $fields, $keyfield, $orderby);
+}
+
+function pdo_getcolumn($tablename, $condition = array(), $field) {
+	return pdo()->getcolumn($tablename, $condition, $field);
+}
+
+
+function pdo_exists($tablename, $condition = array()) {
+	return pdo()->exists($tablename, $condition);
+}
+
+
+function pdo_count($tablename, $condition = array(), $cachetime = 15) {
+	return pdo()->count($tablename, $condition, $cachetime);
+}
+
+
 function pdo_update($table, $data = array(), $params = array(), $glue = 'AND') {
 	return pdo()->update($table, $data, $params, $glue);
 }
 
-/**
- * 更新记录
- *
- * @param string $table
- * @param array $data
- *		  要更新的数据数组
- *		  array(
- *			  '字段名' => '值'
- *		  )
- * @param boolean $replace
- *		  是否执行REPLACE INTO
- *		  默认为FALSE
- * @return mixed
- */
+
 function pdo_insert($table, $data = array(), $replace = FALSE) {
 	return pdo()->insert($table, $data, $replace);
 }
 
-/**
- * 删除记录
- *
- * @param string $table
- * @param array $params
- *		  更新条件
- *		  array(
- *			  '字段名' => '值'
- *		  )
- * @param string $glue
- *		  可以为AND OR
- * @return mixed
- */
+
 function pdo_delete($table, $params = array(), $glue = 'AND') {
 	return pdo()->delete($table, $params, $glue);
 }
 
-/**
- * 返回lastInsertId
- *
- */
+
 function pdo_insertid() {
 	return pdo()->insertid();
 }
+
 
 function pdo_begin() {
 	pdo()->begin();
 }
 
+
 function pdo_commit() {
 	pdo()->commit();
 }
+
 
 function pdo_rollback() {
 	pdo()->rollBack();
 }
 
-/**
- * 获取pdo操作错误信息列表
- * @param bool $output 是否要输出执行记录和执行错误信息
- * @param array $append 加入执行信息，如果此参数不为空则 $output 参数为 false
- * @return array
- */
-function pdo_debug($output = false, $append = array()) {
+
+function pdo_debug($output = true, $append = array()) {
 	return pdo()->debug($output, $append);
 }
-/**
- * 执行SQL文件
- */
+
 function pdo_run($sql) {
 	return pdo()->run($sql);
 }
+
 
 function pdo_fieldexists($tablename, $fieldname = '') {
 	return pdo()->fieldexists($tablename, $fieldname);
 }
 
+function pdo_fieldmatch($tablename, $fieldname, $datatype = '', $length = '') {
+	return pdo()->fieldmatch($tablename, $fieldname, $datatype, $length);
+}
+
 function pdo_indexexists($tablename, $indexname = '') {
 	return pdo()->indexexists($tablename, $indexname);
 }
-/**
- * 获取所有字段,用于过滤字段
- * @param string $tablename 原始表名
- * @return array 所有表名 array('col1','col2');
- */
+
+
 function pdo_fetchallfields($tablename){
 	$fields = pdo_fetchall("DESCRIBE {$tablename}", array(), 'Field');
 	$fields = array_keys($fields);
 	return $fields;
 }
+
+
+function pdo_tableexists($tablename){
+	return pdo()->tableexists($tablename);
+}
+function strexists($string, $find) {
+	return !(strpos($string, $find) === FALSE);
+}
 function tablename($table) {
 global $config;
 	return $config['db']['tablepre'] .$table;
 }
-
-
-
-
-
+/**
+* emoji编码解码
+* en是编码 de是解码
+*/
 /**
 * 
 * 测试变量 数组 对象
@@ -204,11 +158,29 @@ function dump($arr){
 }
 
 }
+function emoji($str,$is='en'){
+	if('en'==$is){
+    if(!is_string($str))return $str;
+    if(!$str || $str=='undefined')return '';
+
+    $text = json_encode($str);
+    $text = preg_replace_callback("/(\\\u[ed][0-9a-f]{3})/i",function($str){
+        return addslashes($str[0]);
+    },$text); 
+    return json_decode($text);		
+	}else{
+    $text = json_encode($str);
+    $text = preg_replace_callback('/\\\\\\\\/i',function($str){
+        return '\\';
+    },$text);
+    return json_decode($text);		
+	}
+}
 /**
 * 
 * @param 时间戳 $time
-* 
-* 格式化时间线
+* 友好时间显示
+* @return 
 */
 function timeline($time){
     if(time()<=$time){
@@ -233,18 +205,18 @@ function timeline($time){
 }
 /**
 * 
-* @param 文件名 $file
+* @param 文件地址 $file
 * 
-* 获取文件扩展名
+* @return 文件扩展名,不含.
 */
 function file_ext($file){
 	return strtolower(pathinfo($file,4));
-}	
+}
 /**
-* 表格转换成数组
-* @param 表格 $table
+* 表格转化数组,一般用于抓取数据
+* @param table表格 $table
 * 
-* @return
+* @return 表格数组
 */
 function table_arr($table) {   
         $table = preg_replace("'<table[^>]*?>'si","",$table);  
@@ -269,10 +241,15 @@ function table_arr($table) {
         }   
         return $td_array;   
 }
-//post提交
+/**
+* POST提交数据
+* @param 地址 $url
+* @param 信息 $msg
+* 
+* @return
+*/
 function post($url,$msg){//post ssl
 $ch = curl_init();
-
 if (class_exists('\CURLFile')) {
     curl_setopt($ch, CURLOPT_SAFE_UPLOAD, true);
 } else {
@@ -295,8 +272,12 @@ $data = curl_exec($ch);
 curl_close($ch);
 return $data;
     }
-
-//get获取
+/**
+* GET数据
+* @param undefined $url
+* 
+* @return
+*/
 function get($url){   
  $ch = curl_init();
  preg_match('/https:\/\//',$url)?$ssl=TRUE:$ssl=FALSE;
@@ -311,35 +292,79 @@ $data  =  curl_exec($ch);
 curl_close($ch);
 return $data; 
 }
-//导出csv
-function csv($data,$filename){
-    header("Content-type:text/csv");
-    header("Content-Disposition:attachment;filename=".$filename.".csv");
-  echo "\xEF\xBB\xBF".$data;
-}
-/*编码解码 emoji表情
-* en默认编码  de解码
-*/
-function emoji($str,$is='en'){
-	if('en'==$is){
-    if(!is_string($str))return $str;
-    if(!$str || $str=='undefined')return '';
-
-    $text = json_encode($str);
-    $text = preg_replace_callback("/(\\\u[ed][0-9a-f]{3})/i",function($str){
-        return addslashes($str[0]);
-    },$text); 
-    return json_decode($text);		
-	}else{
-    $text = json_encode($str);
-    $text = preg_replace_callback('/\\\\\\\\/i',function($str){
-        return '\\';
-    },$text);
-    return json_decode($text);		
+ /**
+  导出csv数据,不支持大数据,大数据用分页导出
+$arr = array(
+array('用户名','密码','邮箱'),
+array(
+	array('A用户','123456','xiaohai1@zhongsou.com'),
+   	array('B用户','213456','xiaohai2@zhongsou.com'),
+   	array('C用户','123456','xiaohai3@zhongsou.com')
+));
+putcsv("导出文件",$arr);
+* 
+* 导出csv模板
+$arr = array(array('用户名','密码','邮箱'));
+putcsv("导出模板",$arr);
+  * 文件名不带.csv,自动加 
+  * $filename 导出文件名
+  * $arr 导出数组 
+  */
+function putcsv($filename,$arr){
+    if(empty($arr)){
+      return false;
+    }
+    $export_str = implode(',',$arr[0])."\n";
+    
+    if(!empty($arr[1])){
+    foreach($arr[1] as $k=>$v){
+   
+        $export_str .= implode(',',$v)."\n";
+      
+    }
 	}
-}
-// 判断是否是在微信浏览器里
-function isweixin() {
+    header("Content-type:application/vnd.ms-excel");
+    header("Content-Disposition:attachment;filename=".$filename.date('Y-m-d-H-i-s').".csv");
+    ob_start();   
+    ob_end_clean();
+    echo "\xEF\xBB\xBF".$export_str;//解决WPS和excel不乱码
+  }
+  /**
+  导入csv,编码ANSI
+read.csv数据
+
+商户名称, 昵称, 手机号
+惠吃惠喝, 会吃,18291443322
+egeme, 依加米,18923451622
+徐汇区,上海,18291447788
+衣服, 买衣服,18291448824
+米掌柜, MI,18291448822
+
+* $path = 'read.csv';
+$arr= getcsv($path);
+   * 导入csv返回数组,注意导入文件一定要是ANSI编码,也就是WPS和excel打开不乱码
+   * $path 文件路径
+   * */
+function getcsv($path){
+      $handle = fopen($path,'r');
+      $dataArray = array();
+      while($data = fgetcsv($handle)){
+        $num = count($data);
+          for($i=0;$i<$num;$i++){
+            $dataArray[$row][$i] = mb_convert_encoding($data[$i],"utf-8",'GBK');
+          }
+       
+        $row++;
+      }
+   
+    return $dataArray;
+  }
+  /**
+  * 是否微信
+  * 
+  * @return
+  */
+ function is_weixin() {
 	$agent = $_SERVER ['HTTP_USER_AGENT'];
 	if (! strpos ( $agent, "icroMessenger" )) {
 		return false;
@@ -347,187 +372,18 @@ function isweixin() {
 	return true;
 }
 /**
-* 
+* 隐藏手机中间四位
 * @param 手机号 $phone
 * 
-* 隐藏手机中间四位
-*/	
-	function hidetel($phone){
+* @return
+*/
+function hidetel($phone){
     $IsWhat = preg_match('/(0[0-9]{2,3}[-]?[2-9][0-9]{6,7}[-]?[0-9]?)/i',$phone); 
     if($IsWhat == 1){
         return preg_replace('/(0[0-9]{2,3}[-]?[2-9])[0-9]{3,4}([0-9]{3}[-]?[0-9]?)/i','$1****$2',$phone);
     }else{
         return  preg_replace('/(1[3587]{1}[0-9])[0-9]{4}([0-9]{4})/i','$1****$2',$phone);
     }
-}
-/*
-生成22位长度sn
-*/
-//生成sn文件名,一般用于兑奖码,22位
-function sn(){
-return date('YmdHis').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
-}
-//去除换行空格
-function trimx($str) 
-{ 
-$str = trim($str);
-$str = preg_replace("/\t/","",$str);
-$str = preg_replace("/\r\n/","",$str); 
-$str = preg_replace("/\r/","",$str); 
-$str = preg_replace("/\n/","",$str); 
-$str = preg_replace("/ /","",$str);
-return trim($str); //返回字符串
-}
-/*概率算法
-proArr array(100,200,300，400)
-*/
-function get_rand($proArr) { 
-    $result = '';  
-    $proSum = array_sum($proArr);   
-    foreach ($proArr as $key => $proCur) { 
-        $randNum = mt_rand(1, $proSum); 
-        if ($randNum <= $proCur) { 
-            $result = $key; 
-            break; 
-        } else { 
-            $proSum -= $proCur; 
-        } 		
-    } 
-    unset ($proArr);  
-    return $result; 
-}
-/*
-function  get_prize(){//获取中奖
-$prize_arr = array( 
-    array('id'=>1,'prize'=>'平板电脑','v'=>1), 
-    array('id'=>2,'prize'=>'数码相机','v'=>1), 
-    array('id'=>3,'prize'=>'音箱设备','v'=>1), 
-   array('id'=>4,'prize'=>'4G优盘','v'=>1), 
-   array('id'=>5,'prize'=>'10Q币','v'=>1), 
-   array('id'=>6,'prize'=>'下次没准就能中哦','v'=>95), 
-);
-foreach ($prize_arr as $key => $val) { 
-    $arr[$val['id']] = $val['v']; 
-} 
-$ridk = get_rand($arr); //根据概率获取奖项id 
-
-$res['yes'] = $prize_arr[$ridk-1]['prize']; //中奖项 
-unset($prize_arr[$ridk-1]); //将中奖项从数组中剔除，剩下未中奖项 
-shuffle($prize_arr); //打乱数组顺序 
-for($i=0;$i<count($prize_arr);$i++){ 
-    $pr[] = $prize_arr[$i]['prize']; 
-} 
-$res['no'] = $pr;
-return $res;
-}
-*/
-
-/**
-* 
-* @param 文件名或路径 $file
-* 
-* 删除文件夹或文件
-*/
-function file_delete($file){
-    if (empty($file))
-    	return false;
-    if (@is_file($file))
-        return @unlink($file);
-   	$ret = true;
-   	if ($handle = @opendir($file)) {
-		while ($filename = @readdir($handle)){
-			if ($filename == '.' || $filename == '..')
-				continue;
-			if (!file_delete($file . '/' . $filename))
-				$ret = false;
-		}
-   	} else {
-   		$ret = false;
-   	}
-   	@closedir($handle);
-	if ( file_exists($file) && !rmdir($file) ){
-		$ret = false;
-	}
-   	return $ret;
-}
-
-/**
-* 
-* @param 文件夹 $folder
-* @param undefined $levels
-* 
-* 列出文件
-*/
-function file_list($folder = '', $levels =10 ) {
-    if( empty($folder) )
-        return false;
-
-    if( ! $levels )
-        return false;
-
-    $files = array();
-    if ( $dir = @opendir( $folder ) ) {
-        while (($file = readdir( $dir ) ) !== false ) {
-            if ( in_array($file, array('.', '..') ) )
-                continue;
-            if ( is_dir( $folder . '/' . $file ) ) {
-                $files2 = file_list( $folder . '/' . $file, $levels -1);
-                if( $files2 )
-                    $files = array_merge($files, $files2 );
-                else
-                    $files[] = $folder . '/' . $file . '/';
-            } else {
-                $files[] = $folder . '/' . $file;
-            }
-        }
-    }
-    @closedir( $dir );
-    return $files;
-}
-/**
-* 
-* @param 字节大小 $size
-* @param 保留小数位数 $dec
-* 
-* 格式化文件大小
-*/
-function file_size($size, $dec=2) {
-	$a = array("B", "KB", "MB", "GB", "TB", "PB");
-	$pos = 0;
-	while ($size >= 1024) {
-		 $size /= 1024;
-		   $pos++;
-	}
-	return round($size,$dec)." ".$a[$pos];
-}
-
-/**
-* 
-* @param 字符串 $str
-* @param 长度 $length
-* @param 开始位置 $start
-* @param 是否显示... $suffix
-* @param 编码 $charset
-* 
-* 截取字符串
-*/
-function strcut($str,$length, $start=0, $suffix=true,$charset="utf-8") {
-    if(function_exists("mb_substr"))
-        $slice = mb_substr($str, $start, $length, $charset);
-    elseif(function_exists('iconv_substr')) {
-        $slice = iconv_substr($str,$start,$length,$charset);
-        if(false === $slice) {
-            $slice = '';
-        }
-    }else{
-        $re['utf-8']   = "/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xff][\x80-\xbf]{3}/";
-        $re['gb2312'] = "/[\x01-\x7f]|[\xb0-\xf7][\xa0-\xfe]/";
-        $re['gbk']    = "/[\x01-\x7f]|[\x81-\xfe][\x40-\xfe]/";
-        $re['big5']   = "/[\x01-\x7f]|[\x81-\xfe]([\x40-\x7e]|\xa1-\xfe])/";
-        preg_match_all($re[$charset], $str, $match);
-        $slice = join("",array_slice($match[0], $start, $length));
-    }
-    return $suffix ? $slice.'...' : $slice;
 }
 /**
 * 
@@ -537,7 +393,7 @@ function strcut($str,$length, $start=0, $suffix=true,$charset="utf-8") {
 * 
 * @return
 */
-function strrandom($len=6,$type='',$addChars='') {
+function rand_str($len=6,$type='',$addChars='') {
     $str ='';
     switch($type) {
         case 0:
@@ -572,11 +428,170 @@ function strrandom($len=6,$type='',$addChars='') {
     }
     return $str;
 }
+/*
+生成唯一订单号
+表名 ,字段名,前缀
+*/
+function ordersn($table, $field, $prefix)
+	{
+		$billno = date('YmdHis') . rand_str(6,1);
 
+		while (1) {
+			$count = pdo_fetchcolumn('select count(*) from ' . tablename($table) . ' where ' . $field . '=:billno limit 1', array(':billno' => $billno));
+
+			if ($count <= 0) {
+				break;
+			}
+
+			$billno = date('YmdHis') .rand_str(6,1);
+		}
+
+		return $prefix . $billno;
+	}
 /**
 * 
+* @param 字符串 $str
+* @param 长度 $length
+* @param 开始位置 $start
+* @param 是否显示... $suffix
+* @param 编码 $charset
 * 
+* 截取字符串
+*/
+function cut_str($str,$length, $start=0, $suffix=true,$charset="utf-8") {
+    if(function_exists("mb_substr"))
+        $slice = mb_substr($str, $start, $length, $charset);
+    elseif(function_exists('iconv_substr')) {
+        $slice = iconv_substr($str,$start,$length,$charset);
+        if(false === $slice) {
+            $slice = '';
+        }
+    }else{
+        $re['utf-8']   = "/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xff][\x80-\xbf]{3}/";
+        $re['gb2312'] = "/[\x01-\x7f]|[\xb0-\xf7][\xa0-\xfe]/";
+        $re['gbk']    = "/[\x01-\x7f]|[\x81-\xfe][\x40-\xfe]/";
+        $re['big5']   = "/[\x01-\x7f]|[\x81-\xfe]([\x40-\x7e]|\xa1-\xfe])/";
+        preg_match_all($re[$charset], $str, $match);
+        $slice = join("",array_slice($match[0], $start, $length));
+    }
+    return $suffix ? $slice.'...' : $slice;
+}	
+/**
+* 
+* @param 字节大小 $size
+* @param 保留小数位数 $dec
+* 
+* 格式化文件大小
+*/
+function file_size($size, $dec=2) {
+	$a = array("B", "KB", "MB", "GB", "TB", "PB");
+	$pos = 0;
+	while ($size >= 1024) {
+		 $size /= 1024;
+		   $pos++;
+	}
+	return round($size,$dec)." ".$a[$pos];
+}
+/**
+* 
+* @param 文件名或路径 $file
+* 
+* 删除文件夹或文件
+*/
+function file_delete($file){
+    if (empty($file))
+    	return false;
+    if (@is_file($file))
+        return @unlink($file);
+   	$ret = true;
+   	if ($handle = @opendir($file)) {
+		while ($filename = @readdir($handle)){
+			if ($filename == '.' || $filename == '..')
+				continue;
+			if (!file_delete($file . '/' . $filename))
+				$ret = false;
+		}
+   	} else {
+   		$ret = false;
+   	}
+   	@closedir($handle);
+	if ( file_exists($file) && !rmdir($file) ){
+		$ret = false;
+	}
+   	return $ret;
+}
+/*概率算法
+proArr array(100,200,300，400)
+function  get_prize(){//获取中奖
+$prize_arr = array( 
+    array('id'=>1,'prize'=>'平板电脑','v'=>1), 
+    array('id'=>2,'prize'=>'数码相机','v'=>1), 
+    array('id'=>3,'prize'=>'音箱设备','v'=>1), 
+   array('id'=>4,'prize'=>'4G优盘','v'=>1), 
+   array('id'=>5,'prize'=>'10Q币','v'=>1), 
+   array('id'=>6,'prize'=>'下次没准就能中哦','v'=>95), 
+);
+foreach ($prize_arr as $key => $val) { 
+    $arr[$val['id']] = $val['v']; 
+} 
+$ridk = get_rand($arr); //根据概率获取奖项id 
+
+$res['yes'] = $prize_arr[$ridk-1]['prize']; //中奖项 
+unset($prize_arr[$ridk-1]); //将中奖项从数组中剔除，剩下未中奖项 
+shuffle($prize_arr); //打乱数组顺序 
+for($i=0;$i<count($prize_arr);$i++){ 
+    $pr[] = $prize_arr[$i]['prize']; 
+} 
+$res['no'] = $pr;
+return $res;
+}
+*/
+function get_rand($proArr) { 
+    $result = '';  
+    $proSum = array_sum($proArr);   
+    foreach ($proArr as $key => $proCur) { 
+        $randNum = mt_rand(1, $proSum); 
+        if ($randNum <= $proCur) { 
+            $result = $key; 
+            break; 
+        } else { 
+            $proSum -= $proCur; 
+        } 		
+    } 
+    unset ($proArr);  
+    return $result; 
+}
+
+/**
+* 去除空格 换行
+* @param undefined $str
+* 
+* @return
+*/
+function trim_str($str) 
+{ 
+$str = trim($str);
+$str = preg_replace("/\t/","",$str);
+$str = preg_replace("/\r\n/","",$str); 
+$str = preg_replace("/\r/","",$str); 
+$str = preg_replace("/\n/","",$str); 
+$str = preg_replace("/ /","",$str);
+return trim($str); //返回字符串
+}
+/**
+* 
+* @param 字符串 $string
+* @param 要查找字符串 $find
+* 
+* 是否包含子字符串
+*/
+function find_str($string, $find) {
+	return !(strpos($string, $find) === FALSE);
+}
+/**
 * 获取ip
+* 
+* @return
 */
 function get_ip(){
 	$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
@@ -608,7 +623,15 @@ function get_avatar($email='', $s=40, $d='mm', $g='g') {
 * 
 * @return
 */
-function str_authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
+/**
+* 获得使用内存
+* 
+* @return 内存大小
+*/
+function get_memory(){
+  return round((memory_get_usage()/1024/1024),3)."M";
+}
+function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
     $ckey_length = 4;
     $keya = md5(substr($key, 0, 16));
     $keyb = md5(substr($key, 16, 16));
@@ -647,72 +670,12 @@ function str_authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
         return $keyc.str_replace('=', '', base64_encode($result));
     }
 }
-/**
-* 转换数字成大写
-* @param 要转化数字 $num
-* 
-* @return
-*/
-function get_rmb($num){
-		$c1 = "零壹贰叁肆伍陆柒捌玖";
-		$c2 = "分角元拾佰仟万拾佰仟亿";
-		$num = round($num, 2);
-		$num = $num * 100;
-		if (strlen($num) > 20) {
-			return "金额过大";
-		} 
-		$i = 0;
-		$c = "";
-		while (1) {
-			if ($i == 0) {
-				$n = substr($num, strlen($num)-1, 1);
-			} else {
-				$n = $num % 10;
-			} 
-			$p1 = substr($c1, 3 * $n, 3);
-			$p2 = substr($c2, 3 * $i, 3);
-			if ($n != '0' || ($n == '0' && ($p2 == '亿' || $p2 == '万' || $p2 == '元'))) {
-				$c = $p1 . $p2 . $c;
-			} else {
-				$c = $p1 . $c;
-			} 
-			$i = $i + 1;
-			$num = $num / 10;
-			$num = (int)$num;
-			if ($num == 0) {
-				break;
-			} 
-		}
-		$j = 0;
-		$slen = strlen($c);
-		while ($j < $slen) {
-			$m = substr($c, $j, 6);
-			if ($m == '零元' || $m == '零万' || $m == '零亿' || $m == '零零') {
-				$left = substr($c, 0, $j);
-				$right = substr($c, $j + 3);
-				$c = $left . $right;
-				$j = $j-3;
-				$slen = $slen-3;
-			} 
-			$j = $j + 3;
-		} 
-
-		if (substr($c, strlen($c)-3, 3) == '零') {
-			$c = substr($c, 0, strlen($c)-3);
-		}
-		if (empty($c)) {
-			return "零元整";
-		}else{
-			return $c . "整";
-		}
-	}
-	
 	/**
 * 生成随即颜色
 * 
 * @return
 */
-function randcolor(){
+function rand_color(){
     $char='abcdef0123456789';
     $str='';
        for($i=0;$i<6;$i++){
@@ -721,15 +684,12 @@ function randcolor(){
     return '#'.$str;
 }
 /**
-* 自动添加http://
-* @param 网站 $url
 * 
+* @param 时间戳 $time
+* @param 颜色 $color
+* 24小时内红色
 * @return
 */
-function addhttp($url){
-	return preg_match('/(http|https):\/\//',$url)?$url:'http://'.$url;
-}
-//转换红色时间
 function timered($time,$color='red')
 	{
 		if((time()-$time)>24*3600)
@@ -741,358 +701,6 @@ function timered($time,$color='red')
 			return '<span style="color:'.$color.'">'.timeline($time).'</span>';
 		}
 	}
-
-
-/**
-* 去除文字之间或两边空格
-* @param 字符 $a
-* 
-* @return
-*/
-function strtrim($a){
-	return preg_replace("/\s+/"," ",$a);
-}
-
-
-/**
-* 年转换天干地支
-* @param undefined $year
-* 
-* @return
-*/
-function tiangan($year){
-         $sky = array('庚','辛','壬','癸','甲','乙','丙','丁','戊','己');
-         $earth = array('申','酉','戌','亥','子','丑','寅','卯','辰','巳','午','未');
-         $year = $year.'';
-         return $sky[$year{3}].$earth[$year%12];
-}
-
-function shengxiao($year){
-         $zodiac = array('猴','鸡','狗','猪','鼠','牛','虎','兔','龙','蛇','马','羊');
-         return $zodiac[$year%12];
-    }
-function xingzuo($month, $day) {
- if ($month < 1 || $month > 12 || $day < 1 || $day > 31) return false;
- $constellations = array(
-  array( "20" => "水瓶座"),
-  array( "19" => "双鱼座"),
-  array( "21" => "白羊座"),
-  array( "20" => "金牛座"),
-  array( "21" => "双子座"),
-  array( "22" => "巨蟹座"),
-  array( "23" => "狮子座"),
-  array( "23" => "处女座"),
-  array( "23" => "天秤座"),
-  array( "24" => "天蝎座"),
-  array( "22" => "射手座"),
-  array( "22" => "摩羯座")
- );
- list($constellation_start, $constellation_name) = each($constellations[(int)$month-1]);
- if ($day < $constellation_start) list($constellation_start, $constellation_name) = each($constellations[($month -2 < 0) ? $month = 11: $month -= 2]);
- return $constellation_name;
-}
-
-function xingqi($y){
-	$n=((string)$y=='')?(string)date("w",time()) : (string)$y;
-$array=array('天','一','二','三','四','五','六');
-
-return '星期'.$array[$n];
-}
-
-//编码成unicode
-function utf8_unicode($name)
-{
-    $name = iconv('UTF-8', 'UCS-2', $name);
-    $len = strlen($name);
-    $str = '';
-    for ($i = 0; $i < $len - 1; $i = $i + 2)
-    {
-        $c = $name[$i];
-        $c2 = $name[$i + 1];
-        if (ord($c) > 0)
-        {  
-            // 两个字节的文字
-            $str .='\u'.base_convert(ord($c), 10, 16).base_convert(ord($c2), 10, 16);
-        }
-        else
-        {
-            $str .= $c2;
-        }
-    }
-    return $str;
-}
-function unicode_utf8($name)
-{
-    // 转换编码，将Unicode编码转换成可以浏览的utf-8编码
-    $pattern = '/([\w]+)|(\\\u([\w]{4}))/i';
-    preg_match_all($pattern, $name, $matches);
-    if (!empty($matches))
-    {
-        $name = '';
-        for ($j = 0; $j < count($matches[0]); $j++)
-        {
-            $str = $matches[0][$j];
-            if (strpos($str, '\\u') === 0)
-            {
-                $code = base_convert(substr($str, 2, 2), 16, 10);
-                $code2 = base_convert(substr($str, 4), 16, 10);
-                $c = chr($code).chr($code2);
-                $c = iconv('UCS-2', 'UTF-8', $c);
-                $name .= $c;
-            }
-            else
-            {
-                $name .= $str;
-            }
-        }
-    }
-    return $name;
-}
-
-/**
- * 对查询结果集进行排序
- *
- * @access public
- * @param array $list
- *        	查询结果
- * @param string $field
- *        	排序的字段名
- * @param array $sortby
- *        	排序类型
- *        	asc正向排序 desc逆向排序 nat自然排序
- * @return array
- *
- */
-function str_orderby($list, $field, $sortby = 'asc') {
-	if (is_array ( $list )) {
-		$refer = $resultSet = array ();
-		foreach ( $list as $i => $data )
-			$refer [$i] = &$data [$field];
-		switch ($sortby) {
-			case 'asc' : // 正向排序
-				asort ( $refer );
-				break;
-			case 'desc' : // 逆向排序
-				arsort ( $refer );
-				break;
-			case 'nat' : // 自然排序
-				natcasesort ( $refer );
-				break;
-		}
-		foreach ( $refer as $key => $val )
-			$resultSet [] = &$list [$key];
-		return $resultSet;
-	}
-	return false;
-}
-
-/**
- * 把返回的数据集转换成Tree
- *
- * @param array $list
- *        	要转换的数据集
- * @param string $pid
- *        	parent标记字段
- * @param string $level
- *        	level标记字段
- * @return array
- * @author 麦当苗儿 <zuojiazi@vip.qq.com>
- */
-function list_tree($list, $pk = 'id', $pid = 'pid', $child = '_child', $root = 0) {
-	// 创建Tree
-	$tree = array ();
-	if (is_array ( $list )) {
-		// 创建基于主键的数组引用
-		$refer = array ();
-		foreach ( $list as $key => $data ) {
-			$refer [$data [$pk]] = & $list [$key];
-		}
-		foreach ( $list as $key => $data ) {
-			// 判断是否存在parent
-			$parentId = $data [$pid];
-			if ($root == $parentId) {
-				$tree [] = & $list [$key];
-			} else {
-				if (isset ( $refer [$parentId] )) {
-					$parent = & $refer [$parentId];
-					$parent [$child] [] = & $list [$key];
-				}
-			}
-		}
-	}
-	return $tree;
-}
-/**
- * 将list_to_tree的树还原成列表
- *
- * @param array $tree
- *        	原来的树
- * @param string $child
- *        	孩子节点的键
- * @param string $order
- *        	排序显示的键，一般是主键 升序排列
- * @param array $list
- *        	过渡用的中间数组，
- * @return array 返回排过序的列表数组
- * @author yangweijie <yangweijiester@gmail.com>
- */
-function tree_list($tree, $child = '_child', $order = 'id', &$list = array()) {
-	if (is_array ( $tree )) {
-		$refer = array ();
-		foreach ( $tree as $key => $value ) {
-			$reffer = $value;
-			if (isset ( $reffer [$child] )) {
-				unset ( $reffer [$child] );
-				tree_list ( $value [$child], $child, $order, $list );
-			}
-			$list [] = $reffer;
-		}
-		$list = str_orderby( $list, $order, $sortby = 'asc' );
-	}
-	return $list;
-}
-//输出菜单 id pid title
-function menu_tree($tree, $prefix='') {
-    foreach ($tree as $k => $v) {
-       echo  '<option value="'.$v['id'].'">'.$prefix.$v['title'].'</option>';
-        if (count($v['_child']) > 0) {
-            menu_tree($v['_child'], $prefix.'--');
-        }
-    }
-}
-
-
-// php获取当前访问的完整url地址
-function get_url() {
-	$url = 'http://';
-	if (isset ( $_SERVER ['HTTPS'] ) && $_SERVER ['HTTPS'] == 'on') {
-		$url = 'https://';
-	}
-	if ($_SERVER ['SERVER_PORT'] != '80') {
-		$url .= $_SERVER ['HTTP_HOST'] . ':' . $_SERVER ['SERVER_PORT'] . $_SERVER ['REQUEST_URI'];
-	} else {
-		$url .= $_SERVER ['HTTP_HOST'] . $_SERVER ['REQUEST_URI'];
-	}
-	// 兼容后面的参数组装
-	if (stripos ( $url, '?' ) === false) {
-		$url .= '?t=' . time ();
-	}
-	return $url;
-}
-
-
-/**
-* 
-* @param 字符串 $string
-* @param 要查找字符串 $find
-* 
-* 是否包含子字符串
-*/
-function strfind($string, $find) {
-	return !(strpos($string, $find) === FALSE);
-}
-
-/**
-* 获得使用内存
-* 
-* @return 内存大小
-*/
-function get_memory(){
-  return round((memory_get_usage()/1024/1024),3)."M";
-}
-
-
-/*存储缓存
-*$key  缓存文件名
-*$value 缓存字符串货数组 值为空为 null表示删除
-$cachetime 缓存时间 0是永久 其他是秒
-*/
-function cachedata($key,$value='',$cachetime=0){
-global $config;
-    $dir =$config['temp'];
-		$filename = $dir.$key.'.txt';
-		if('' !== $value){//写入缓存
-			if(is_null($value)){
-				return @unlink($filename);
-			}
-			$dir = dirname($filename);
-			if(!is_dir($dir)){
-				mkdir($dir,0777);//创建目录
-			}
-			
-			$cachetime = sprintf('%011d',$cachetime);
-			return file_put_contents($filename,$cachetime.serialize($value));
-		}
-		
-		if(!is_file($filename)){
-			return 0;
-		}else{
-			$content = file_get_contents($filename);
-			$cachetime = (int)substr($content,0,11);
-			$value = substr($content,11);
-			if(0 !=$cachetime && ($cachetime+fileatime($filename) <time())){
-				@unlink($filename);
-				return 0;
-			}
-			return unserialize($value);
-		}
-	}
-
-/**
-* 
-* @param 开始时间戳 $begin_time
-* @param 结束时间戳 $end_time
-* 
-* 计算时间间隔
-*/
-function time_day($begin_time,$end_time)
-{
-      if($begin_time < $end_time){
-         $starttime = $begin_time;
-         $endtime = $end_time;
-      }
-      else{
-         $starttime = $end_time;
-         $endtime = $begin_time;
-      }
-      $timediff = $endtime-$starttime;
-      $days = intval($timediff/86400);
-      $remain = $timediff%86400;
-      $hours = intval($remain/3600);
-      $remain = $remain%3600;
-      $mins = intval($remain/60);
-      $secs = $remain%60;
-      $res = array("d" => $days,"H" => $hours,"i" => $mins,"s" => $secs);
-      return $res;
-}
-
-/**
-* 
-* @param 倒计时时间 $settime
-* 
-* @return
-*/
-	function daojishi($settime)
-	{
-        $time = time();
-        $settime  = strtotime($settime);
-        $interval = $settime - $time;
-        $days = $interval/(24*60*60);//精确到天数
-        $days = intval($days);
-        $hours = $interval /(60*60) - $days*24;//精确到小时
-        $hours = intval($hours);
-        $minutes = $interval /60 - $days*24*60 - $hours*60;//精确到分钟
-        $minutes = intval($minutes);
-        $seconds = $interval - $days*24*60*60 - $hours*60*60 - $minutes*60;//精确到秒
-        $seconds = intval($seconds);
-		$str = $days."天".$hours."小时".$minutes."分".$seconds."秒";
-		if(intval($days)<0){
-		$str=0;
-		}
-		return $str;
-	}
-	
-
 /*
 内部方法
 show 数组转换xml格式或json格式或数组输出
@@ -1141,7 +749,7 @@ function _arr2xml($code,$message='',$data = array()){
 		
 		header("Content-Type:text/xml");
 		
-		
+		$xml="";
 		$xml .= '<?xml   version="1.0"   encoding="utf-8"?>';
 		$xml  .='<root>';
 		$xml .="<code>{$code}</code>";
@@ -1153,7 +761,7 @@ function _arr2xml($code,$message='',$data = array()){
 		
 		echo $xml;
 	}	
-	function show($code,$message='',$data = array(),$type='json'){
+function show($code,$message='',$data = array(),$type='json'){
 				if(!is_numeric($code)){
 			return '';
 		}
@@ -1174,166 +782,6 @@ function _arr2xml($code,$message='',$data = array()){
 		}
 		
 	}
-	
-/**
-* 
-* @param 年月日 $date
-* 
-* 计算生日
-*/	
-	function age($date){
-    $year_diff = '';
-    $time = strtotime($date);
-    if(FALSE === $time){
-        return '';
-    }
-
-    $date = date('Y-m-d', $time);
-    list($year,$month,$day) = explode("-",$date);
-    $year_diff = date("Y")-$year;
-    $month_diff = date("m")-$month;
-    $day_diff = date("d")-$day;
-    if ($day_diff < 0 || $month_diff < 0) $year_diff;
-
-    return $year_diff;
-}
-
-/*
-$total 红包总额
-$num 发几个
-$min  最小红包
-*/
-function get_hongbao($total, $num = 10,$min = 0.01)
-{
-$money_arr = array();
-$return_arr = array();
-for ($i = 1; $i <$num; ++$i) {
-$max =round($total, 2)/($num-$i);
-$random =  0.01+ mt_rand() / mt_getrandmax() * (0.99- 0.01); 
-$money = $random*$max;
-$money = $money<=$min?0.01:$money;
-$money =floor($money*100)/100;
-$total = $total - $money;
-$money_arr[$i] = round($money, 2);
-}
-$money_arr[$i] = round($total, 2);
-shuffle($money_arr);
-$return_arr['money'] = $money_arr;
-$return_arr['total'] = array_sum($money_arr);
-$return_arr['max']=max($money_arr);
-return $return_arr;
-}
-
-/*
-rgb转换成16进制
-*/
-function rgb216($rgb){
-    $regexp = "/^rgb\(([0-9]{0,3})\,\s*([0-9]{0,3})\,\s*([0-9]{0,3})\)/";
-    $re = preg_match($regexp, $rgb, $match);
-    $re = array_shift($match);
-    $hexColor = "#";
-    $hex = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F');
-    for ($i = 0; $i < 3; $i++) {
-    $r = null;
-    $c = $match[$i];
-    $hexAr = array();
-while ($c > 16) {
-$r = $c % 16;
-    $c = ($c / 16) >> 0;
-    array_push($hexAr, $hex[$r]);
-}
-array_push($hexAr, $hex[$c]);
-    $ret = array_reverse($hexAr);
-    $item = implode('', $ret);
-    $item = str_pad($item, 2, '0', STR_PAD_LEFT);
-    $hexColor .= $item;
-    }
-    return $hexColor;
-}
-/*
-十六进制转换rgb
-*/
-function c2rgb($hexColor) {
-    $color = str_replace('#', '', $hexColor);
-    if (strlen($color) > 3) {
-    $rgb = array(
-    'r' => hexdec(substr($color, 0, 2)),
-    'g' => hexdec(substr($color, 2, 2)),
-    'b' => hexdec(substr($color, 4, 2))
-    );
-    } else {
-    $color = str_replace('#', '', $hexColor);
-    $r = substr($color, 0, 1) . substr($color, 0, 1);
-    $g = substr($color, 1, 1) . substr($color, 1, 1);
-    $b = substr($color, 2, 1) . substr($color, 2, 1);
-    $rgb = array(
-    'r' => hexdec($r),
-    'g' => hexdec($g),
-    'b' => hexdec($b)
-    );
-    }
-    
-    return "rgb(".$rgb['r'].",".$rgb['g'].",".$rgb['b'].")";
-}
-/*
-获取图片主要颜色
-*/
-function getpiccolor($pic){
-$i = imagecreatefromjpeg($pic);
-
-for ($x=0;$x<imagesx($i);$x++) {
-for ($y=0;$y<imagesy($i);$y++) {
-$rgb = imagecolorat($i,$x,$y);
-$r = ($rgb >> 16) & 0xFF;
-$g = ($rgb >>8) & 0xFF;
-$b = $rgb & 0xFF;
-$rTotal=$gTotal=$bTotal=$total=0;
-$rTotal += $r;
-$gTotal += $g;
-$bTotal += $b;
-$total++;
-}
-}
-
-$rAverage = round($rTotal/$total);
-$gAverage = round($gTotal/$total);
-$bAverage = round($bTotal/$total);
-return rgb216("rgb($rAverage,$gAverage,$bAverage)");
-}
-/**
-* 
-* @param 对象 $obj
-* 
-* 对象转换数组
-*/
-function obj2arr($obj) {
-		if (is_object($obj)) {
-			$obj = get_object_vars($obj);
-		}
- 
-		if (is_array($obj)) {
-			return array_map(__FUNCTION__, $obj);
-		}
-		else {
-			return $obj;
-		}
-	}
-/**
-* 
-* @param 数组 $d
-* 
-*数组转换对象
-*/
-	function arr2obj($d) {
-if (is_array($d)) {
-
-return (object) array_map(__FUNCTION__, $d);
-}
-else {
-
-return $d;
-}
-}
 /**
 * 
 * @param 数组 $arr
@@ -1377,4 +825,525 @@ function xml2arr($xml) {
 	} else {
 		return $result;
 	}
+}
+/*
+创建文件或文件夹
+参数是数组
+file_create(["qq/","qq.txt","qqq/tt/"]);
+*/
+function file_create($files) {
+        foreach ($files as $key => $value) {
+            if(substr($value, -1) == '/'){
+                mkdir($value, 0777, true);
+            }else{
+                @file_put_contents($value, '');
+            }
+        }
+    }		
+//分页函数
+function pager($tcount, $pindex, $psize = 15, $url = '', $context = array('before' => 5, 'after' => 4, 'ajaxcallback' => '')) {
+	global $_W;
+	$pdata = array(
+		'tcount' => 0,
+		'tpage' => 0,
+		'cindex' => 0,
+		'findex' => 0,
+		'pindex' => 0,
+		'nindex' => 0,
+		'lindex' => 0,
+		'options' => ''
+	);
+	if($context['ajaxcallback']) {
+		$context['isajax'] = true;
+	}
+
+	$pdata['tcount'] = $tcount;
+	$pdata['tpage'] = ceil($tcount / $psize);
+	if($pdata['tpage'] <= 1) {
+		return '';
+	}
+	$cindex = $pindex;
+	$cindex = min($cindex, $pdata['tpage']);
+	$cindex = max($cindex, 1);
+	$pdata['cindex'] = $cindex;
+	$pdata['findex'] = 1;
+	$pdata['pindex'] = $cindex > 1 ? $cindex - 1 : 1;
+	$pdata['nindex'] = $cindex < $pdata['tpage'] ? $cindex + 1 : $pdata['tpage'];
+	$pdata['lindex'] = $pdata['tpage'];
+
+	if($context['isajax']) {
+		if(!$url) {
+			$url = $_W['script_name'] . '?' . http_build_query($_GET);
+		}
+		$pdata['faa'] = 'href="javascript:;" onclick="p(\'' . $_W['script_name'] . $url . '\', \'' . $pdata['findex'] . '\', ' . $context['ajaxcallback'] . ')"';
+		$pdata['paa'] = 'href="javascript:;" onclick="p(\'' . $_W['script_name'] . $url . '\', \'' . $pdata['pindex'] . '\', ' . $context['ajaxcallback'] . ')"';
+		$pdata['naa'] = 'href="javascript:;" onclick="p(\'' . $_W['script_name'] . $url . '\', \'' . $pdata['nindex'] . '\', ' . $context['ajaxcallback'] . ')"';
+		$pdata['laa'] = 'href="javascript:;" onclick="p(\'' . $_W['script_name'] . $url . '\', \'' . $pdata['lindex'] . '\', ' . $context['ajaxcallback'] . ')"';
+	} else {
+		if($url) {
+			$pdata['faa'] = 'href="?' . str_replace('*', $pdata['findex'], $url) . '"';
+			$pdata['paa'] = 'href="?' . str_replace('*', $pdata['pindex'], $url) . '"';
+			$pdata['naa'] = 'href="?' . str_replace('*', $pdata['nindex'], $url) . '"';
+			$pdata['laa'] = 'href="?' . str_replace('*', $pdata['lindex'], $url) . '"';
+		} else {
+			$_GET['page'] = $pdata['findex'];
+			$pdata['faa'] = 'href="' . $_W['script_name'] . '?' . http_build_query($_GET) . '"';
+			$_GET['page'] = $pdata['pindex'];
+			$pdata['paa'] = 'href="' . $_W['script_name'] . '?' . http_build_query($_GET) . '"';
+			$_GET['page'] = $pdata['nindex'];
+			$pdata['naa'] = 'href="' . $_W['script_name'] . '?' . http_build_query($_GET) . '"';
+			$_GET['page'] = $pdata['lindex'];
+			$pdata['laa'] = 'href="' . $_W['script_name'] . '?' . http_build_query($_GET) . '"';
+		}
+	}
+
+	$html = '	<div class="page-hd bg-gray" style="height:32px;">
+	<div class="pager"  id="pager"><div class="pager-left">';
+
+		$html .= "<div class=\"pager-first\"><a {$pdata['faa']} class=\"pager-nav\">首页</a></div>";
+		$html .= "<div class=\"pager-pre\"><a {$pdata['paa']} class=\"pager-nav\">上一页</a></div>";
+	$html .='</div><div class="pager-cen">
+					' .$pindex.'/'.$pdata['tpage'].'
+				</div><div class="pager-right">';
+
+		$html .= "<div class=\"pager-next\"><a {$pdata['naa']} class=\"pager-nav\">下一页</a></div>";
+		$html .= "<div class=\"pager-end\"><a {$pdata['laa']} class=\"pager-nav\">尾页</a></div>";
+	
+	$html .= '</div></div></div>';
+	return $html;
+}
+/**
+* 
+* @param undefined $type 弹出类型 1,2,3
+* @param undefined $info 提示语
+* @param undefined $url 跳转地址
+* 
+* @return
+*/
+function alert($type=1,$info="",$url=""){
+	if(1==$type){//自动关闭
+		$strs = empty($info)?"":"alert('$info');";
+		echo "<script>".$strs."document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+WeixinJSBridge.call('closeWindow');});</script>";exit;
+	}elseif(2==$type){//显示跳转中...
+		$urls = empty($url)?"":'location.href="'.$url.'";';
+		$strs = empty($info)?"正在跳转中...":$info;
+		echo "<meta charset='utf-8'>";
+		die('<script type="text/javascript">document.write("<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=0\"><div style=\"font-size:16px;margin:30px auto;text-align:center;\">'.$strs.'</div>");document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {WeixinJSBridge.call("hideOptionMenu");'.$urls.'});</script>');
+	}elseif(3==$type){//普通弹出,跳转
+		$strs = empty($info)?"":"alert('$info');";
+		$urls = empty($url)?"":'location.href="'.$url.'";';
+die('<script type="text/javascript">'.$strs.$urls.'</script>');
+	}elseif(4==$type){//蓝色i
+	echo "<meta charset='utf-8'>";
+	die('<script>document.write("<title>'.$info.'</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=0\"><link rel=\"stylesheet\"  href=\"https://res.wx.qq.com/open/libs/weui/0.4.3/weui.min.css\"><div class=\"weui_msg\"><div class=\"weui_icon_area\"><i class=\"weui_icon_info weui_icon_msg\"></i></div><div class=\"weui_text_area\"><h4 class=\"weui_msg_title\">'.$info.'</h4></div></div>");document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {WeixinJSBridge.call("hideOptionMenu");});</script>');
+	
+	}elseif(5==$type){//红色警告!
+	echo "<meta charset='utf-8'>";
+	die('<script>document.write("<title>'.$info.'</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=0\"><link rel=\"stylesheet\"  href=\"https://res.wx.qq.com/open/libs/weui/0.4.3/weui.min.css\"><div class=\"weui_msg\"><div class=\"weui_icon_area\"><i class=\"weui_icon_msg weui_icon_warn\"></i></div><div class=\"weui_text_area\"><h4 class=\"weui_msg_title\">'.$info.'</h4></div></div>");document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {WeixinJSBridge.call("hideOptionMenu");});</script>');
+	
+	}elseif(6==$type){//绿色成功√
+	echo "<meta charset='utf-8'>";
+	die('<script>document.write("<title>'.$info.'</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=0\"><link rel=\"stylesheet\"  href=\"https://res.wx.qq.com/open/libs/weui/0.4.3/weui.min.css\"><div class=\"weui_msg\"><div class=\"weui_icon_area\"><i class=\"weui_icon_msg weui_icon_success\"></i></div><div class=\"weui_text_area\"><h4 class=\"weui_msg_title\">'.$info.'</h4></div></div>");document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {WeixinJSBridge.call("hideOptionMenu");});</script>');
+	
+	}
+}
+/*
+发送文本类型客服消息
+*openid和文本内容
+*/
+function send_kefu($openid,$content) {
+ load()->classs('weixin.account');
+ $token =WeAccount::token();
+ $msg = '{
+    "touser":"'.$openid.'",
+    "msgtype":"text",
+    "text":
+    {
+         "content":"'.$content.'"
+    }
+}';
+$url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=".$token;
+post($url,$msg);   
+}
+/**
+* 发送模板消息
+* @param 用户id $openid
+* @param 模板id $tpl_id
+* @param 数组 $postdata
+* @param 打开地址 $url
+* @param 标题背景色 $topcolor
+* 
+ $arr = array(); 
+$dataarr =array(
+'五一放假通知','本校教务处','管理员','2016-4-28','学校决定五一放假3天,祝大家玩得愉快','点击查看详情'
+);
+$ss = '{{first.DATA}}
+学校：{{keyword1.DATA}}
+通知人：{{keyword2.DATA}}
+时间：{{keyword3.DATA}}
+通知内容：{{keyword4.DATA}}
+{{remark.DATA}}';
+preg_match_all('/{{(.*).DATA}}/',$ss,$rs);
+foreach($rs[1] as  $k=>$v){
+$arr[$v] = array(
+  'value'=>$dataarr[$k]
+);
+}
+$arr['first']['color']='#04be02';
+$arr['remark']['color']='#18b4ed';
+send_tpl($openid,'3oiem69kUht504hUJRvd9UgZzaGJrBauNNOH9yB6sq4', $arr,'http://weixin.yoby123.cn/app/index.php?i=1&c=entry&do=fm&m=yoby_game','#FF683F');
+*/
+
+function send_tpl($openid, $tpl_id, $postdata, $url = '', $topcolor = '#FF683F'){
+      $token =WeAccount::token();
+        $data = array();
+        $data['touser'] = $openid;
+        $data['template_id'] = trim($tpl_id);
+        $data['url'] = trim($url);
+        $data['topcolor'] = trim($topcolor);
+        $data['data'] = $postdata;
+        $data = json_encode($data);
+        $post_url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={$token}";
+        $response = post($post_url, $data);
+        return true;
+    }
+/**
+* 
+* @param 媒体id $meid
+* 下载多媒体图片
+* @return
+*/
+function get_media($meid){
+$token = WeAccount::token();
+$data =get("https://api.weixin.qq.com/cgi-bin/media/get?access_token=$token&media_id=$meid");
+
+return $data;
+}
+/**
+* 上传多媒体
+* @param 文件名 $filename
+* @param 类型 $type
+* 
+* @return
+*/
+function set_media($filename,$type='image'){
+$token = WeAccount::token();
+$curl = curl_init ();  
+if (class_exists ( '/CURLFile' )) {  
+            curl_setopt ( $curl, CURLOPT_SAFE_UPLOAD, true );
+              $msg = array (  
+        'fieldname' => new \CURLFile ( realpath ( $filename ), 'image/jpeg' )   
+    );  
+        } else {  
+        $msg = array('media'=>'@'.$filename);
+            if (defined ( 'CURLOPT_SAFE_UPLOAD' )) {  
+                curl_setopt ( $curl, CURLOPT_SAFE_UPLOAD, false );  
+            }  
+        }  
+        curl_setopt ( $curl, CURLOPT_URL, "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=$token&type=$type");  
+        curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, FALSE );  
+        curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, FALSE );  
+        if (! empty ( $msg )) {  
+            curl_setopt ( $curl, CURLOPT_POST, 1 );  
+            @curl_setopt ( $curl, CURLOPT_POSTFIELDS, $msg );  
+        }  
+        curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, 1 );  
+        $data = curl_exec ( $curl );  
+        curl_close ( $curl );  
+return $data;
+}
+/**
+* 
+* @param 图片路径 $src
+* 
+* @return 图片信息
+*/
+function get_img($src){
+if(empty($src)){
+	return '';
+}
+$srcarr = getimagesize($src);
+$arr = array(1=>'gif','jpg','png');
+return $srcarr[0]."X".$srcarr[1]."  ".$arr[$srcarr[2]];
+}
+/**
+* 
+* @param 是否返回base64 $isbaseb4
+* @param 是否调试 $isdebug
+* 使用oauth方式获取,用于服务号
+* @return
+*/
+function get_userinfo($isbaseb4=false,$isdebug=false){
+	$userinfo = array();
+	if($isdebug){
+		$userinfo = array('openid' => 'oT-ihv9XGkJbX9owJiLZcZPAJcog', 'nickname' => '狸小狐', 'headimgurl' => 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png', 'province' => '山东', 'city' => '青岛');
+	}else{
+		load()->model('mc');
+		$userinfo = mc_oauth_userinfo();
+	}
+	return $isbaseb4?urlencode(base64_encode(json_encode($userinfo))):$userinfo;
+}
+/**
+* 
+* @param  $openid
+* 判断用户是否关注,不填写openid自动获取当前用户openid,关注返回1,其他都返回0
+* @return
+*/
+ function is_follow($openid = '') 
+	{
+		global $_W;
+		$openid = (empty($openid))?$_W['openid']:$openid;
+		if (!empty($openid))
+		{
+			$rs = pdo_fetch('select follow from ' . tablename('mc_mapping_fans') . ' where openid=:openid and uniacid=:uniacid limit 1', array(':openid' => $openid, ':uniacid' => $_W['uniacid']));
+			$followed = ($rs['follow'] == 1)?1:0;
+			return $followed;
+		}else{
+			return 0;
+		}
+		
+	}
+/**
+* 生成唯一id字符串
+*/
+function get_id(){
+	return md5(uniqid());
+}
+// php获取当前访问的完整url地址
+function get_url() {
+	$url = 'http://';
+	if (isset ( $_SERVER ['HTTPS'] ) && $_SERVER ['HTTPS'] == 'on') {
+		$url = 'https://';
+	}
+	if ($_SERVER ['SERVER_PORT'] != '80') {
+		$url .= $_SERVER ['HTTP_HOST'] . ':' . $_SERVER ['SERVER_PORT'] . $_SERVER ['REQUEST_URI'];
+	} else {
+		$url .= $_SERVER ['HTTP_HOST'] . $_SERVER ['REQUEST_URI'];
+	}
+	// 兼容后面的参数组装
+	if (stripos ( $url, '?' ) === false) {
+		$url .= '?t=' . time ();
+	}
+	return $url;
+}
+/**
+* 字符串与数组互相转换,转换自动判断是否数组
+*/
+function str2arr($var,$str=','){
+	if(is_array($var)){
+		return implode($str,$var);
+	}else{
+		return explode($str,$var);
+	}
+}
+/**
+* 生成日志
+*/
+function logging($str){
+load()->func('logging');
+logging_run($str);
+}
+/**
+* 判断是否utf8编码
+* @param undefined $string
+* 
+* @return
+*/
+function is_utf8($string)
+    {
+        $c    = 0; 
+        $b    = 0;
+        $bits = 0;
+        $len  = strlen($string);
+        for($i=0; $i<$len; $i++)
+        {
+            $c = ord($string[$i]);
+            if($c > 128)
+            {
+                if(($c >= 254)) return false;
+                elseif($c >= 252) $bits=6;
+                elseif($c >= 248) $bits=5;
+                elseif($c >= 240) $bits=4;
+                elseif($c >= 224) $bits=3;
+                elseif($c >= 192) $bits=2;
+                else return false;
+                if(($i+$bits) > $len) return false;
+                while($bits > 1)
+                {
+                    $i++;
+                    $b=ord($string[$i]);
+                    if($b < 128 || $b > 191) return false;
+                    $bits--;
+                }
+            }
+        }
+        return true;
+    }
+/**
+* 判断是否 ajax请求
+* 
+* @return
+*/
+ function is_ajax()
+    {
+        if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') return true;
+        if(isset($_GET['HTTP_X_REQUESTED_WITH'])    && $_GET['HTTP_X_REQUESTED_WITH']    == 'XMLHttpRequest') return true;
+        return false;
+    }	   
+/**
+* 格式化金额
+* @param undefined $str
+* 
+* @return
+*/
+function get_money($str){
+	 return number_format($str, 2, '.', '');
+}
+/**
+* 根据IP返回地址
+* 
+* @return
+*/
+function get_ipaddress() 
+	{
+		$json = file_get_contents('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json');
+		$arr  =json_decode($json,TRUE);
+		if($arr['ret']==1){
+			$arr1 = array();
+			$arr1['country'] = $arr['country'];
+			$arr1['province'] = $arr['province'];
+			$arr1['city'] = $arr['city'];
+		}else{
+			$arr1='';
+		}
+		return $arr1;
+	}
+/**
+* 计算两地之间距离
+* @param undefined $lat1 经度1
+* @param undefined $lng1 纬度1
+* @param undefined $lat2 经度2
+* @param undefined $lng2 纬度2
+* @param 1 $len_type 1是米,2,千米
+* @param undefined $decimal,保留两位小数
+* 
+* @return
+*/	
+function get_distance($lat1, $lng1, $lat2, $lng2, $len_type = 1, $decimal = 2) 
+	{
+		$pi = 3.1415926000000001;
+		$er = 6378.1369999999997;
+		$radLat1 = ($lat1 * $pi) / 180;
+		$radLat2 = ($lat2 * $pi) / 180;
+		$a = $radLat1 - $radLat2;
+		$b = (($lng1 * $pi) / 180) - (($lng2 * $pi) / 180);
+		$s = 2 * asin(sqrt(pow(sin($a / 2), 2) + (cos($radLat1) * cos($radLat2) * pow(sin($b / 2), 2))));
+		$s = $s * $er;
+		$s = round($s * 1000);
+		if (1 < $len_type) 
+		{
+			$s /= 1000;
+		}
+		return round($s, $decimal);
+	}
+/**
+* 
+* @param undefined $appid
+* @param undefined $secret
+* @param undefined $snsapi,snsapi_userinfo
+* @param undefined $expired
+* 
+* @return
+*/	
+function get_oauth($appid, $secret, $snsapi = 'snsapi_base', $expired = '600') 
+	{
+		global $_W;
+		$wxuser = $_COOKIE[$_W['config']['cookie']['pre'] . $appid];
+		if ($wxuser === NULL) 
+		{
+			$code = ((isset($_GET['code']) ? $_GET['code'] : ''));
+			if (!($code)) 
+			{
+				$url =$_W['siteurl'];
+				$oauth_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $appid . '&redirect_uri=' . urlencode($url) . '&response_type=code&scope=' . $snsapi . '&state=wxbase#wechat_redirect';
+				header('Location: ' . $oauth_url);
+				exit();
+			}
+			load()->func('communication');
+			$getOauthAccessToken = ihttp_get('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $appid . '&secret=' . $secret . '&code=' . $code . '&grant_type=authorization_code');
+			$json = json_decode($getOauthAccessToken['content'], true);
+			if (!(empty($json['errcode'])) && (($json['errcode'] == '40029') || ($json['errcode'] == '40163'))) 
+			{
+				$url = $_W['siteurl'];
+				$parse = parse_url($url);
+				if (isset($parse['query'])) 
+				{
+					parse_str($parse['query'], $params);
+					unset($params['code']);
+					unset($params['state']);
+					$url = $_W['siteroot'] . $parse['path'] . '?' . http_build_query($params);
+				}
+				$oauth_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $appid . '&redirect_uri=' . urlencode($url) . '&response_type=code&scope=' . $snsapi . '&state=wxbase#wechat_redirect';
+				header('Location: ' . $oauth_url);
+				exit();
+			}
+			if ($snsapi == 'snsapi_userinfo') 
+			{
+				$userinfo = ihttp_get('https://api.weixin.qq.com/sns/userinfo?access_token=' . $json['access_token'] . '&openid=' . $json['openid'] . '&lang=zh_CN');
+				$userinfo = $userinfo['content'];
+			}
+			else if ($snsapi == 'snsapi_base') 
+			{
+				$userinfo = array();
+				$userinfo['openid'] = $json['openid'];
+			}
+			$userinfostr = json_encode($userinfo);
+			isetcookie($appid, $userinfostr, $expired);
+			return $userinfo;
+		}
+		return json_decode($wxuser, true);
+	}
+	/**
+	计算两个日期之间天数
+	**/	 
+	function timediff($begin_time,$end_time)
+{
+      if($begin_time < $end_time){
+         $starttime = $begin_time;
+         $endtime = $end_time;
+      }else{
+         $starttime = $end_time;
+         $endtime = $begin_time;
+      }
+
+      //计算天数
+      $timediff = $endtime-$starttime;
+      $days = intval($timediff/86400);
+      //计算小时数
+      $remain = $timediff%86400;
+      $hours = intval($remain/3600);
+      //计算分钟数
+      $remain = $remain%3600;
+      $mins = intval($remain/60);
+      //计算秒数
+      $secs = $remain%60;
+      $res = array("day" => $days,"hour" => $hours,"min" => $mins,"sec" => $secs);
+      return $res;
+}
+/*
+ * 根据ip获取省市
+ */
+function get_address($ak='') {
+    $ak = (empty($ak))?"M4eExM3AxIcxOdnFGciErtK3":$ak;
+    $url ="https://api.map.baidu.com/location/ip?ak=$ak&coor=bd09ll";
+    $rs = json_decode(get($url),1);
+    if($rs['status']==0){
+        $arr = explode('|',$rs['address']);
+        $arr = ['province'=>$arr[1],'city'=>$arr[2]];
+    }else{
+        $arr = [];
+    }
+
+    return $arr;
 }
