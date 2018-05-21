@@ -348,6 +348,7 @@ $arr= getcsv($path);
 function getcsv($path){
       $handle = fopen($path,'r');
       $dataArray = array();
+      $row = 0;
       while($data = fgetcsv($handle)){
         $num = count($data);
           for($i=0;$i<$num;$i++){
