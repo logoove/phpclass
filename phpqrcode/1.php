@@ -24,5 +24,7 @@ if ($logo !== FALSE) {
     $logo_qr_height, $logo_width, $logo_height);   
 }   
 //输出图片   
-imagepng($QR, '1.png');   
-echo '<img src="1.png">';
+imagepng($QR, '1.png');  
+
+QRcode::png($value, false, $errorCorrectionLevel, $matrixPointSize, 2); 
+//echo '<img src="1.png">';
