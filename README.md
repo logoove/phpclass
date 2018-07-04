@@ -30,6 +30,7 @@
 - crypt js和php同一函数加密解密,支持密钥
 - upload 目前处理php上传最强大,支持图片,文件以及base64编码图片
 - pdo 一个提取自微擎中的pdo方式处理数据库的工具类
+- markdown类 转换markdown为html
 
 ~~~
 表名 
