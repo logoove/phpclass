@@ -1,6 +1,6 @@
 <?php
 include('upload.class.php');
-include "pdo/db.php";
+include "pdo/Db.class.php";
 $action = (isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : ''));
 
 if ($action == 'simple') {

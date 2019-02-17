@@ -5719,18 +5719,18 @@ class QueryList
     public function __construct() {
     }
     /**
-     * ¾²Ì¬·½·¨£¬·ÃÎÊÈë¿Ú
-     * @param string $page            Òª×¥È¡µÄÍøÒ³URLµØÖ·(Ö§³Öhttps);»òÕßÊÇhtmlÔ´´úÂë
-     * @param array  $rules         ¡¾Ñ¡ÔñÆ÷Êı×é¡¿ËµÃ÷£º¸ñÊ½array("Ãû³Æ"=>array("Ñ¡ÔñÆ÷","ÀàĞÍ"[,"±êÇ©¹ıÂËÁĞ±í"][,"»Øµ÷º¯Êı"]),.......[,"callback"=>"È«¾Ö»Øµ÷º¯Êı"]);
-     *                               ¡¾Ñ¡ÔñÆ÷¡¿ËµÃ÷:¿ÉÒÔÎªÈÎÒâµÄjQueryÑ¡ÔñÆ÷Óï·¨
-     *                               ¡¾ÀàĞÍ¡¿ËµÃ÷£ºÖµ "text" ,"html" ,"HTML±êÇ©ÊôĞÔ" ,
-     *                               ¡¾±êÇ©¹ıÂËÁĞ±í¡¿:¿ÉÑ¡£¬Òª¹ıÂËµÄÑ¡ÔñÆ÷Ãû£¬¶à¸öÓÃ¿Õ¸ñ¸ô¿ª,µ±±êÇ©ÃûÇ°ÃæÌí¼Ó¼õºÅ(-)Ê±£¨´ËÊ±±êÇ©¿ÉÒÔÎªÈÎÒâµÄÔªËØÑ¡ÔñÆ÷£©£¬±íÊ¾ÒÆ³ı¸Ã±êÇ©ÒÔ¼°±êÇ©ÄÚÈİ£¬·ñÔòµ±¡¾ÀàĞÍ¡¿ÖµÎªtextÊ±±íÊ¾ĞèÒª±£ÁôµÄHTML±êÇ©£¬ÎªhtmlÊ±±íÊ¾Òª¹ıÂËµôµÄHTML±êÇ©
-     *                               ¡¾»Øµ÷º¯Êı¡¿/¡¾È«¾Ö»Øµ÷º¯Êı¡¿£º¿ÉÑ¡£¬×Ö·û´®£¨º¯ÊıÃû£© »ò Êı×é£¨array("ÀàÃû","ÀàµÄ¾²Ì¬·½·¨")£©£¬»Øµ÷º¯ÊıÓ¦ÓĞÁ©¸ö²ÎÊı£¬µÚÒ»¸ö²ÎÊıÊÇÑ¡Ôñµ½µÄÄÚÈİ£¬µÚ¶ş¸ö²ÎÊıÊÇÑ¡ÔñÆ÷Êı×éÏÂ±ê£¬»Øµ÷º¯Êı»á¸²¸ÇÈ«¾Ö»Øµ÷º¯Êı
+     * é™æ€æ–¹æ³•ï¼Œè®¿é—®å…¥å£
+     * @param string $page            è¦æŠ“å–çš„ç½‘é¡µURLåœ°å€(æ”¯æŒhttps);æˆ–è€…æ˜¯htmlæºä»£ç 
+     * @param array  $rules         ã€é€‰æ‹©å™¨æ•°ç»„ã€‘è¯´æ˜ï¼šæ ¼å¼array("åç§°"=>array("é€‰æ‹©å™¨","ç±»å‹"[,"æ ‡ç­¾è¿‡æ»¤åˆ—è¡¨"][,"å›è°ƒå‡½æ•°"]),.......[,"callback"=>"å…¨å±€å›è°ƒå‡½æ•°"]);
+     *                               ã€é€‰æ‹©å™¨ã€‘è¯´æ˜:å¯ä»¥ä¸ºä»»æ„çš„jQueryé€‰æ‹©å™¨è¯­æ³•
+     *                               ã€ç±»å‹ã€‘è¯´æ˜ï¼šå€¼ "text" ,"html" ,"HTMLæ ‡ç­¾å±æ€§" ,
+     *                               ã€æ ‡ç­¾è¿‡æ»¤åˆ—è¡¨ã€‘:å¯é€‰ï¼Œè¦è¿‡æ»¤çš„é€‰æ‹©å™¨åï¼Œå¤šä¸ªç”¨ç©ºæ ¼éš”å¼€,å½“æ ‡ç­¾åå‰é¢æ·»åŠ å‡å·(-)æ—¶ï¼ˆæ­¤æ—¶æ ‡ç­¾å¯ä»¥ä¸ºä»»æ„çš„å…ƒç´ é€‰æ‹©å™¨ï¼‰ï¼Œè¡¨ç¤ºç§»é™¤è¯¥æ ‡ç­¾ä»¥åŠæ ‡ç­¾å†…å®¹ï¼Œå¦åˆ™å½“ã€ç±»å‹ã€‘å€¼ä¸ºtextæ—¶è¡¨ç¤ºéœ€è¦ä¿ç•™çš„HTMLæ ‡ç­¾ï¼Œä¸ºhtmlæ—¶è¡¨ç¤ºè¦è¿‡æ»¤æ‰çš„HTMLæ ‡ç­¾
+     *                               ã€å›è°ƒå‡½æ•°ã€‘/ã€å…¨å±€å›è°ƒå‡½æ•°ã€‘ï¼šå¯é€‰ï¼Œå­—ç¬¦ä¸²ï¼ˆå‡½æ•°åï¼‰ æˆ– æ•°ç»„ï¼ˆarray("ç±»å","ç±»çš„é™æ€æ–¹æ³•")ï¼‰ï¼Œå›è°ƒå‡½æ•°åº”æœ‰ä¿©ä¸ªå‚æ•°ï¼Œç¬¬ä¸€ä¸ªå‚æ•°æ˜¯é€‰æ‹©åˆ°çš„å†…å®¹ï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯é€‰æ‹©å™¨æ•°ç»„ä¸‹æ ‡ï¼Œå›è°ƒå‡½æ•°ä¼šè¦†ç›–å…¨å±€å›è°ƒå‡½æ•°
      *
-     * @param string $range       ¡¾¿éÑ¡ÔñÆ÷¡¿£ºÖ¸ ÏÈ°´ÕÕ¹æÔò Ñ¡³ö ¼¸¸ö´ó¿é £¬È»ºóÔÙ·Ö±ğÔÙÔÚ¿éÀïÃæ ½øĞĞÏà¹ØµÄÑ¡Ôñ
-     * @param string $outputEncoding¡¾Êä³ö±àÂë¸ñÊ½¡¿Ö¸ÒªÒÔÊ²Ã´±àÂëÊä³ö(UTF-8,GB2312,.....)£¬·ÀÖ¹³öÏÖÂÒÂë,Èç¹ûÉèÖÃÎª ¼ÙÖµ Ôò²»¸Ä±äÔ­×Ö·û´®±àÂë
-     * @param string $inputEncoding ¡¾ÊäÈë±àÂë¸ñÊ½¡¿Ã÷È·Ö¸¶¨ÊäÈëµÄÒ³Ãæ±àÂë¸ñÊ½(UTF-8,GB2312,.....)£¬·ÀÖ¹³öÏÖÂÒÂë,Èç¹ûÉèÖÃÎª ¼ÙÖµ Ôò×Ô¶¯Ê¶±ğ
-     * @param bool|false $removeHead ¡¾ÊÇ·ñÒÆ³ıÒ³ÃæÍ·²¿ÇøÓò¡¿ ÂÒÂëÖÕ¼«½â¾ö·½°¸
+     * @param string $range       ã€å—é€‰æ‹©å™¨ã€‘ï¼šæŒ‡ å…ˆæŒ‰ç…§è§„åˆ™ é€‰å‡º å‡ ä¸ªå¤§å— ï¼Œç„¶åå†åˆ†åˆ«å†åœ¨å—é‡Œé¢ è¿›è¡Œç›¸å…³çš„é€‰æ‹©
+     * @param string $outputEncodingã€è¾“å‡ºç¼–ç æ ¼å¼ã€‘æŒ‡è¦ä»¥ä»€ä¹ˆç¼–ç è¾“å‡º(UTF-8,GB2312,.....)ï¼Œé˜²æ­¢å‡ºç°ä¹±ç ,å¦‚æœè®¾ç½®ä¸º å‡å€¼ åˆ™ä¸æ”¹å˜åŸå­—ç¬¦ä¸²ç¼–ç 
+     * @param string $inputEncoding ã€è¾“å…¥ç¼–ç æ ¼å¼ã€‘æ˜ç¡®æŒ‡å®šè¾“å…¥çš„é¡µé¢ç¼–ç æ ¼å¼(UTF-8,GB2312,.....)ï¼Œé˜²æ­¢å‡ºç°ä¹±ç ,å¦‚æœè®¾ç½®ä¸º å‡å€¼ åˆ™è‡ªåŠ¨è¯†åˆ«
+     * @param bool|false $removeHead ã€æ˜¯å¦ç§»é™¤é¡µé¢å¤´éƒ¨åŒºåŸŸã€‘ ä¹±ç ç»ˆæè§£å†³æ–¹æ¡ˆ
      * @return mixed
      */
     public static function Query($page,array $rules, $range = '', $outputEncoding = null, $inputEncoding = null,$removeHead = false)
@@ -5739,7 +5739,7 @@ class QueryList
     }
 
     /**
-     * ÔËĞĞQueryListÀ©Õ¹
+     * è¿è¡ŒQueryListæ‰©å±•
      * @param $class
      * @param array $args
      * @return mixed
@@ -5752,7 +5752,7 @@ class QueryList
     }
 
     /**
-     * »ñÈ¡ÈÎÒâÊµÀı
+     * è·å–ä»»æ„å®ä¾‹
      * @return mixed
      * @throws Exception
      */
@@ -5773,7 +5773,7 @@ class QueryList
     }
 
     /**
-     * »ñÈ¡Ä¿±êÒ³ÃæÔ´Âë(Ö÷ÒªÓÃÓÚµ÷ÊÔ)
+     * è·å–ç›®æ ‡é¡µé¢æºç (ä¸»è¦ç”¨äºè°ƒè¯•)
      * @param bool|true $rel
      * @return string
      */
@@ -5783,7 +5783,7 @@ class QueryList
     }
 
     /**
-     * »ñÈ¡²É¼¯½á¹ûÊı¾İ
+     * è·å–é‡‡é›†ç»“æœæ•°æ®
      * @param callback $callback
      * @return array
      */
@@ -5796,7 +5796,7 @@ class QueryList
     }
 
     /**
-     * ÖØĞÂÉèÖÃÑ¡ÔñÆ÷
+     * é‡æ–°è®¾ç½®é€‰æ‹©å™¨
      * @param $rules
      * @param string $range
      * @param string $outputEncoding
@@ -5820,7 +5820,7 @@ class QueryList
         if(empty($this->html)){
             trigger_error("The received content is empty!",E_USER_NOTICE);
         }
-        //»ñÈ¡±àÂë¸ñÊ½
+        //è·å–ç¼–ç æ ¼å¼
         $this->htmlEncoding = $this->inputEncoding?$this->inputEncoding:$this->_getEncode($this->html);
         // $this->html = $this->_removeTags($this->html,array('script','style'));
         $this->regArr = $rules;
@@ -5861,7 +5861,7 @@ class QueryList
                         $this->data[$i][$key] = call_user_func($this->regArr['callback'],$this->data[$i][$key],$key);
                     }
                 }
-                //ÖØÖÃÊı×éÖ¸Õë
+                //é‡ç½®æ•°ç»„æŒ‡é’ˆ
                 reset($this->regArr);
                 $i++;
             }
@@ -5896,14 +5896,14 @@ class QueryList
             }
         }
         if ($this->outputEncoding) {
-            //±àÂë×ª»»
+            //ç¼–ç è½¬æ¢
             $this->data = $this->_arrayConvertEncoding($this->data, $this->outputEncoding, $this->htmlEncoding);
         }
         phpQuery::$documents = array();
     }
 
     /**
-     * URLÇëÇó
+     * URLè¯·æ±‚
      * @param $url
      * @return string
      */
@@ -5934,7 +5934,7 @@ class QueryList
     }
 
     /**
-     * ÒÆ³ıÒ³ÃæheadÇøÓò´úÂë
+     * ç§»é™¤é¡µé¢headåŒºåŸŸä»£ç 
      * @param $html
      * @return mixed
      */
@@ -5944,7 +5944,7 @@ class QueryList
     }
 
     /**
-     * »ñÈ¡ÎÄ¼ş±àÂë
+     * è·å–æ–‡ä»¶ç¼–ç 
      * @param $string
      * @return string
      */
@@ -5954,7 +5954,7 @@ class QueryList
     }
 
     /**
-     * ×ª»»Êı×éÖµµÄ±àÂë¸ñÊ½
+     * è½¬æ¢æ•°ç»„å€¼çš„ç¼–ç æ ¼å¼
      * @param  array $arr           
      * @param  string $toEncoding   
      * @param  string $fromEncoding 
@@ -5967,7 +5967,7 @@ class QueryList
     }
 
     /**
-     * ¼òµ¥µÄÅĞ¶ÏÒ»ÏÂ²ÎÊıÊÇ·ñÎªÒ»¸öURLÁ´½Ó
+     * ç®€å•çš„åˆ¤æ–­ä¸€ä¸‹å‚æ•°æ˜¯å¦ä¸ºä¸€ä¸ªURLé“¾æ¥
      * @param  string  $str 
      * @return boolean      
      */
@@ -5980,9 +5980,9 @@ class QueryList
     }
 
     /**
-     * È¥³ıÌØ¶¨µÄhtml±êÇ©
+     * å»é™¤ç‰¹å®šçš„htmlæ ‡ç­¾
      * @param  string $html 
-     * @param  string $tags_str ¶à¸ö±êÇ©ÃûÖ®¼äÓÃ¿Õ¸ñ¸ô¿ª
+     * @param  string $tags_str å¤šä¸ªæ ‡ç­¾åä¹‹é—´ç”¨ç©ºæ ¼éš”å¼€
      * @return string       
      */
     private function _stripTags($html,$tags_str)
@@ -5998,9 +5998,9 @@ class QueryList
     }
 
     /**
-     * ±£ÁôÌØ¶¨µÄhtml±êÇ©
+     * ä¿ç•™ç‰¹å®šçš„htmlæ ‡ç­¾
      * @param  string $html 
-     * @param  string $tags_str ¶à¸ö±êÇ©ÃûÖ®¼äÓÃ¿Õ¸ñ¸ô¿ª
+     * @param  string $tags_str å¤šä¸ªæ ‡ç­¾åä¹‹é—´ç”¨ç©ºæ ¼éš”å¼€
      * @return string       
      */
     private function _allowTags($html,$tags_str)
@@ -6031,9 +6031,9 @@ class QueryList
     }
 
     /**
-     * ÒÆ³ıÌØ¶¨µÄhtml±êÇ©
+     * ç§»é™¤ç‰¹å®šçš„htmlæ ‡ç­¾
      * @param  string $html 
-     * @param  array  $tags ±êÇ©Êı×é    
+     * @param  array  $tags æ ‡ç­¾æ•°ç»„    
      * @return string       
      */
     private function _removeTags($html,$tags)
@@ -6056,85 +6056,85 @@ class QueryList
 
 	class Http
 {
-    /**  Ä¿±êÇëÇó @var string */
+    /**  ç›®æ ‡è¯·æ±‚ @var string */
     var $target;
     
-    /**  Ä¿±ê URL µÄ host @var string */
+    /**  ç›®æ ‡ URL çš„ host @var string */
     var $host;
     
-    /**  ÇëÇóÄ¿±êµÄ¶Ë¿Ú @var integer */
+    /**  è¯·æ±‚ç›®æ ‡çš„ç«¯å£ @var integer */
     var $port;
     
-    /** ÇëÇóÄ¿±êµÄ path @var string */
+    /** è¯·æ±‚ç›®æ ‡çš„ path @var string */
     var $path;
     
-    /** ÇëÇóÄ¿±êµÄ schema  @var string */
+    /** è¯·æ±‚ç›®æ ‡çš„ schema  @var string */
     var $schema;
     
-    /** ÇëÇóµÄ method (GET »òÕß POST)  @var string */
+    /** è¯·æ±‚çš„ method (GET æˆ–è€… POST)  @var string */
     var $method;
     
-    /** ÇëÇóµÄÊı¾İ  @var array */
+    /** è¯·æ±‚çš„æ•°æ®  @var array */
     var $params;
     
-    /**  ÇëÇóÊ±ºòµÄ cookie Êı¾İ  @var array */
+    /**  è¯·æ±‚æ—¶å€™çš„ cookie æ•°æ®  @var array */
     var $cookies;
     
-    /**  ÇëÇó·µ»ØµÄ cookie Êı¾İ @var array  */
+    /**  è¯·æ±‚è¿”å›çš„ cookie æ•°æ® @var array  */
     var $_cookies;
     
-    /** ÇëÇó³¬Ê±Ê±¼ä, Ä¬ÈÏÊÇ 25 @var integer */
+    /** è¯·æ±‚è¶…æ—¶æ—¶é—´, é»˜è®¤æ˜¯ 25 @var integer */
     var $timeout;
     
-    /** ÊÇ·ñÊ¹ÓÃ cURL , Ä¬ÈÏÎª TRUE @var boolean */
+    /** æ˜¯å¦ä½¿ç”¨ cURL , é»˜è®¤ä¸º TRUE @var boolean */
     var $useCurl;
     
-    /**   referrer ĞÅÏ¢ @var string */
+    /**   referrer ä¿¡æ¯ @var string */
     var $referrer;
     
-    /** ÇëÇó¿Í»§¶Ë User agent  @var string */
+    /** è¯·æ±‚å®¢æˆ·ç«¯ User agent  @var string */
     var $userAgent;
     
     /**  Contains the cookie path (to be used with cURL) @var string */
     var $cookiePath;
     
-    /**  ÊÇ·ñÊ¹ÓÃ Cookie @var boolean  */
+    /**  æ˜¯å¦ä½¿ç”¨ Cookie @var boolean  */
     var $useCookie;
     
-    /** ÊÇ·ñÎªÏÂÒ»´ÎÇëÇó±£´æ Cookie @var boolean */
+    /** æ˜¯å¦ä¸ºä¸‹ä¸€æ¬¡è¯·æ±‚ä¿å­˜ Cookie @var boolean */
     var $saveCookie;
     
-    /** HTTP Basic Auth ÓÃ»§Ãû (for authentication) @var string */
+    /** HTTP Basic Auth ç”¨æˆ·å (for authentication) @var string */
     var $username;
     
-    /** HTTP Basic Auth ÃÜÂë (for authentication) @var string */
+    /** HTTP Basic Auth å¯†ç  (for authentication) @var string */
     var $password;
     
-    /** ÇëÇóµÄ½á¹û¼¯ @var string */
+    /** è¯·æ±‚çš„ç»“æœé›† @var string */
     var $result;
     
-    /** ×îºóÒ»¸öÇëÇóµÄ headers ĞÅÏ¢  @var array */
+    /** æœ€åä¸€ä¸ªè¯·æ±‚çš„ headers ä¿¡æ¯  @var array */
     var $headers;
     
     /** Contains the last call's http status code @var string  */
     var $status;
     
-    /** ÊÇ·ñ¸úËæ http redirect Ìø×ª  @var boolean */
+    /** æ˜¯å¦è·Ÿéš http redirect è·³è½¬  @var boolean */
     var $redirect;
     
-    /** ×î´ó http redirect µ÷ÕûÊı @var integer */
+    /** æœ€å¤§ http redirect è°ƒæ•´æ•° @var integer */
     var $maxRedirect;
     
-    /** µ±Ç°ÇëÇóÓĞ¶àÉÙ¸ö URL  @var integer */
+    /** å½“å‰è¯·æ±‚æœ‰å¤šå°‘ä¸ª URL  @var integer */
     var $curRedirect;
     
-    /** ´íÎó´úÂë @var string */
+    /** é”™è¯¯ä»£ç  @var string */
     var $error;
     
     /** Store the next token  @var string */
     var $nextToken;
     
-    /** ÊÇ·ñ´æ´¢ bug ĞÅÏ¢ @var boolean  */
+    /** æ˜¯å¦å­˜å‚¨ bug ä¿¡æ¯ @var boolean  */
     var $debug;
     
     /** Stores the debug messages  @var array @todo will keep debug messages */
@@ -6143,12 +6143,12 @@ class QueryList
     /**  Constructor for initializing the class with default values. @return void   */
     public function __construct()
     {
-        // ÏÈ³õÊ¼»¯
+        // å…ˆåˆå§‹åŒ–
         $this->clear();    
     }
     
     /**
-     * ³õÊ¼»¯ÅäÖÃĞÅÏ¢
+     * åˆå§‹åŒ–é…ç½®ä¿¡æ¯
      * Initialize preferences
      * 
      * This function will take an associative array of config values and 
@@ -6193,7 +6193,7 @@ class QueryList
     }
     
     /**
-     * ³õÊ¼»¯ËùÓĞ
+     * åˆå§‹åŒ–æ‰€æœ‰
      * 
      * Clears all the properties of the class and sets the object to
      * the beginning state. Very handy if you are doing subsequent calls 
@@ -6235,37 +6235,37 @@ class QueryList
         $this->userAgent    = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.63 Safari/535.7';
     }
     
-    /** ÉèÖÃÄ¿±ê @return void */
+    /** è®¾ç½®ç›®æ ‡ @return void */
     public function setTarget($url)
     {
         $this->target = $url;
     }
     
-    /** ÉèÖÃ http ÇëÇó·½·¨  @param string HTTP method to use (GET or POST)  @return void */
+    /** è®¾ç½® http è¯·æ±‚æ–¹æ³•  @param string HTTP method to use (GET or POST)  @return void */
     public function setMethod($method)
     {
          $this->method = $method;
     }
     
-    /** ÉèÖÃ referrer URL @param string URL of referrer page @return void */
+    /** è®¾ç½® referrer URL @param string URL of referrer page @return void */
     public function setReferrer($referrer)
     {
          $this->referrer = $referrer;
     }
     
-    /**  ÉèÖÃ User agent  @param string Full user agent string @return void */
+    /**  è®¾ç½® User agent  @param string Full user agent string @return void */
     public function setUseragent($agent)
     {
         $this->userAgent = $agent;
     }
     
-    /** ÉèÖÃÇëÇó timeout  @param integer Timeout delay in seconds @return void */
+    /** è®¾ç½®è¯·æ±‚ timeout  @param integer Timeout delay in seconds @return void */
     public function setTimeout($seconds)
     {
         $this->timeout = $seconds;
     }
     
-    /** ÉèÖÃ  cookie path (Ö»Ö§³ÖcURL ) @param string File location of cookiejar @return void */
+    /** è®¾ç½®  cookie path (åªæ”¯æŒcURL ) @param string File location of cookiejar @return void */
     public function setCookiepath($path)
     {
         
@@ -6274,38 +6274,38 @@ class QueryList
         $this->saveCookie(TRUE);
     }
     
-    /** ÉèÖÃÇëÇó²ÎÊı parameters @param array GET or POST µÄÇëÇóÊı¾İ @return void  */
+    /** è®¾ç½®è¯·æ±‚å‚æ•° parameters @param array GET or POST çš„è¯·æ±‚æ•°æ® @return void  */
     public function setParams($dataArray)
     {
         $this->params = array_merge($this->params, $dataArray);
     }
     
-    /** ÉèÖÃ basic http auth ÓòÑéÖ¤ @param string ÓÃ»§Ãû  @param string ÃÜÂë  @return void */
+    /** è®¾ç½® basic http auth åŸŸéªŒè¯ @param string ç”¨æˆ·å  @param string å¯†ç   @return void */
     public function setAuth($username, $password)
     {
         $this->username = $username;
         $this->password = $password;
     }
     
-    /** ÉèÖÃ×î´óÌø×ªÊı @param integer Maximum number of redirects @return void */
+    /** è®¾ç½®æœ€å¤§è·³è½¬æ•° @param integer Maximum number of redirects @return void */
     public function setMaxredirect($value)
     {
         $this->maxRedirect = $value;
     }
     
-    /** Ìí¼Ó¶àÒ»¸öĞÂµÄÇëÇóÊı¾İ @param string Name of the parameter @param string Value of the paramete  @return void  */
+    /** æ·»åŠ å¤šä¸€ä¸ªæ–°çš„è¯·æ±‚æ•°æ® @param string Name of the parameter @param string Value of the paramete  @return void  */
     public function addParam($name, $value)
     {
         $this->params[$name] = $value;
     }
     
-    /** Ìí¼Ó cookie ÇëÇóÊı¾İ  @param string Name of cookie  @param string Value of cookie */
+    /** æ·»åŠ  cookie è¯·æ±‚æ•°æ®  @param string Name of cookie  @param string Value of cookie */
     public function addCookie($name, $value)
     {
         $this->cookies[$name] = $value;
     }
     
-    /** ÊÇ·ñÊ¹ÓÃ curl, Ä¬ÈÏ true, false ÎªÊ¹ÓÃ socket  */
+    /** æ˜¯å¦ä½¿ç”¨ curl, é»˜è®¤ true, false ä¸ºä½¿ç”¨ socket  */
     public function useCurl($value = TRUE)
     {
         if (is_bool($value))
@@ -6314,66 +6314,66 @@ class QueryList
         }   
     }
     
-    /** ÊÇ·ñÊ¹ÓÃ cookie , Ä¬ÈÏÎª false  @param boolean Whether to use cookies or not  @return void  */
+    /** æ˜¯å¦ä½¿ç”¨ cookie , é»˜è®¤ä¸º false  @param boolean Whether to use cookies or not  @return void  */
     public function useCookie($value = FALSE)
     {
         $this->useCookie = $value;
     }
     
-    /** ÊÇ·ñÊ¹ÓÃ cookie , ÒÔ¹©ÏÂÒ»´ÎÇëÇóÊ¹ÓÃ @param boolean Whether to save persistent cookies or not @return void  */
+    /** æ˜¯å¦ä½¿ç”¨ cookie , ä»¥ä¾›ä¸‹ä¸€æ¬¡è¯·æ±‚ä½¿ç”¨ @param boolean Whether to save persistent cookies or not @return void  */
     public function saveCookie($value = FALSE)
     {
         $this->saveCookie = $value;
     }
     
-    /** ÊÇ·ñ¸úËæ 302 Ìø×ª @param boolean Whether to follow HTTP redirects or not  */
+    /** æ˜¯å¦è·Ÿéš 302 è·³è½¬ @param boolean Whether to follow HTTP redirects or not  */
     public function followRedirects($value = TRUE)
     {
         $this->redirect = $value;
     }
     
-    /** »ñÈ¡½á¹û¼¯  @return string output of execution */
+    /** è·å–ç»“æœé›†  @return string output of execution */
     public function getResult()
     {
         return $this->result;
     }
     
-    /** »ñÈ¡×îºóÒ»¸ö·µ»ØµÄ headers Êı×é */
+    /** è·å–æœ€åä¸€ä¸ªè¿”å›çš„ headers æ•°ç»„ */
     public function getHeaders()
     {
         return $this->headers;
     }
 
-    /** »ñÈ¡ÇëÇóµÄ×´Ì¬Âë  */
+    /** è·å–è¯·æ±‚çš„çŠ¶æ€ç   */
     public function getStatus()
     {
         return $this->status;
     }
         
-    /** »ñÈ¡×îºóÔËĞĞ´íÎó   */
+    /** è·å–æœ€åè¿è¡Œé”™è¯¯   */
     public function getError()
     {
         return $this->error;
     }
     
-    /** Ö´ĞĞÒ»Ìõ http get ÇëÇó  */
+    /** æ‰§è¡Œä¸€æ¡ http get è¯·æ±‚  */
     public function get($url, $data=array()){
         return $this->execute($url, '', 'GET', $data);
     }
     
-    /** Ö´ĞĞÒ»Ìõ http post ÇëÇó  */
+    /** æ‰§è¡Œä¸€æ¡ http post è¯·æ±‚  */
     public function post($url, $data=array()){
         return $this->execute($url, '', 'POST', $data);
     }
     
     /**
-     * Ê¹ÓÃµ±Ç°µÄÅäÖÃ, ·¢ËÍÒ»Ìõ HTTP ÇëÇó  
+     * ä½¿ç”¨å½“å‰çš„é…ç½®, å‘é€ä¸€æ¡ HTTP è¯·æ±‚  
      * 
      * @param string URL of the target page (optional)
      * @param string URL of the referrer page (optional)
-     * @param string ÇëÇó·½·¨ (GET or POST) (optional)
-     * @param array ÇëÇóÊı¾İ, key ºÍ value ¶ÔÓ¦µÄÊı×é (optional)
-     * @return string ÇëÇóµÄ½á¹û¼¯
+     * @param string è¯·æ±‚æ–¹æ³• (GET or POST) (optional)
+     * @param array è¯·æ±‚æ•°æ®, key å’Œ value å¯¹åº”çš„æ•°ç»„ (optional)
+     * @return string è¯·æ±‚çš„ç»“æœé›†
      */    
     public function execute($target = '', $referrer = '', $method = '', $data = array())
     {
@@ -6407,7 +6407,7 @@ class QueryList
             $queryString = join('&', $tempString);
         }
         
-        // Èç¹û cURL Ã»ÓĞ°²×°¾ÍÊ¹ÓÃ fscokopen Ö´ĞĞÇëÇó
+        // å¦‚æœ cURL æ²¡æœ‰å®‰è£…å°±ä½¿ç”¨ fscokopen æ‰§è¡Œè¯·æ±‚
         $this->useCurl = $this->useCurl && in_array('curl', get_loaded_extensions());
         
         // GET method configuration
@@ -6498,8 +6498,8 @@ class QueryList
             curl_setopt($ch, CURLOPT_HEADER,         array('Accept-Language: zh-cn','Connection: Keep-Alive','Cache-Control: no-cache')); 
             curl_setopt($ch, CURLOPT_NOBODY,         FALSE);                // Return body
 
-            curl_setopt($ch, CURLOPT_COOKIEJAR,      $this->cookiePath);    // cookie ÎÄ¼ş
-            curl_setopt($ch, CURLOPT_COOKIEFILE,      $this->cookiePath);    // cookie ÎÄ¼ş
+            curl_setopt($ch, CURLOPT_COOKIEJAR,      $this->cookiePath);    // cookie æ–‡ä»¶
+            curl_setopt($ch, CURLOPT_COOKIEFILE,      $this->cookiePath);    // cookie æ–‡ä»¶
 
             curl_setopt($ch, CURLOPT_TIMEOUT,        $this->timeout);       // Timeout
             curl_setopt($ch, CURLOPT_USERAGENT,      $this->userAgent);     // Webbot name
@@ -6510,7 +6510,7 @@ class QueryList
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);                // No certificate
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, $this->redirect);      // Follow redirects
             curl_setopt($ch, CURLOPT_MAXREDIRS,      $this->maxRedirect);   // Limit redirections to four
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);                 // ÊÇ·ñÒÔ string ¸ñÊ½·µ»Ø
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);                 // æ˜¯å¦ä»¥ string æ ¼å¼è¿”å›
             
             // Get the target contents
             $content = curl_exec($ch);
@@ -6519,7 +6519,7 @@ class QueryList
             $curl_info = curl_getinfo($ch);
             $header_size = $curl_info["header_size"];
 
-            // ¸³Öµ½á¹û¼¯
+            // èµ‹å€¼ç»“æœé›†
             $this->result = substr($content, $header_size);
             
             $reader = explode("\r\n\r\n", trim(substr($content, 0, $header_size))); 
@@ -6675,7 +6675,7 @@ class QueryList
         return $this->result;
     }
     
-    /** ½âÎö header ĞÅÏ¢*/
+    /** è§£æ header ä¿¡æ¯*/
     private function _parseHeaders($responseHeader)
     {
         // Break up the headers
@@ -6729,13 +6729,13 @@ class QueryList
         }
     }
     
-    /** È¥³ıËùÓĞ header ĞÅÏ¢ */
+    /** å»é™¤æ‰€æœ‰ header ä¿¡æ¯ */
     private function _clearHeaders()
     {
         $this->headers = array();
     }
     
-    /** ½âÎö COOKIE */
+    /** è§£æ COOKIE */
     private function _parseCookie()
     {
         // Get the cookie header as array
@@ -6778,7 +6778,7 @@ class QueryList
         }
     }
     
-    /** ÉèÖÃ cookie , ÎªÏÂÒ»´ÎÇëÇó×ö×¼±¸ */
+    /** è®¾ç½® cookie , ä¸ºä¸‹ä¸€æ¬¡è¯·æ±‚åšå‡†å¤‡ */
     private function _setCookie($name, $value, $expires = "" , $path = "/" , $domain = "" , $secure = 0)
     {
         if(strlen($name) == 0)
@@ -6817,13 +6817,13 @@ class QueryList
                                  );
     }
     
-    /** cookie  Êı¾İ¼¯±àÂë  */
+    /** cookie  æ•°æ®é›†ç¼–ç   */
     private function _encodeCookie($value, $name)
     {
         return($name ? str_replace("=", "%25", $value) : str_replace(";", "%3B", $value));
     }
     
-    /** °ÑÕıÈ·µÄ cookie ´«Êä¸øµ±Ç°ÇëÇó */
+    /** æŠŠæ­£ç¡®çš„ cookie ä¼ è¾“ç»™å½“å‰è¯·æ±‚ */
     private function _passCookies()
     {
         if (is_array($this->_cookies) && count($this->_cookies) > 0)
@@ -6852,7 +6852,7 @@ class QueryList
         }
     }
     
-    /** Æ¥ÅäÓòÃû */
+    /** åŒ¹é…åŸŸå */
     private function _domainMatch($requestHost, $cookieDomain)
     {
         if ('.' != $cookieDomain{0}) 
@@ -6869,7 +6869,7 @@ class QueryList
         }
     }
     
-    /** ¸øµ±Ç°²Ù×÷×ö¼ÇºÅÓÃµÄ */
+    /** ç»™å½“å‰æ“ä½œåšè®°å·ç”¨çš„ */
     private function _tokenize($string, $separator = '')
     {
         if(!strcmp($separator, ''))
@@ -6898,7 +6898,7 @@ class QueryList
         }
     }
     
-    /** ÉèÖÃ´íÎóĞÅÏ¢ */
+    /** è®¾ç½®é”™è¯¯ä¿¡æ¯ */
     private function _setError($error)
     {
         if ($error != '')
