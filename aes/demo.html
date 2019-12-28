@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AES加密解密,支持php和js</title>
+</head>
+<body>
+<script src="aes.js"></script>
+<script>
+    AES.size(256);//支持128/192/256
+  var enc =   AES.enc('a=1&b=2&c=3', 'base64:tUf63na5gW/ED1sj9/V1+XE62wn9bLxlqKj6SUtzHB8=');
+  document.write(enc)
+   var dec =  AES.dec(enc, "base64:tUf63na5gW/ED1sj9/V1+XE62wn9bLxlqKj6SUtzHB8=");
+    document.write(dec)
+
+</script>
+</body>
+</html>

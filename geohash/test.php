@@ -20,5 +20,5 @@ $prefix = substr($hash, 0, 6);
 $neighbors = $geohash->neighbors($prefix);
 array_push($neighbors, $prefix);
 
-print_r($neighbors);
+dump($neighbors);
 

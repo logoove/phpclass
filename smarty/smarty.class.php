@@ -672,7 +672,7 @@ class Template
      * @return bool
      */
     public function render($tpl, $tplVars = array()) {
-        //todo 暂未做处理
+        // 暂未做处理
         //echo "render";
     }
 }

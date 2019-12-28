@@ -1,0 +1,12 @@
+Array
+(
+    [log_id] => 9151136433085586038
+    [result] => Array
+        (
+            [bank_card_number] => 6251 5688 8888 8888
+            [valid_date] => 88/38
+            [bank_card_type] => 2
+            [bank_name] => 武汉农村商业银行
+        )
+
+)

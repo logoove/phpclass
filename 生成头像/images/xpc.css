@@ -1,0 +1,269 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,header,hgroup,nav,section,article,aside,footer,figure,figcaption,menu,button {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+    line-height: 1.5;
+    font-size: 16px;
+    color: #000;
+    background-color: #F8F8F8;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: 400
+}
+
+li {
+    list-style: none
+}
+
+ins {
+    text-decoration: none
+}
+
+del {
+    text-decoration: line-through
+}
+
+input,button,textarea,select,optgroup,option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0
+}
+
+a {
+    -webkit-touch-callout: none;
+    text-decoration: none
+}
+
+.ui-header,.ui-footer {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    left: 0 width:100%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.ui-header {
+    top: 0;
+    height: 45px;
+    line-height: 45px
+}
+
+.ui-header-positive,.ui-footer-positive {
+    background-color: #1E9FFF;
+    color: #f8f8f8;
+}
+
+.ui-header h1 {
+    text-align: center;
+    font-size: 18px
+}
+
+.ui-header .ui-btn {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -15px
+}
+
+/* 全盘按钮开始 */
+.ui-btn,.ui-btn-lg,.ui-btn-s {
+    position: relative;
+    text-align: center;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#fff),to(#fafafa));
+    vertical-align: top;
+    color: #ffffff;
+    -webkit-box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #cacccd;
+    border-radius: 3px;
+}
+
+.ui-btn-lg {
+    margin: 0 auto;
+    font-size: 16px;
+    height: 44px;
+    line-height: 44px;
+    display: block;
+    width: 90%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.ui-btn-primary {
+    color: #fff;
+    background-color: #65d521;
+    border-color: #ffffff;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#1E9FFF),to(#1E9FFF));
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #1e9fff;
+}
+
+.ui-btn-primary:not(.disabled):not(:disabled):active,.ui-btn-primary.active {
+    background: #65d521;
+    border-color: #65d521;
+    color: #f8f8f8;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #1e9fff;
+}
+
+.ui-btn-wrap {
+    padding: 15px 0px
+}
+
+/* 全盘按钮结束 */
+/* 裁剪按钮开始 */
+.ui-btn-lga {
+    margin: 0 auto;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+    display: block;
+    width: 60%;
+    color: #ffffff;
+    white-space: nowrap;
+    background-color: rgba(30, 159, 255, 0);
+    border-radius: 3px;
+    border: 1px solid #39f;
+}
+
+/* 裁剪按钮结束 */
+@media (max-width: 320px) {
+    .ui-btn-wrap {
+        padding:10px
+    }
+}
+
+.ui-form-item {
+    width: 90%;
+    margin: 0 auto;
+    /*     padding: 0px 2px 0px 8px; */
+    font-size: 15px;
+    /* border: 1px solid #e5e5e5; */
+    height: 44px;
+    line-height: 44px;
+    /* background: rgba(255, 255, 255, 0.8); */
+    /* margin-top: 10px; */
+    color: #000;
+    /* border-radius: 5px; */
+    /* margin-bottom: 20px; */
+    border-bottom: 1px solid #ececec;
+}
+
+.ui-form-itema {
+    width: 90%;
+    margin: 0 auto;
+    /*     padding: 0px 2px 0px 8px; */
+    font-size: 15px;
+    /* border: 1px solid #e5e5e5; */
+    height: 54px;
+    line-height: 54px;
+    /* background: rgba(255, 255, 255, 0.8); */
+    /* margin-top: 10px; */
+    color: #000;
+    /* border-radius: 5px; */
+    /* margin-bottom: 20px; */
+    border-bottom: 1px solid #ececec;
+}
+
+.ui-form-itema label:not(.ui-switch):not(.ui-checkbox):not(.ui-checkbox-s):not(.ui-radio) {
+    /* width: 95px; */
+    position: absolute;
+
+
+}
+
+/* 
+.ui-form-item {
+    width: 82%;
+    margin: 0 auto;
+    padding: 0px 2px 0px 8px;
+    font-size: 15px;
+    border: 1px solid #e5e5e5;
+    height: 44px;
+    line-height: 44px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    color: #999;
+    border-radius: 5px;
+    margin-bottom: 10px;
+} */
+.ui-form-item label:not(.ui-switch):not(.ui-checkbox):not(.ui-checkbox-s):not(.ui-radio) {
+    /* width: 95px; */
+    position: absolute;
+    text-align: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ui-form-item input,.ui-form-item textarea {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 0;
+    background: 0 0;
+    padding-left: 90px
+}
+
+.ui-flex,.ui-tiled {
+    display: -webkit-box;
+    width: 100%;
+    -webkit-box-sizing: border-box
+}
+
+.ui-tiled li {
+    -webkit-box-flex: 1;
+    width: 100%;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center
+}
+
+.weui_uploader_file {
+    background-size: cover
+}
+
+.xpcbeijingse {
+    background-color: #FFFFFF;
+    /* border: 1px solid #FF0047; */
+    border-top: 1px solid #f2f2f2;
+    /* width: 90%; */
+    margin: 0 auto;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.shop_click {
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-flex;
+}
+
+.shop_click li {
+    width: 30%;
+    height: 44px;
+    border: 1px solid 1E9FFF;
+    text-align: center;
+    line-height: 44px;
+}

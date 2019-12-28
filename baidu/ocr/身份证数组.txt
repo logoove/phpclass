@@ -1,0 +1,89 @@
+Array
+(
+    [log_id] => 4913863090995743158
+    [words_result_num] => 6
+    [direction] => 0
+    [image_status] => unknown
+    [words_result] => Array
+        (
+            [住址] => Array
+                (
+                    [location] => Array
+                        (
+                            [width] => 319
+                            [top] => 273
+                            [left] => 156
+                            [height] => 62
+                        )
+
+                    [words] => 湖南省长沙市开福区巡道街幸福小区居民组
+                )
+
+            [出生] => Array
+                (
+                    [location] => Array
+                        (
+                            [width] => 228
+                            [top] => 219
+                            [left] => 165
+                            [height] => 24
+                        )
+
+                    [words] => 20130506
+                )
+
+            [姓名] => Array
+                (
+                    [location] => Array
+                        (
+                            [width] => 93
+                            [top] => 102
+                            [left] => 154
+                            [height] => 28
+                        )
+
+                    [words] => 代用名
+                )
+
+            [公民身份号码] => Array
+                (
+                    [location] => Array
+                        (
+                            [width] => 0
+                            [top] => 0
+                            [left] => 0
+                            [height] => 0
+                        )
+
+                    [words] => 
+                )
+
+            [性别] => Array
+                (
+                    [location] => Array
+                        (
+                            [width] => 19
+                            [top] => 164
+                            [left] => 157
+                            [height] => 24
+                        )
+
+                    [words] => 男
+                )
+
+            [民族] => Array
+                (
+                    [location] => Array
+                        (
+                            [width] => 21
+                            [top] => 162
+                            [left] => 319
+                            [height] => 23
+                        )
+
+                    [words] => 汉
+                )
+
+        )
+
+)

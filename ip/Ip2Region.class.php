@@ -5,31 +5,26 @@
  * @author  chenxin<chenxin619315@gmail.com>
  * @date    2015-10-29
 */
-
 defined('INDEX_BLOCK_LENGTH')   or define('INDEX_BLOCK_LENGTH',  12);
 defined('TOTAL_HEADER_LENGTH')  or define('TOTAL_HEADER_LENGTH', 8192);
-
 class Ip2Region 
 {
     /**
      * db file handler
     */
     private $dbFileHandler = NULL;
-
     /**
      * header block info
     */
     private $HeaderSip    = NULL;
     private $HeaderPtr    = NULL;
     private $headerLen  = 0;
-
     /**
      * super block index info
     */
     private $firstIndexPtr = 0;
     private $lastIndexPtr  = 0;
     private $totalBlocks   = 0;
-
     /**
      * for memory mode only
      *  the original db binary string
@@ -40,13 +35,12 @@ class Ip2Region
     /**
      * construct method
      *
-     * @param    ip2regionFile
+     * @param   ip2regionFile
     */
-    public function __construct( $ip2regionFile )
+    public function __construct( $ip2regionFile)
     {
         $this->dbFile = $ip2regionFile;
     }
-
     /**
      * all the db binary string will be loaded into memory
      * then search the memory only and this will a lot faster than disk base search
@@ -63,14 +57,11 @@ class Ip2Region
             if ( $this->dbBinStr == false ) {
                 throw new Exception("Fail to open the db file {$this->dbFile}");
             }
-
             $this->firstIndexPtr = self::getLong($this->dbBinStr, 0);
             $this->lastIndexPtr  = self::getLong($this->dbBinStr, 4);
             $this->totalBlocks   = ($this->lastIndexPtr-$this->firstIndexPtr)/INDEX_BLOCK_LENGTH + 1;
         }
-
         if ( is_string($ip) ) $ip = self::safeIp2long($ip);
-
         //binary search to define the data
         $l = 0;
         $h = $this->totalBlocks;
@@ -91,20 +82,16 @@ class Ip2Region
                 }
             }
         }
-
         //not matched just stop it here
         if ( $dataPtr == 0 ) return NULL;
-
         //get the data
         $dataLen = (($dataPtr >> 24) & 0xFF);
         $dataPtr = ($dataPtr & 0x00FFFFFF);
-
         return array(
             'city_id' => self::getLong($this->dbBinStr, $dataPtr), 
             'region'  => substr($this->dbBinStr, $dataPtr + 4, $dataLen - 4)
         );
     }
-
     /**
      * get the data block through the specified ip address or long ip numeric with binary search algorithm
      *
@@ -123,15 +110,12 @@ class Ip2Region
                     throw new Exception("Fail to open the db file {$this->dbFile}");
                 }
             }
-
             fseek($this->dbFileHandler, 0);
             $superBlock = fread($this->dbFileHandler, 8);
-
             $this->firstIndexPtr = self::getLong($superBlock, 0);
             $this->lastIndexPtr  = self::getLong($superBlock, 4);
             $this->totalBlocks   = ($this->lastIndexPtr-$this->firstIndexPtr)/INDEX_BLOCK_LENGTH + 1;
         }
-
         //binary search to define the data
         $l = 0;
         $h = $this->totalBlocks;
@@ -139,7 +123,6 @@ class Ip2Region
         while ( $l <= $h ) {
             $m = (($l + $h) >> 1);
             $p = $m * INDEX_BLOCK_LENGTH;
-
             fseek($this->dbFileHandler, $this->firstIndexPtr + $p);
             $buffer = fread($this->dbFileHandler, INDEX_BLOCK_LENGTH);
             $sip    = self::getLong($buffer, 0);
@@ -155,24 +138,18 @@ class Ip2Region
                 }
             }
         }
-
         //not matched just stop it here
         if ( $dataPtr == 0 ) return NULL;
-
-
         //get the data
         $dataLen = (($dataPtr >> 24) & 0xFF);
         $dataPtr = ($dataPtr & 0x00FFFFFF);
-
         fseek($this->dbFileHandler, $dataPtr);
         $data = fread($this->dbFileHandler, $dataLen);
-
         return array(
             'city_id' => self::getLong($data, 0), 
             'region'  => substr($data, 4)
         );
     }
-
     /**
      * get the data block associated with the specified ip with b-tree search algorithm
      * @Note: not thread safe
@@ -183,7 +160,6 @@ class Ip2Region
     public function btreeSearch( $ip )
     {
         if ( is_string($ip) ) $ip = self::safeIp2long($ip);
-
         //check and load the header
         if ( $this->HeaderSip == NULL ) {
             //check and open the original db file
@@ -193,7 +169,6 @@ class Ip2Region
                     throw new Exception("Fail to open the db file {$this->dbFile}");
                 }
             }
-
             fseek($this->dbFileHandler, 8);
             $buffer = fread($this->dbFileHandler, TOTAL_HEADER_LENGTH);
             
@@ -205,12 +180,10 @@ class Ip2Region
                 $startIp = self::getLong($buffer, $i);
                 $dataPtr = self::getLong($buffer, $i + 4);
                 if ( $dataPtr == 0 ) break;
-
                 $this->HeaderSip[] = $startIp;
                 $this->HeaderPtr[] = $dataPtr;
                 $idx++;
             }
-
             $this->headerLen = $idx;
         }
         
@@ -266,7 +239,7 @@ class Ip2Region
         fseek($this->dbFileHandler, $sptr);
         $index = fread($this->dbFileHandler, $blockLen + INDEX_BLOCK_LENGTH);
         
-        $dataptr = 0;
+        $dataPtr = 0;
         $l = 0; $h = $blockLen / INDEX_BLOCK_LENGTH;
         while ( $l <= $h ) {
             $m = (($l + $h) >> 1);
@@ -279,29 +252,26 @@ class Ip2Region
                 if ( $ip > $eip ) {
                     $l = $m + 1;
                 } else {
-                    $dataptr = self::getLong($index, $p + 8);
+                    $dataPtr = self::getLong($index, $p + 8);
                     break;
                 }
             }
         }
         
         //not matched
-        if ( $dataptr == 0 ) return NULL;
+        if ( $dataPtr == 0 ) return NULL;
         
         //3. get the data
-        $dataLen = (($dataptr >> 24) & 0xFF);
-        $dataPtr = ($dataptr & 0x00FFFFFF);
+        $dataLen = (($dataPtr >> 24) & 0xFF);
+        $dataPtr = ($dataPtr & 0x00FFFFFF);
         
         fseek($this->dbFileHandler, $dataPtr);
         $data = fread($this->dbFileHandler, $dataLen);
-
         return array(
             'city_id' => self::getLong($data, 0), 
             'region'  => substr($data, 4)
         );
     }
-
-
     /**
      * safe self::safeIp2long function 
      *
@@ -310,17 +280,12 @@ class Ip2Region
     public static function safeIp2long($ip) 
     {
         $ip = ip2long($ip);
-
         // convert signed int to unsigned int if on 32 bit operating system
         if ($ip < 0 && PHP_INT_SIZE == 4) {
             $ip = sprintf("%u", $ip);
         } 
-
         return $ip;
     }
-
-
-
     /**
      * read a long from a byte buffer
      *
@@ -335,15 +300,12 @@ class Ip2Region
             (ord($b[$offset++]) << 16)  | 
             (ord($b[$offset  ]) << 24)
         );
-
         // convert signed int to unsigned int if on 32 bit operating system
         if ($val < 0 && PHP_INT_SIZE == 4) {
             $val = sprintf("%u", $val);
         } 
-
         return $val;
     }
-
     /**
      * destruct method, resource destroy
     */
@@ -352,10 +314,8 @@ class Ip2Region
         if ( $this->dbFileHandler != NULL ) {
             fclose($this->dbFileHandler);
         }
-
         $this->dbBinStr  = NULL;
         $this->HeaderSip = NULL;
         $this->HeaderPtr = NULL;
     }
 }
-?>

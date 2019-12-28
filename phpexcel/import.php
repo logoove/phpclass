@@ -1,8 +1,8 @@
 <?php
-include "pdo/db.php";
-require "phpexcel/PHPExcel/IOFactory.php";
+//include "pdo/db.php";
+require "PHPExcel/IOFactory.php";
 
-$file = "test.csv";
+$file = "1.xlsx";
 $type = strtolower( pathinfo($file, PATHINFO_EXTENSION) );
 
 if( $type=='xlsx'||$type=='xls' ){
@@ -44,7 +44,7 @@ for($i=2;$i<=$highestRowNum;$i++){
   $data []= $row;
 }
 
-dump($data);
+var_dump($data);
 
 
 

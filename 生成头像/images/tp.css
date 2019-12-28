@@ -1,0 +1,38 @@
+.div-relative {
+margin: 0 auto;
+height: 260px;
+width: 260px; 
+margin-bottom: 20px;           
+}
+
+.div-a {
+position: absolute;
+margin-top: 10px;
+/* left: 30px; */
+/* top: 30px; */
+<!--  background: #F00; -->
+width: 260px;
+height: 260px
+}
+
+
+.div-b {
+position: absolute;
+margin-top: 10px;
+/* left: 30px; */
+/* top: 60px; */
+<!--background: #FF0; -->
+width: 260px;
+height: 260px;
+}
+
+
+.div-c {
+position: absolute;
+margin-top: 10px;
+/* left: 20px; */
+/* top: 80px; */
+<!-- background: #00F; -->
+width: 260px;
+height: 260px;
+}

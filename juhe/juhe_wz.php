@@ -2,18 +2,13 @@
 /*
  * 说明： 违章接口
  *
- * 版本: V1.0 
+ * 版本: V1.0
  * 作者:  yoby
  * 微信: logove  邮箱: logove@qq.com
  * 日期: 2018/10/19 0:42
  * Copyright (c) 2018 Yoby 版权所有.
  *
 */
-if (!function_exists('dump')) {
-    function dump($arr){
-        echo '<pre>'.print_r($arr,TRUE).'</pre>';
-    }
-}
 class wz{
     private $appkey = false; //申请的全国违章查询APPKEY
 
@@ -111,7 +106,7 @@ class wz{
         return $response;
     }
 }
-$wz = new wz("233b92bbb1dc49e443f1e44d8868a0af");
+$wz = new wz("233b92bbb1dc49e443f1e44d8868a0af0");
 
 $city = $wz->getCitys();
 //dump($city);

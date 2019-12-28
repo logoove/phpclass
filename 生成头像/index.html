@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>公益头像制作</title>
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui" name="viewport">
+	<script type="text/javascript" src="images/jquery.js"></script>
+	<link rel="stylesheet" href="images/cropper.css">
+	<link rel="stylesheet" href="images/xpc.css">
+	<link rel="stylesheet" href="images/dx.css">
+	<link rel="stylesheet" href="images/tp.css">
+	<link rel="stylesheet" href="images/tc.css">
+</head>
+
+<body ontouchstart="">
+<img src="http://h5.api.shanliwawa.top/images/logo.jpg" width="0" height="0" />
+        <div class="div-relative">
+
+            <div class="div-a shop_all">
+			<ul class="weui_uploader_files">
+				<li class="weui_uploader_file shop_all_b" style="background-image: url('images/TXA.jpg'); background-size: cover; height: 260px; width: 260px; border-radius: 6px; display: block;"></li>
+			</ul>
+            </div>
+
+            <div class="div-b">
+                <img id="preview-imga" src="images/Y1.png" style="border-radius: 6px;" width="260px">
+            </div>
+
+            <div class="div-c">
+                <img id="preview-img" src="images/A6.png" style="border-radius: 6px; pointer-events: none;" width="260px">
+            </div>
+
+        </div>
+
+
+	<div class="cd-popup1">
+		<div class="cd-popup-container1">
+			<h3 class="wen-title">↓  长按图片进行保存  ↓</h3>
+
+			<div class="cd-buttons" style="width: 90%; margin: 5% 5% 5% 5%; border-radius: 4px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC);">
+
+			<div style="position: relative;">
+				<img id="gif" src="images/G600.gif" style="margin:-3% -3% -3% -3%; border-radius: 5px; box-sizing: border-box;" width="106%">
+
+			</div>
+
+			<button class="cd-popup-close" onclick="changeSrc()">返回制作</button>
+
+			</div>
+
+		</div>
+	</div>
+
+    <div class="xpcbeijingse">
+    <div class="page page2">
+
+			<form method="post" action="result.php">
+
+
+				<div class="ui-form-itema ui-border-b">
+				<label>点击+选择上传头像</label>
+				<ul class="weui_uploader_files">
+					<input type="file" id="uploadphoto" accept="image/*" name="uploadfile" onchange="uploadimg(this)" style="display:none">
+					<input type="hidden" id="img" name="img" value="">
+					<li class="weui_uploader_file" onclick="uploadphoto.click()" style="background-image: url('images/ZTP.png'); background-size: cover; height: 45px; width: 45px; float: right; margin: 5px 2px 0px 0px;"></li>
+				</ul>
+				</div>
+
+
+
+				<div class="dx-ys" style="margin-top: 10px; border-bottom: 1px solid #FFFFFF;">
+
+				<div class="dv-ys item"><img class="img_bj" src="images/A1.png"><!-- Checked -->
+					<input id="ys1" class="ck-ys" name="bj" type="radio" value="1"><label style="background-image:url('images/A.png'); background-size:cover; height:21px; width:21px;" for="ys1" class="img-ys"></label>
+				</div>
+
+
+				<div class="dv-ys item"><img class="img_bj" src="images/A2.png">
+					<input id="ys2" class="ck-ys" name="bj" type="radio" value="2"><label style="background-image:url('images/B.png'); background-size:cover; height:21px; width:21px;" for="ys2" class="img-ys"></label>
+				</div>
+
+
+				<div class="dv-ys item"><img class="img_bj" src="images/A3.png">
+					<input id="ys3" class="ck-ys" name="bj" type="radio" value="3"><label style="background-image:url('images/C.png'); background-size:cover; height:21px; width:21px;" for="ys3" class="img-ys"></label>
+				</div>
+
+
+				<div class="dv-ys item"><img class="img_bj" src="images/A4.png">
+					<input id="ys4" class="ck-ys" name="bj" type="radio" value="4"><label style="background-image:url('images/D.png'); background-size:cover; height:21px; width:21px;" for="ys4" class="img-ys"></label>
+				</div>
+
+				<div class="dv-ys item"><img class="img_bj" src="images/A5.png">
+					<input id="ys5" class="ck-ys" name="bj" type="radio" value="5"><label style="background-image:url('images/E.png'); background-size:cover; height:21px; width:21px;" for="ys5" class="img-ys"></label>
+				</div>
+
+				<div class="dv-ys item active"><img class="img_bj" src="images/A6.png">
+					<input id="ys6" class="ck-ys" name="bj" type="radio" value="6" checked="checked"><label style="background-image:url('images/F.png'); background-size:cover; height:21px; width:21px;" for="ys6" class="img-ys"></label>
+				</div>
+
+
+				</div>
+
+
+				<a class="ui-btn-lg ui-btn-primary tc-trigger1" id="toggle-xs" style="margin-top: 20px;">一键生成</a><br>
+
+				</form>
+
+
+	</div>
+	</div>
+
+
+
+		<div id="cropper-wrap" style="display:none;	width:100%; height: 100%; max-width:768px; margin:0 auto;position:fixed;top:0px;background: #212121;color: #fff;font-size:16px;padding:0px 0;">
+
+			<div style="height:300px;max-height:300px;"><img id="cropimage" src=""></div><br><br>
+			<ul class="shop_click">
+				<li class="ui-btn-lga btn-rotate1" >旋 转 ↻</li>
+
+				<li class="ui-btn-lga btn-crop" >确 定 ✓</li>
+			</ul>
+			<br><br><br><br><br>
+		</div>
+
+<script src="images/cropper.js"></script>
+<script src="images/layer.js"></script>
+
+<script>
+$(function(){
+$('.shop_click li').click(function(){
+$(this).addClass('red').siblings().removeClass('red')
+$('.shop_all_a').eq($(this).index()).show().siblings().hide();
+})
+})
+</script>
+
+<script>
+	$(function(){
+		$('.btn-rotate1').on('click',function(){
+            $('#cropimage').cropper('rotate', 45);
+        });
+        $("#upimgbj").on('click', function(){
+            $(this).attr('is-bj',1);
+        });
+        $('.btn-crop').on('click',function(){
+            var result = $('#cropimage').cropper('getCroppedCanvas');
+            var base64img = result.toDataURL();
+            if ($("#upimgbj").attr('is-bj') == '1') {
+            }else{
+            }
+            $('#cropper-wrap').hide();
+	        layer.open({
+	        	content: '图片裁剪中，请稍等....<br><br><img src="images/loading.gif" width="40%">',
+	        	time: 60
+	        });
+            if ( $("#upimgbj").attr('is-bj')  == "1") {
+                var bjstatus = 1;
+            }else{
+                var bjstatus = 0;
+            }
+            $.ajax({
+                url: './upload.php',
+                type: 'POST',
+                dataType:'json',
+                data: {pic: base64img,is_bj:bjstatus},
+                success: function(result) {
+                    if(result.status) {
+                        if ( $("#upimgbj").attr('is-bj') == "1" ) {
+                            $('#imgbj').val(result.pic);
+                            $("#upimgbj").attr('is-bj','');
+                			$('.weui_uploader_file2').css('backgroundImage','url('+result.pic+')');
+                        }else{
+                			$('#img').val(result.pic);
+                			$('.weui_uploader_files').find('.weui_uploader_file').css('backgroundImage','url('+result.pic+')');
+                            $('.btn-build').show();
+                        }
+                        layer.closeAll();
+                    } else {
+				        layer.open({
+				        	content: '图片上传保存失败，请重试',
+				        	time: 0.5
+				        });
+                    }
+                }
+            });
+        });
+		function in_array(search,array){
+			for(var i in array){
+				if(array[i]==search){
+					return true;
+				}
+			}
+			return false;
+		}
+        var bj = 6;
+        $('input[name=bj]').on('click', function(){
+            var bjNums = new Array(1,2,3,4,5,6,7,8);
+            bj = $(this).val();
+            bj = parseInt(bj);
+            if(!in_array(bj, bjNums)){
+                bj = 1;
+            }
+            console.log(bj);
+        });
+
+        var mh = 0;
+        $('input[name=mh]').on('click', function(){
+            var mhNums = new Array(1,2,3,4,5,6,7,8);
+            mh = $(this).val();
+            mh = parseInt(mh);
+            if(!in_array(mh, mhNums)){
+                mh = 1;
+            }
+            console.log(mh);
+        });
+
+        var xz = 0;
+        $('input[name=xz]').on('click', function(){
+            var xzNums = new Array(1,2,3,4,5,6,7,8);
+            xz = $(this).val();
+            xz = parseInt(xz);
+            if(!in_array(xz, xzNums)){
+                xz = 1;
+            }
+            console.log(xz);
+        });
+
+        $('#toggle-xs,#img').on('click', function(e){
+            var name = $('input[name=name]').val();
+            var namea = $('input[name=namea]').val();
+            var img = $('input[name=img]').val();
+	        //if(img == ''){layer.open({content: '请上传头像',time: 0.5});return;}
+            $("#tips").show();
+ 		    var str = '?';
+            var strJ = '&';
+            $("#gif").attr('src','result.php?img='+img+'&bj='+bj);
+            e.preventDefault();
+        });
+
+        $('.rebuild').on('click',function(){
+			$('#img').val('');
+			$('input[name=name]').val('');
+            $('.page2').show();
+            $('.page1').hide();
+        })
+	});
+
+    function uploadimg(obj){
+        $('#cropimage').cropper('destroy');
+        $('.btn-build').hide();
+        var nowFile = obj.files[0];
+        var mine=/^image\/(.+?)$/.exec(nowFile.type);
+        if(!mine) {
+            w_confirm('错误提醒','请上传需要图片，不支持其他文件上传');
+            return ;
+        }
+        layer.open({
+        	content: '图片压缩中...',
+        	time: 8
+        });
+        var reader = new FileReader();
+        reader.onload = function(e){
+            var base64_data = e.target.result;
+            compressImg(base64_data, 0.95 , nowFile.size, function(base64_data){
+                $('#cropimage').cropper("destroy");
+                $('#cropimage').attr('src', base64_data);
+                $('#cropper-wrap').show();
+                $('.btn-build').show();
+                $('#cropimage').cropper({aspectRatio: 600 / 600});
+            });
+        	layer.closeAll();
+        }
+        reader.readAsDataURL(nowFile);
+    }
+    function compressImg(imgData, quality, filesize, onCompress){
+        if(!imgData) return;
+        var mine = imgData.split(";");
+        mine = mine[0].split(":")[1];
+        onCompress = onCompress || function(){};
+        quality = quality || 0.95;
+        var canvas = document.createElement('canvas');
+        var img = new Image();
+        img.onload = function(){
+            var w1 = img.naturalWidth;
+            var h1 = img.naturalHeight;
+            var w2 = 600;
+            var h2 = 600;
+            if( (w1 >= h1 && w1 <= 600) || (w1 < h1 && h1 <= 600) ) {
+                onCompress(imgData);
+                return ;
+            }
+            if(w1 >= h1 && w1 > 600) {
+                h2 = h1 * ( 600 / w1);
+            }
+            if(w1 < h1 && h1 > 600) {
+                w2 =  w1 * ( 600 / h1 );
+            }
+            canvas.width = w2;
+            canvas.height = h2;
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, w1, h1, 0, 0, w2, h2);
+            var data = canvas.toDataURL(mine,quality);
+            onCompress(data);
+        };
+        img.src = imgData;
+    }
+</script>
+
+
+<script>
+$('.item').eq(0).addClass('active');
+$('.item').click(function(event) {
+var index = $(this).val();
+var srcImg = $(this).find('img').attr('src');
+$(this).addClass('active').siblings().removeClass('active');
+$("#preview-img").attr('src', srcImg);
+$("#img__on").val(index);
+});
+</script>
+
+<script>
+$('.itema').eq(0).addClass('active');
+$('.itema').click(function(event) {
+var index = $(this).val();
+var srcImg = $(this).find('img').attr('src');
+$(this).addClass('active').siblings().removeClass('active');
+$("#preview-imga").attr('src', srcImg);
+$("#img__on").val(index);
+});
+</script>
+
+<script>
+function changeSrc()
+{document.getElementById("gif").src="images/G601.gif";}
+</script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        $('.tc-trigger1').on('click', function(event){
+            event.preventDefault();
+            $('.cd-popup1').addClass('is-visible1');
+        });
+        $('.cd-popup1').on('click', function(event){
+            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup1') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible1');
+            }
+        });
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.cd-popup1').removeClass('is-visible1');
+            }
+        });
+    });
+</script>
+
+</body></html>

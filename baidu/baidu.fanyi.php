@@ -18,13 +18,6 @@ function buildSign($query, $appID, $salt, $secKey)
     $ret = md5($str);
     return $ret;
 }
-
-if (!function_exists('dump')) {
-    function dump($arr){
-        echo '<pre>'.print_r($arr,TRUE).'</pre>';
-    }
-
-}
 /*
  * POST或GET的curl请求
  * $url 请求地址

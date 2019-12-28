@@ -1,0 +1,4 @@
+https://ai.baidu.com/
+文档 http://ai.baidu.com/docs#/OCR-PHP-SDK/top
+文字识别 服务
+身份证和银行卡每天各免费500次
